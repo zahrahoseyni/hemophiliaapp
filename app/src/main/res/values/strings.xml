@@ -3,4 +3,13 @@
     <string name="login">ورود</string>
     <string name="phone_number">شماره تلفن</string>
     <string name="register_description">اگر حساب کاربری ندارید، ثبت نام کنید</string>
+    <string name="sex">جنسیت</string>
+    <string name="man">زن</string>
+    <string name="woman">مرد</string>
+    <string name="weight">وزن</string>
+    <string name="height">قد</string>
+    <string name="age">سن</string>
+    <string name="family_history">سابقه خانوادگی</string>
+    <string name="timeـofـdiagnosis">زمان تشخیص بیماری</string>
+    <string name="submit">ثبت اطلاعات</string>
 </resources>
