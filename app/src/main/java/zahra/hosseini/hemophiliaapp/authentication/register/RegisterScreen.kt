@@ -2,6 +2,7 @@ package zahra.hosseini.hemophiliaapp.authentication.register
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -19,6 +20,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
+import zahra.hosseini.hemophiliaapp.core.component.RtlLabelInOutlineTextField
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -26,7 +29,7 @@ fun RegisterScreen() {
 
     Column(
         modifier = Modifier.padding(20.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -37,46 +40,29 @@ fun RegisterScreen() {
         var familyHistory by remember { mutableStateOf("") }
         var timeOfDiagnosis by remember { mutableStateOf("") }
 
-
-
-        TextField(
-            value = weight,
-            onValueChange = { weight = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(id = R.string.weight)) },
-            textStyle = TextStyle(color = Black, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(20.dp)
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.weight),
+            inputType = KeyboardType.NumberPassword
         )
 
-        TextField(
-            value = height,
-            onValueChange = { height = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(id = R.string.height)) },
-            textStyle = TextStyle(color = Black, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(20.dp)
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.height),
+            inputType = KeyboardType.NumberPassword
         )
 
-        TextField(
-            value = age,
-            onValueChange = { age = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(id = R.string.age)) },
-            textStyle = TextStyle(color = Black, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(20.dp)
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.age),
+            inputType = KeyboardType.NumberPassword
         )
 
-        TextField(
-            value = timeOfDiagnosis,
-            onValueChange = { timeOfDiagnosis = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            label = { Text(stringResource(id = R.string.timeـofـdiagnosis)) },
-            textStyle = TextStyle(color = Black, fontWeight = FontWeight.Bold),
-            modifier = Modifier.padding(20.dp)
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.timeـofـdiagnosis),
+            inputType = KeyboardType.NumberPassword
         )
 
-        Button(onClick = { /*TODO*/ }) {
-            Text(text = stringResource(id = R.string.submit))
+        Spacer(modifier = Modifier.padding(16.dp))
+
+        DefaultButton(text = stringResource(id = R.string.submit)) {
         }
 
 

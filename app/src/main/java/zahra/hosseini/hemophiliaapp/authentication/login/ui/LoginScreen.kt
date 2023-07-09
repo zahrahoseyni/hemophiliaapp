@@ -1,25 +1,28 @@
 package zahra.hosseini.hemophiliaapp.authentication.login.ui
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
+import zahra.hosseini.hemophiliaapp.core.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.core.theme.NavComposeAppTheme
+import zahra.hosseini.hemophiliaapp.core.theme.Text12Normal
+import zahra.hosseini.hemophiliaapp.core.theme.Text20Bold
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
 
     Column(
         modifier = Modifier.padding(20.dp),
@@ -27,44 +30,56 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         val phoneNumber = remember { mutableStateOf(TextFieldValue()) }
+        var enabled by remember { mutableStateOf(true)}
+
+        Spacer(modifier = Modifier.padding(50.dp))
+
 
         Text(
             text = stringResource(R.string.app_name),
-            style = TextStyle(fontSize = 18.sp, color = Color.Red)
+            style = Text20Bold,
+            color = MaterialTheme.colors.primary,
         )
 
-        TextField(
-            label = { Text(text = stringResource(R.string.phone_number)) },
-            value = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it })
+        Spacer(modifier = Modifier.padding(50.dp))
 
-        Box(modifier = Modifier.padding(40.dp, 0.dp, 40.dp, 0.dp)) {
-            Button(
-                onClick = { },
-                shape = RoundedCornerShape(50.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.login),
-                    style = TextStyle(fontSize = 16.sp, color = Color.White)
-                )
-            }
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.phone_number),
+            inputType = KeyboardType.NumberPassword
+        )
+
+        Spacer(modifier = Modifier.padding(20.dp))
+
+        DefaultButton(text = stringResource(id = R.string.login)) {
+            navigateToHome()
         }
 
-        Text(
-            text = stringResource(R.string.register_description),
-            style = TextStyle(fontSize = 12.sp, color = Color.Black)
-        )
+        Spacer(modifier = Modifier.padding(10.dp))
+
+        ClickableText(
+            text = AnnotatedString(stringResource(R.string.register_description)),
+            onClick = {
+                if (enabled) {
+                    enabled = false
+                    navigateToRegister()
+                }
+            })
 
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    LoginScreen()
-
+private fun DefaultPreview() {
+    NavComposeAppTheme(useSystemUiController = false) {
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            LoginScreen(
+                navigateToHome = {},
+                navigateToRegister = {}
+            )
+        }
+    }
 }

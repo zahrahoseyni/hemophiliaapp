@@ -98,4 +98,7 @@ dependencies {
     // Optional - Integration with LiveData
     implementation 'androidx.compose.runtime:runtime-livedata'
 
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.28.0"
+
+
 }

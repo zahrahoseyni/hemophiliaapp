@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Bleed Stop</string>
     <string name="login">ورود</string>
-    <string name="phone_number">شماره تلفن</string>
+    <string name="phone_number">شماره تلفن همراه</string>
     <string name="register_description">اگر حساب کاربری ندارید، ثبت نام کنید</string>
     <string name="sex">جنسیت</string>
     <string name="man">زن</string>

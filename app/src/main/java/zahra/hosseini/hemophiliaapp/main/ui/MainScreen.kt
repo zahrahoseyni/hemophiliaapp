@@ -1,11 +1,15 @@
 package zahra.hosseini.hemophiliaapp.main.ui
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.rememberNavController
+import zahra.hosseini.hemophiliaapp.core.navigation.NavGraph
+import zahra.hosseini.hemophiliaapp.core.theme.NavComposeAppTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen() {
-
+    NavComposeAppTheme {
+        val navController = rememberNavController()
+        NavGraph(navController)
+    }
 
 }
