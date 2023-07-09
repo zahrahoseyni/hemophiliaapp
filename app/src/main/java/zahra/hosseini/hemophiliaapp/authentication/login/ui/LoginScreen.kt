@@ -17,8 +17,7 @@ import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.component.RtlLabelInOutlineTextField
-import zahra.hosseini.hemophiliaapp.core.theme.NavComposeAppTheme
-import zahra.hosseini.hemophiliaapp.core.theme.Text12Normal
+import zahra.hosseini.hemophiliaapp.core.theme.AppTheme
 import zahra.hosseini.hemophiliaapp.core.theme.Text20Bold
 
 @Composable
@@ -48,13 +47,13 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
             inputType = KeyboardType.NumberPassword
         )
 
-        Spacer(modifier = Modifier.padding(20.dp))
+        Spacer(modifier = Modifier.padding(10.dp))
 
         DefaultButton(text = stringResource(id = R.string.login)) {
             navigateToHome()
         }
 
-        Spacer(modifier = Modifier.padding(10.dp))
+        Spacer(modifier = Modifier.padding(5.dp))
 
         ClickableText(
             text = AnnotatedString(stringResource(R.string.register_description)),
@@ -71,7 +70,7 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 private fun DefaultPreview() {
-    NavComposeAppTheme(useSystemUiController = false) {
+    AppTheme(useSystemUiController = false) {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background

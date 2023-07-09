@@ -24,7 +24,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun NavComposeAppTheme(
+fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     useSystemUiController: Boolean = true,
     content: @Composable () -> Unit

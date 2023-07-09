@@ -20,7 +20,7 @@ import kotlin.time.Duration.Companion.seconds
 fun SplashScreen(navigateToLogin: () -> Unit) {
 
     LaunchedEffect(Unit) {
-        delay(2.seconds)
+        delay(1.seconds)
         navigateToLogin()
     }
 

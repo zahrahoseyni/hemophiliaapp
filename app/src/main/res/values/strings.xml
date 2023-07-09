@@ -10,6 +10,7 @@
     <string name="height">قد</string>
     <string name="age">سن</string>
     <string name="family_history">سابقه خانوادگی</string>
-    <string name="timeـofـdiagnosis">زمان تشخیص بیماری</string>
+    <string name="timeـofـdiagnosis">زمان تشخیص بیماری (چند سالگی)</string>
     <string name="submit">ثبت اطلاعات</string>
+    <string name="enter_your_data">لطفا اطلاعات خود را وارد کنید</string>
 </resources>
