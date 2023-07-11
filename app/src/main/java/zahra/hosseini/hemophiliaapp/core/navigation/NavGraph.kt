@@ -9,13 +9,15 @@ import zahra.hosseini.hemophiliaapp.authentication.login.ui.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.register.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.ui.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.ui.ProfileScreen
+import zahra.hosseini.hemophiliaapp.main.ui.ReminderScreen
+import zahra.hosseini.hemophiliaapp.main.ui.TrainingScreen
 import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 
 @Composable
 fun NavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination =  NavRoute.Login.path
+        startDestination = NavRoute.Login.path
     ) {
         addSplashScreen(navController, this)
 
@@ -26,6 +28,10 @@ fun NavGraph(navController: NavHostController) {
         addHomeScreen(navController, this)
 
         addProfileScreen(navController, this)
+
+        addTrainingScreen(navController, this)
+
+        addReminderScreen(navController, this)
     }
 }
 
@@ -85,6 +91,26 @@ private fun addRegisterScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.Register.path) {
         RegisterScreen(
+        )
+    }
+}
+
+private fun addTrainingScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder
+) {
+    navGraphBuilder.composable(route = NavRoute.Training.path) {
+        TrainingScreen(
+        )
+    }
+}
+
+private fun addReminderScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder
+) {
+    navGraphBuilder.composable(route = NavRoute.Reminder.path) {
+        ReminderScreen(
         )
     }
 }

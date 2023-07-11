@@ -3,5 +3,5 @@ package zahra.hosseini.hemophiliaapp.main.ui
 import androidx.compose.runtime.Composable
 
 @Composable
-fun HomeScreen() {
+fun  TrainingScreen (){
 }

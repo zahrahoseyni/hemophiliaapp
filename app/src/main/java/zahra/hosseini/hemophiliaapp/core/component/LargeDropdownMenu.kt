@@ -41,7 +41,7 @@ fun <T> LargeDropdownMenu(
 ) {
     var expanded by remember { mutableStateOf(false) }
 
-    Box(modifier = modifier.height(IntrinsicSize.Min).fillMaxWidth(), contentAlignment = Alignment.CenterEnd) {
+    Box(modifier = modifier.height(IntrinsicSize.Min).fillMaxWidth()) {
         OutlinedTextField(
             label = { Text(label, textAlign = TextAlign.Right) },
             value = items.getOrNull(selectedIndex)?.let { selectedItemToString(it) } ?: "",
@@ -82,7 +82,7 @@ fun <T> LargeDropdownMenu(
                         }
                     }
 
-                    LazyColumn(modifier = Modifier.fillMaxWidth(), state = listState) {
+                    LazyColumn(modifier = Modifier.fillMaxWidth(), state = listState, horizontalAlignment = Alignment.End) {
                         if (notSetLabel != null) {
                             item {
                                 LargeDropdownMenuItem(

@@ -6,7 +6,7 @@ import androidx.navigation.compose.rememberNavController
 import zahra.hosseini.hemophiliaapp.core.navigation.NavGraph
 import androidx.compose.material.*
 import androidx.compose.ui.tooling.preview.Preview
-import zahra.hosseini.hemophiliaapp.core.bottomnav.BottomBarNav
+import zahra.hosseini.hemophiliaapp.core.navigation.BottomBarNav
 import zahra.hosseini.hemophiliaapp.core.theme.AppTheme
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
