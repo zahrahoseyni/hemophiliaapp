@@ -13,4 +13,10 @@
     <string name="timeـofـdiagnosis">زمان تشخیص بیماری (چند سالگی)</string>
     <string name="submit">ثبت اطلاعات</string>
     <string name="enter_your_data">لطفا اطلاعات خود را وارد کنید</string>
+    <string name="profile">پروفایل</string>
+    <string name="home">خانه</string>
+    <string name="reminder">یادآور</string>
+    <string name="training">آموزش</string>
+
+
 </resources>

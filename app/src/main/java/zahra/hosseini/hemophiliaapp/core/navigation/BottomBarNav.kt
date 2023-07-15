@@ -9,8 +9,10 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.navigation.NavRoute
 
 @Composable
@@ -25,25 +27,6 @@ fun BottomBarNav(navController: NavController) {
     }
 
     BottomNavigation {
-
-        val homeSelected = currentRoute == NavRoute.Home.path
-        BottomNavigationItem(
-            icon = {
-                Icon(
-                    imageVector = Icons.Default.Home,
-                    contentDescription = NavRoute.Home.path
-                )
-            },
-            selected = homeSelected,
-            onClick = {
-                if (!homeSelected) {
-                    navController.navigate(NavRoute.Home.path) {
-                        popUpTo(NavRoute.Home.path) { inclusive = true }
-                    }
-                }
-            },
-            label = { Text(NavRoute.Home.path) }
-        )
 
         val profileSelected = currentRoute == NavRoute.Profile.path
         BottomNavigationItem(
@@ -61,7 +44,7 @@ fun BottomBarNav(navController: NavController) {
                     }
                 }
             },
-            label = { Text(NavRoute.Profile.path) }
+            label = { Text(stringResource(id = R.string.profile)) }
         )
 
         val trainingSelected = currentRoute == NavRoute.Training.path
@@ -80,7 +63,7 @@ fun BottomBarNav(navController: NavController) {
                     }
                 }
             },
-            label = { Text(NavRoute.Training.path) }
+            label =  { Text(stringResource(id = R.string.training)) }
         )
 
         val reminderSelected = currentRoute == NavRoute.Reminder.path
@@ -99,7 +82,27 @@ fun BottomBarNav(navController: NavController) {
                     }
                 }
             },
-            label = { Text(NavRoute.Reminder.path) }
+            label =  { Text(stringResource(id = R.string.reminder)) }
         )
+
+        val homeSelected = currentRoute == NavRoute.Home.path
+        BottomNavigationItem(
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Home,
+                    contentDescription = NavRoute.Home.path
+                )
+            },
+            selected = homeSelected,
+            onClick = {
+                if (!homeSelected) {
+                    navController.navigate(NavRoute.Home.path) {
+                        popUpTo(NavRoute.Home.path) { inclusive = true }
+                    }
+                }
+            },
+            label =  { Text(stringResource(id = R.string.home)) }
+        )
+
     }
 }

@@ -7,7 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import zahra.hosseini.hemophiliaapp.authentication.login.ui.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.register.RegisterScreen
-import zahra.hosseini.hemophiliaapp.main.ui.HomeScreen
+import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.ui.ProfileScreen
 import zahra.hosseini.hemophiliaapp.main.ui.ReminderScreen
 import zahra.hosseini.hemophiliaapp.main.ui.TrainingScreen
