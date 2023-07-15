@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.core.component
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -41,14 +42,18 @@ fun <T> LargeDropdownMenu(
 ) {
     var expanded by remember { mutableStateOf(false) }
 
-    Box(modifier = modifier.height(IntrinsicSize.Min).fillMaxWidth()) {
+    Box(
+        modifier = modifier
+            .height(IntrinsicSize.Min)
+            .fillMaxWidth()
+            .padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp)
+    ) {
         OutlinedTextField(
-            label = { Text(label, textAlign = TextAlign.Right) },
+            label = { Text(label, textAlign = TextAlign.End, modifier = Modifier.fillMaxWidth()) },
             value = items.getOrNull(selectedIndex)?.let { selectedItemToString(it) } ?: "",
             enabled = enabled,
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp),
+                .fillMaxWidth(),
             trailingIcon = {
 
             },
@@ -82,7 +87,11 @@ fun <T> LargeDropdownMenu(
                         }
                     }
 
-                    LazyColumn(modifier = Modifier.fillMaxWidth(), state = listState, horizontalAlignment = Alignment.End) {
+                    LazyColumn(
+                        modifier = Modifier.fillMaxWidth(),
+                        state = listState,
+                        horizontalAlignment = Alignment.End
+                    ) {
                         if (notSetLabel != null) {
                             item {
                                 LargeDropdownMenuItem(
@@ -132,11 +141,12 @@ fun LargeDropdownMenuItem(
         Box(modifier = Modifier
             .clickable(enabled) { onClick() }
             .fillMaxWidth()
-            .padding(16.dp)) {
+            .padding(16.dp), Alignment.CenterEnd) {
             Text(
                 text = text,
                 style = MaterialTheme.typography.titleSmall,
-                textAlign = TextAlign.Right
+                textAlign = TextAlign.End,
+                modifier = Modifier.fillMaxWidth()
             )
         }
     }
