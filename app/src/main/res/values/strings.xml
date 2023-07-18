@@ -17,6 +17,41 @@
     <string name="home">خانه</string>
     <string name="reminder">یادآور</string>
     <string name="training">آموزش</string>
+    <string name="active_inhibitor">Active Inhibitor</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
+    <string name="type_of_treatment">نوع درمان</string>
+    <string name="prophylactic">prophylactic</string>
+    <string name="on_demand">ON_Demand</string>
+    <string name="dosage">دوز استفاده در تزریق</string>
+    <string name="injection_date">تاریخ تزریق</string>
+    <string name="injection_time">زمان تزریق</string>
+    <string name="prophylactic_fa">پروفیلاکتیک</string>
+    <string name="injection_reason">علت انجام تزریق</string>
+    <string name="related_to_physical_actions">مرتبط با فعالیت بدنی</string>
+    <string name="surgery">جراحی</string>
+    <string name="extra">سایر</string>
+    <string name="register_bleeding">ثبت خونریزی</string>
+    <string name="reason">علت</string>
+    <string name="injury">صدمه</string>
+    <string name="spontaneity">خودبخودی</string>
+    <string name="follow_up_dose">دوز پیگیری</string>
+    <string name="period">قاعدگی</string>
+    <string name="after_physical_action">پس از فعالیت</string>
+    <string name="bleeding_topic">موضوع خونریزی</string>
+    <string name="wrist">مچ پا</string>
+    <string name="arm">بازو</string>
+    <string name="intensity">شدت</string>
+    <string name="acute">شدید</string>
+    <string name="medium">متوسط</string>
+    <string name="weak">ضعیف</string>
+    <string name="bleeding_date">تاریخ خونریزی</string>
+    <string name="bleeding_time">زمان خونریزی</string>
+    <string name="continue_btn">ثبت و ادامه</string>
+    <string name="amount_of_disability">میزان ناتوانی به علت مشکلات ناشی از هموفیلی</string>
+    <string name="amount_of_pain">میزان درد</string>
+    <string name="question_for_sedative">آیا از داروی مسکن یا داروی دیگری برای تسکین درد و بهبود بیماری خود استفاده می کنید؟</string>
+    <string name="sedative_name">نام دارو رو بنویسید</string>
 
 
 </resources>
