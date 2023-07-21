@@ -23,7 +23,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 @Composable
 fun RegisterScreen() {
 
-    Column(
+/*    Column(
         modifier = Modifier.padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -88,7 +88,7 @@ fun RegisterScreen() {
         DefaultButton(text = stringResource(id = R.string.submit)) {}
 
 
-    }
+    }*/
 }
 
 

@@ -21,15 +21,18 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RtlLabelInOutlineTextField(label: String, inputType: KeyboardType) {
-    val (digit1, setDigit1) = remember {
-        mutableStateOf("")
-    }
+fun RtlLabelInOutlineTextField(
+    label: String,
+    inputType: KeyboardType,
+    value: String,
+    setValue: (String) -> Unit,
+    inputLength: Int,
+) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
         OutlinedTextField(
-            value = digit1,
+            value = value,
             onValueChange = {
-                setDigit1(it)
+                setValue(it)
             },
             label = {
                 Text(

@@ -17,7 +17,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.Rt
 
 @Composable
 fun RegisterInjection() {
-    Column(
+/*    Column(
         modifier = Modifier.padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -76,15 +76,11 @@ fun RegisterInjection() {
             onItemSelected = { index, _ -> sedativeSelectedIndex = index },
         )
 
-        RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.sedative_name),
-            inputType = KeyboardType.Text
-        )
 
 
         DefaultButton(text = stringResource(id = R.string.submit)) {}
 
-    }
+    }*/
 }
 
 @Preview(showBackground = true)

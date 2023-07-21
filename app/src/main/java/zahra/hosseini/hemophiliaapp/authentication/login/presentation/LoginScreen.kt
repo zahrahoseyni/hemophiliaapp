@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.authentication.login.presentation
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.MaterialTheme
@@ -7,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -23,13 +25,16 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 
 @Composable
 fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier.padding(20.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        val phoneNumber = remember { mutableStateOf(TextFieldValue()) }
+        val (phoneNumber, setPhoneNumber) = remember {
+            mutableStateOf("")
+        }
         var enabled by remember { mutableStateOf(true) }
 
         Spacer(modifier = Modifier.padding(50.dp))
@@ -45,13 +50,24 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
 
         RtlLabelInOutlineTextField(
             label = stringResource(id = R.string.phone_number),
-            inputType = KeyboardType.NumberPassword
+            inputType = KeyboardType.NumberPassword,
+            value = phoneNumber,
+            setValue = setPhoneNumber
         )
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         DefaultButton(text = stringResource(id = R.string.login)) {
-            navigateToHome()
+            if (phoneNumber.isNotEmpty() || phoneNumber.matches(Regex("^0\\d{2,}\\d{7,}\$"))) {
+                navigateToHome()
+
+            } else {
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.wrong_phone_number_message),
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
 
         Spacer(modifier = Modifier.padding(5.dp))
