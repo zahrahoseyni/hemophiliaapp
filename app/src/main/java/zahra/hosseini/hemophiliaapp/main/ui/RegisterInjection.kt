@@ -11,9 +11,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
-import zahra.hosseini.hemophiliaapp.core.component.LargeDropdownMenu
-import zahra.hosseini.hemophiliaapp.core.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 
 @Composable
 fun RegisterInjection() {

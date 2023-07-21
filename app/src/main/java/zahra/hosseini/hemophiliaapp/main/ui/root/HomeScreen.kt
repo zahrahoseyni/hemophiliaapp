@@ -5,7 +5,6 @@ import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -15,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.theme.AppTheme
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppTheme
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
@@ -61,17 +60,5 @@ fun HomeScreen() {
         )
 
 
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun DefaultPreview() {
-    AppTheme(useSystemUiController = false) {
-        Surface(
-            modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
-        ) {
-            HomeScreen()
-        }
     }
 }

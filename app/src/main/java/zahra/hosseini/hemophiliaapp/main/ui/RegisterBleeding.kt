@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
-import zahra.hosseini.hemophiliaapp.core.component.LargeDropdownMenu
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 
 @Composable
 fun RegisterBleeding() {

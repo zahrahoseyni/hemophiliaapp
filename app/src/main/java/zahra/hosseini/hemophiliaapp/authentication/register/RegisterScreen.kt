@@ -4,8 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,10 +14,11 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.component.DefaultButton
-import zahra.hosseini.hemophiliaapp.core.component.LargeDropdownMenu
-import zahra.hosseini.hemophiliaapp.core.component.RtlLabelInOutlineTextField
-import zahra.hosseini.hemophiliaapp.core.theme.Text20Bold
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
 fun RegisterScreen() {
@@ -36,16 +36,18 @@ fun RegisterScreen() {
         var familyHistory by remember { mutableStateOf("") }
         var timeOfDiagnosis by remember { mutableStateOf("") }
 
-        val sexOptions = listOf("زن", "مرد")
+        val sexOptions =
+            listOf(stringResource(id = R.string.woman), stringResource(id = R.string.man))
         var sexSelectedIndex by remember { mutableStateOf(-1) }
 
-        val familyHistoryOptions = listOf("دارم", "ندارم")
+        val familyHistoryOptions =
+            listOf(stringResource(id = R.string.have), stringResource(id = R.string.have_not))
         var familyHistorySelectedIndex by remember { mutableStateOf(-1) }
 
         Text(
             text = stringResource(id = R.string.enter_your_data),
-            style = Text20Bold,
-            color = MaterialTheme.colors.secondary,
+            style = MaterialTheme.hemophiliaTypography.text18Medium,
+            color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
             modifier = Modifier.padding(top = 20.dp, bottom = 10.dp)
         )
 

@@ -6,8 +6,8 @@
     <string name="sex">جنسیت</string>
     <string name="man">زن</string>
     <string name="woman">مرد</string>
-    <string name="weight">وزن</string>
-    <string name="height">قد</string>
+    <string name="weight">وزن (کیلوگرم)</string>
+    <string name="height">قد (سانتی متر)</string>
     <string name="age">سن</string>
     <string name="family_history">سابقه خانوادگی</string>
     <string name="timeـofـdiagnosis">زمان تشخیص بیماری (چند سالگی)</string>
@@ -52,6 +52,8 @@
     <string name="amount_of_pain">میزان درد</string>
     <string name="question_for_sedative">آیا از داروی مسکن یا داروی دیگری برای تسکین درد و بهبود بیماری خود استفاده می کنید؟</string>
     <string name="sedative_name">نام دارو رو بنویسید</string>
+    <string name="have">دارم</string>
+    <string name="have_not">ندارم</string>
 
 
 </resources>
