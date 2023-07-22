@@ -39,7 +39,6 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
 
         Spacer(modifier = Modifier.padding(50.dp))
 
-
         Text(
             text = stringResource(R.string.app_name),
             style = MaterialTheme.hemophiliaTypography.text20Medium,
@@ -52,13 +51,15 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
             label = stringResource(id = R.string.phone_number),
             inputType = KeyboardType.NumberPassword,
             value = phoneNumber,
-            setValue = setPhoneNumber
+            setValue = setPhoneNumber,
+            11
         )
 
         Spacer(modifier = Modifier.padding(10.dp))
 
         DefaultButton(text = stringResource(id = R.string.login)) {
-            if (phoneNumber.isNotEmpty() || phoneNumber.matches(Regex("^0\\d{2,}\\d{7,}\$"))) {
+            if (phoneNumber.isNotEmpty()) {
+                
                 navigateToHome()
 
             } else {

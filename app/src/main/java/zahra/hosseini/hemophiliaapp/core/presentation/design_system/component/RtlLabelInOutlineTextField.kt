@@ -32,7 +32,8 @@ fun RtlLabelInOutlineTextField(
         OutlinedTextField(
             value = value,
             onValueChange = {
-                setValue(it)
+                if (it.length <= inputLength) setValue(it)
+
             },
             label = {
                 Text(
