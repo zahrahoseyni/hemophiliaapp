@@ -24,7 +24,8 @@ fun BottomBarNav(navController: NavController) {
     val currentRoute = navBackStackEntry?.destination?.route
 
     if (currentRoute == null || currentRoute == NavRoute.Login.path ||
-        currentRoute == NavRoute.Register.path || currentRoute == NavRoute.Splash.path
+        currentRoute == NavRoute.Register.path || currentRoute == NavRoute.Splash.path ||
+        currentRoute == NavRoute.RegisterInjection.path || currentRoute == NavRoute.RegisterBleeding.path
     ) {
         return
     }

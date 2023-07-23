@@ -2,15 +2,20 @@ package zahra.hosseini.hemophiliaapp.main.ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
+import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DatePickerItem
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
+import java.util.*
 
 @Composable
 fun RegisterBleeding() {
@@ -30,6 +35,30 @@ fun RegisterBleeding() {
             stringResource(R.string.extra),
         )
         var reasonSelectedIndex by remember { mutableStateOf(-1) }
+
+        val rememberPersianDatePicker = rememberPersianDatePicker()
+        val showDialog = remember { mutableStateOf(false) }
+
+        rememberPersianDatePicker.updateDate(timestamp = Date().time)
+
+        rememberPersianDatePicker.updateMaxYear(1420)
+        rememberPersianDatePicker.updateMinYear(1350)
+
+        rememberPersianDatePicker.updateYearRange(1)
+        rememberPersianDatePicker.updateDisplayMonthNames(true)
+
+        if (showDialog.value) {
+            PersianDatePickerDialog(
+                rememberPersianDatePicker,
+                Modifier.fillMaxWidth(),
+                onDismissRequest = { showDialog.value = false },
+                onDateChanged = { year, month, day ->
+                    // do something...
+                })
+        }
+
+
+        //showDialog.value = true
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.type_of_treatment),
@@ -64,7 +93,12 @@ fun RegisterBleeding() {
             selectedIndex = intensitySelectedIndex,
             onItemSelected = { index, _ -> intensitySelectedIndex = index },
         )
-        DefaultButton(text = stringResource(id = R.string.submit)) {}
+
+        DatePickerItem()
+
+        DefaultButton(text = stringResource(id = R.string.submit)) {
+            showDialog.value = true
+        }
 
     }
 }

@@ -12,6 +12,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.navigation.BottomBarNav
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.Toolbar
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppTheme
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
@@ -30,6 +31,11 @@ fun MainScreen() {
 
         Scaffold(
             bottomBar = { BottomBarNav(navController = navController) },
+            topBar = {
+                Toolbar("هموفیلی",true) {
+
+                }
+            }
         ) {
             NavGraph(
                 navController = navController
