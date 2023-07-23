@@ -13,10 +13,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
@@ -26,6 +30,8 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 @Composable
 fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
     val context = LocalContext.current
+
+    val dataStoreManager = DataStoreManager(context)
 
     Column(
         modifier = Modifier.padding(20.dp),
@@ -59,15 +65,13 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
 
         DefaultButton(text = stringResource(id = R.string.login)) {
             if (phoneNumber.isNotEmpty()) {
-                
+                CoroutineScope(Dispatchers.IO).launch {
+                    dataStoreManager.storePhoneNumber(phoneNumber = phoneNumber)
+                }
                 navigateToHome()
 
             } else {
-                Toast.makeText(
-                    context,
-                    context.getString(R.string.wrong_phone_number_message),
-                    Toast.LENGTH_LONG
-                ).show()
+                context.showMessage(context.getString(R.string.wrong_phone_number_message))
             }
         }
 

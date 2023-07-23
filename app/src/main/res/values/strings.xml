@@ -55,6 +55,7 @@
     <string name="have">دارم</string>
     <string name="have_not">ندارم</string>
     <string name="wrong_phone_number_message">شماره تلفن همراه خود را به درستی وارد کنید</string>
+    <string name="un_complete_form_message">اطلاعات مورد نظر را وارد کنید</string>
 
 
 </resources>

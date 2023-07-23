@@ -9,11 +9,18 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
+import zahra.hosseini.hemophiliaapp.core.datastore.UserInfo
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
@@ -21,20 +28,21 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(navigateToHome: () -> Unit) {
+    val context = LocalContext.current
+    val dataStoreManager = DataStoreManager(context)
 
-/*    Column(
+    Column(
         modifier = Modifier.padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        var sex by remember { mutableStateOf("") }
-        var weight by remember { mutableStateOf("") }
-        var height by remember { mutableStateOf("") }
-        var age by remember { mutableStateOf("") }
-        var familyHistory by remember { mutableStateOf("") }
-        var timeOfDiagnosis by remember { mutableStateOf("") }
+        val (weight, setWeight) = remember { mutableStateOf("") }
+        val (height, setHeight) = remember { mutableStateOf("") }
+        val (age, setAge) = remember { mutableStateOf("") }
+        val (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
+
 
         val sexOptions =
             listOf(stringResource(id = R.string.woman), stringResource(id = R.string.man))
@@ -60,15 +68,27 @@ fun RegisterScreen() {
         )
 
         RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.weight), inputType = KeyboardType.NumberPassword
+            label = stringResource(id = R.string.weight),
+            inputType = KeyboardType.NumberPassword,
+            value = weight,
+            setValue = setWeight,
+            3
         )
 
         RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.height), inputType = KeyboardType.NumberPassword
+            label = stringResource(id = R.string.height),
+            inputType = KeyboardType.NumberPassword,
+            value = height,
+            setValue = setHeight,
+            3
         )
 
         RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.age), inputType = KeyboardType.NumberPassword
+            label = stringResource(id = R.string.age),
+            inputType = KeyboardType.NumberPassword,
+            value = age,
+            setValue = setAge,
+            3
         )
 
         LargeDropdownMenu(
@@ -80,21 +100,43 @@ fun RegisterScreen() {
 
         RtlLabelInOutlineTextField(
             label = stringResource(id = R.string.timeـofـdiagnosis),
-            inputType = KeyboardType.NumberPassword
+            inputType = KeyboardType.NumberPassword,
+            value = timeOfDiagnosis,
+            setValue = setTimeOfDiagnosis,
+            3
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
 
-        DefaultButton(text = stringResource(id = R.string.submit)) {}
+        DefaultButton(text = stringResource(id = R.string.submit)) {
+            if (weight.isEmpty() || height.isEmpty() || age.isEmpty()
+                || timeOfDiagnosis.isEmpty() || sexSelectedIndex == -1 || familyHistorySelectedIndex == -1
+            ) {
+                context.showMessage(context.getString(R.string.un_complete_form_message))
+
+            } else {
+                CoroutineScope(Dispatchers.IO).launch {
+                    val familyHistory = when (familyHistoryOptions[familyHistorySelectedIndex]) {
+                        context.resources.getString(R.string.have) -> true
+                        context.resources.getString(R.string.have_not) -> false
+                        else -> {}
+                    }
+                    dataStoreManager.storeUserInfo(
+                        userInfo = UserInfo(
+                            age = age,
+                            weight = weight,
+                            height = height,
+                            sex = sexOptions[sexSelectedIndex],
+                            family_history = familyHistory as Boolean,
+                            timeOfDiagnosis = timeOfDiagnosis
+                        )
+                    )
+                }
+                navigateToHome()
+            }
+        }
 
 
-    }*/
+    }
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    RegisterScreen()
-
-}
