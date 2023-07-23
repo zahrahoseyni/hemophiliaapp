@@ -9,4 +9,6 @@ sealed class NavRoute(val path: String) {
     object Profile : NavRoute("profile")
     object Training : NavRoute("training")
     object Reminder : NavRoute("reminder")
+    object RegisterBleeding : NavRoute("register_bleeding")
+    object RegisterInjection : NavRoute("register_injection")
 }

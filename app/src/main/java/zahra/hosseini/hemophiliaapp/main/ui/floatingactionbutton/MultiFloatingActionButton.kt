@@ -2,12 +2,11 @@ package zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton
 
 import androidx.compose.animation.*
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -16,9 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @ExperimentalAnimationApi
 @Composable
@@ -99,10 +98,9 @@ fun MiniFabItem(
         if (fabOption.showLabel) {
             Text(
                 text = item.label,
-                fontSize = 12.sp,
-                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.hemophiliaTypography.text14Medium,
+                color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
                 modifier = Modifier
-                    .background(MaterialTheme.colors.surface)
                     .padding(horizontal = 6.dp, vertical = 4.dp)
             )
         }

@@ -56,6 +56,8 @@
     <string name="have_not">ندارم</string>
     <string name="wrong_phone_number_message">شماره تلفن همراه خود را به درستی وارد کنید</string>
     <string name="un_complete_form_message">اطلاعات مورد نظر را وارد کنید</string>
+    <string name="register_injection">ثبت تزریق</string>
+    <string name="register_not_injection">ثبت عدم تزریق</string>
 
 
 </resources>

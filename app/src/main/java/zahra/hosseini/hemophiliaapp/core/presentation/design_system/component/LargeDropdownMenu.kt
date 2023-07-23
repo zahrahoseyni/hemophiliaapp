@@ -24,7 +24,6 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppThe
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regularFont
-import java.time.format.TextStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
@@ -19,7 +20,7 @@ import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFloatingAc
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit) {
 
     val context = LocalContext.current
 
@@ -30,22 +31,26 @@ fun HomeScreen() {
                 MultiFabItem(
                     id = 1,
                     iconRes = R.drawable.ic_outline_person_add_24,
-                    label = "Add User"
+                    label = stringResource(R.string.register_injection)
                 ),
                 MultiFabItem(
                     id = 2,
                     iconRes = R.drawable.ic_outline_group_add_24,
-                    label = "Create Group"
+                    label = stringResource(R.string.register_not_injection)
                 ),
                 MultiFabItem(
                     id = 3,
                     iconRes = R.drawable.ic_outline_video_call_24,
-                    label = "Video Call"
+                    label = stringResource(R.string.register_bleeding)
                 )
             ),
             fabIcon = FabIcon(iconRes = R.drawable.ic_baseline_add_24, iconRotate = 45f),
             onFabItemClicked = {
-                Toast.makeText(context, it.label, Toast.LENGTH_SHORT).show()
+                when (it.id) {
+                    1 -> navigateToRegisterInjection()
+                    //2 ->
+                    3 -> navigateToRegisterBleeding()
+                }
             },
             fabOption = FabOption(
                 iconTint = Color.White,

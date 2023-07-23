@@ -7,10 +7,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import zahra.hosseini.hemophiliaapp.authentication.login.presentation.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.register.RegisterScreen
+import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
-import zahra.hosseini.hemophiliaapp.main.ui.ProfileScreen
-import zahra.hosseini.hemophiliaapp.main.ui.ReminderScreen
-import zahra.hosseini.hemophiliaapp.main.ui.TrainingScreen
 import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 
 @Composable
@@ -32,6 +30,10 @@ fun NavGraph(navController: NavHostController) {
         addTrainingScreen(navController, this)
 
         addReminderScreen(navController, this)
+
+        addRegisterBleedingScreen(navController, this)
+
+        addRegisterInjectionScreen(navController, this)
     }
 }
 
@@ -70,6 +72,13 @@ private fun addHomeScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.Home.path) {
         HomeScreen(
+            navigateToRegisterBleeding = {
+                navController.navigate(NavRoute.RegisterBleeding.path)
+            },
+            navigateToRegisterInjection = {
+                navController.navigate(NavRoute.RegisterInjection.path)
+
+            }
         )
     }
 }
@@ -115,5 +124,23 @@ private fun addReminderScreen(
     navGraphBuilder.composable(route = NavRoute.Reminder.path) {
         ReminderScreen(
         )
+    }
+}
+
+private fun addRegisterBleedingScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder
+) {
+    navGraphBuilder.composable(route = NavRoute.RegisterBleeding.path) {
+        RegisterBleeding()
+    }
+}
+
+private fun addRegisterInjectionScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder
+) {
+    navGraphBuilder.composable(route = NavRoute.RegisterInjection.path) {
+        RegisterInjection()
     }
 }

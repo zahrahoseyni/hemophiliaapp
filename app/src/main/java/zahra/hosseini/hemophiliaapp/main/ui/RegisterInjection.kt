@@ -17,7 +17,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.Rt
 
 @Composable
 fun RegisterInjection() {
-/*    Column(
+    Column(
         modifier = Modifier.padding(20.dp),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -25,6 +25,8 @@ fun RegisterInjection() {
 
         val yesOrNoOptions = listOf(stringResource(R.string.yes), stringResource(R.string.no))
         var yesOrNoSelectedIndex by remember { mutableStateOf(-1) }
+
+        val (dosage, setDosage) = remember { mutableStateOf("") }
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.active_inhibitor),
@@ -45,7 +47,11 @@ fun RegisterInjection() {
         )
 
         RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.dosage), inputType = KeyboardType.NumberPassword
+            label = stringResource(id = R.string.dosage),
+            inputType = KeyboardType.NumberPassword,
+            value = dosage,
+            setValue = setDosage,
+            10
         )
 
         val reasonOptions = listOf(
@@ -76,11 +82,9 @@ fun RegisterInjection() {
             onItemSelected = { index, _ -> sedativeSelectedIndex = index },
         )
 
-
-
         DefaultButton(text = stringResource(id = R.string.submit)) {}
 
-    }*/
+    }
 }
 
 @Preview(showBackground = true)
