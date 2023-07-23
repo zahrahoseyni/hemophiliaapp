@@ -50,4 +50,14 @@ class DataStoreManager(context: Context) {
         it[MOBILE_NUMBER] ?: ""
     }
 
+    // Create a name flow to retrieve name from the preferences
+    val getUserInfoFlow: Flow<String> = dataStore.data.map {
+        it[MOBILE_NUMBER] ?: ""
+        it[AGE] ?: ""
+        it[WEIGHT] ?: ""
+        it[FAMILY_HISTORY] ?: ""
+        it[TIME_OF_DIAGNOSIS] ?: ""
+        it[SEX] ?: ""
+    }
+
 }

@@ -2,9 +2,7 @@ package zahra.hosseini.hemophiliaapp.main.ui.root
 
 import android.widget.Toast
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -28,7 +26,8 @@ fun HomeScreen() {
 
     Column(
         verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.End
+        horizontalAlignment = Alignment.End,
+        modifier = Modifier.fillMaxWidth().fillMaxHeight()
     ) {
 
         MultiFloatingActionButton(
