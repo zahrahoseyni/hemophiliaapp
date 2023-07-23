@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.main.ui
 
+import android.app.TimePickerDialog
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
@@ -25,6 +27,9 @@ fun RegisterBleeding() {
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        val context = LocalContext.current
+
         val reasonOptions = listOf(
             stringResource(R.string.injury),
             stringResource(R.string.spontaneity),
@@ -56,6 +61,25 @@ fun RegisterBleeding() {
                     // do something...
                 })
         }
+
+
+        // Declaring and initializing a calendar
+        val mCalendar = Calendar.getInstance()
+        val mHour = mCalendar[Calendar.HOUR_OF_DAY]
+        val mMinute = mCalendar[Calendar.MINUTE]
+
+        // Value for storing time as a string
+        val mTime = remember { mutableStateOf("") }
+
+        // Creating a TimePicker dialog
+        val mTimePickerDialog = TimePickerDialog(
+            context,
+            { _, mHour: Int, mMinute: Int ->
+                mTime.value = "$mHour:$mMinute"
+            }, mHour, mMinute, false
+        )
+
+        //mTimePickerDialog.show()
 
 
         //showDialog.value = true
