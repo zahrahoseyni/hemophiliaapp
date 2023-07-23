@@ -60,7 +60,6 @@ fun <T> LargeDropdownMenu(
                         text = label,
                         style = MaterialTheme.hemophiliaTypography.text12,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
-                        modifier = Modifier.fillMaxWidth()
                     )
                 },
                 value = items.getOrNull(selectedIndex)?.let { selectedItemToString(it) } ?: "",
@@ -155,7 +154,7 @@ fun LargeDropdownMenuItem(
 ) {
     val contentColor = when {
         !enabled -> MaterialTheme.colorScheme.onSurface.copy(alpha = ALPHA_DISABLED)
-        selected -> MaterialTheme.hemophiliaColors.designSystem.Primary.copy(alpha = ALPHA_FULL)
+        selected -> MaterialTheme.hemophiliaColors.designSystem.Primary.copy(alpha = ALPHA_DISABLED)
         else -> MaterialTheme.colorScheme.onSurface.copy(alpha = ALPHA_FULL)
     }
 

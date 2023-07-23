@@ -31,7 +31,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
     val context = LocalContext.current
 
-    val dataStoreManager = DataStoreManager(context)
+   val dataStoreManager = DataStoreManager(context)
 
     Column(
         modifier = Modifier.padding(20.dp),

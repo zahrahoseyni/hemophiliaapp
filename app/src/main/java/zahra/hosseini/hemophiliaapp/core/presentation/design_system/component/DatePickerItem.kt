@@ -19,7 +19,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DatePickerItem() {
+fun PickerItem(value: String?, label: String, onDateOrTimePickerItemClicked: () -> Unit) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         Box(
@@ -27,19 +27,19 @@ fun DatePickerItem() {
                 .height(IntrinsicSize.Min)
                 .fillMaxWidth()
                 .padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp)
+                .clickable(onClick = onDateOrTimePickerItemClicked)
         ) {
             OutlinedTextField(
                 label = {
                     Text(
-                        text = "label",
+                        text = label,
                         style = MaterialTheme.hemophiliaTypography.text12,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
-                        modifier = Modifier.fillMaxWidth()
                     )
                 },
-                value = "grdthd",
+                value = value ?: "",
                 enabled = true,
-                textStyle = androidx.compose.ui.text.TextStyle(
+                textStyle = TextStyle(
                     fontFamily = regularFont,
                     fontSize = 14.sp,
                     color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
@@ -63,7 +63,7 @@ fun DatePickerItem() {
                     .fillMaxSize()
                     .padding(top = 8.dp)
                     .clip(MaterialTheme.shapes.extraSmall),
-                   // .clickable(enabled = enabled) { expanded = true },
+                // .clickable(enabled = enabled) { expanded = true },
                 color = Color.Transparent,
             ) {}
         }

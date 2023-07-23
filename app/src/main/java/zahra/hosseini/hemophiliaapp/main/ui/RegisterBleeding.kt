@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DatePickerItem
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.PickerItem
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import java.util.*
@@ -44,6 +44,8 @@ fun RegisterBleeding() {
         val rememberPersianDatePicker = rememberPersianDatePicker()
         val showDialog = remember { mutableStateOf(false) }
 
+        var bleedingDate by remember { mutableStateOf("") }
+
         rememberPersianDatePicker.updateDate(timestamp = Date().time)
 
         rememberPersianDatePicker.updateMaxYear(1420)
@@ -58,31 +60,25 @@ fun RegisterBleeding() {
                 Modifier.fillMaxWidth(),
                 onDismissRequest = { showDialog.value = false },
                 onDateChanged = { year, month, day ->
-                    // do something...
+                    bleedingDate = "$year/$month/$day"
                 })
         }
 
+        var bleedingTime by remember { mutableStateOf("") }
 
         // Declaring and initializing a calendar
         val mCalendar = Calendar.getInstance()
         val mHour = mCalendar[Calendar.HOUR_OF_DAY]
         val mMinute = mCalendar[Calendar.MINUTE]
 
-        // Value for storing time as a string
-        val mTime = remember { mutableStateOf("") }
-
         // Creating a TimePicker dialog
         val mTimePickerDialog = TimePickerDialog(
             context,
+            R.style.TimePickerTheme,
             { _, mHour: Int, mMinute: Int ->
-                mTime.value = "$mHour:$mMinute"
+                bleedingTime = "${mHour}:${mMinute}"
             }, mHour, mMinute, false
         )
-
-        //mTimePickerDialog.show()
-
-
-        //showDialog.value = true
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.type_of_treatment),
@@ -118,10 +114,15 @@ fun RegisterBleeding() {
             onItemSelected = { index, _ -> intensitySelectedIndex = index },
         )
 
-        DatePickerItem()
+        PickerItem(bleedingDate, stringResource(id = R.string.bleeding_date)) {
+            showDialog.value = true
+        }
+
+        PickerItem(bleedingTime, stringResource(id = R.string.bleeding_time)) {
+            mTimePickerDialog.show()
+        }
 
         DefaultButton(text = stringResource(id = R.string.submit)) {
-            showDialog.value = true
         }
 
     }
