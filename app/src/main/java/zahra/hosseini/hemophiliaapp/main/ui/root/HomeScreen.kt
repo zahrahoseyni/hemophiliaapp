@@ -1,36 +1,31 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
+import android.annotation.SuppressLint
 import android.widget.Toast
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppTheme
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFloatingActionButton
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun HomeScreen() {
 
     val context = LocalContext.current
 
-    Column(
-        verticalArrangement = Arrangement.Bottom,
-        horizontalAlignment = Alignment.End,
-        modifier = Modifier.fillMaxWidth().fillMaxHeight()
-    ) {
-
+    Scaffold(floatingActionButton = {
         MultiFloatingActionButton(
+            modifier = Modifier.padding(bottom = 60.dp),
             items = listOf(
                 MultiFabItem(
                     id = 1,
@@ -57,7 +52,6 @@ fun HomeScreen() {
                 showLabel = true
             )
         )
-
-
-    }
+    }) {}
 }
+

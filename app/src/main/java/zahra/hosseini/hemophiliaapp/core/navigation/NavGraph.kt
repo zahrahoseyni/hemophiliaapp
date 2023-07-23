@@ -17,7 +17,7 @@ import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 fun NavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavRoute.Login.path
+        startDestination = NavRoute.Home.path
     ) {
         addSplashScreen(navController, this)
 
