@@ -9,6 +9,7 @@ import zahra.hosseini.hemophiliaapp.authentication.login.presentation.LoginScree
 import zahra.hosseini.hemophiliaapp.authentication.register.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
+import zahra.hosseini.hemophiliaapp.main.ui.root.ProfileScreen
 import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 
 @Composable
