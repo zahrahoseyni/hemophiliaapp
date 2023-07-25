@@ -1,8 +1,9 @@
-package zahra.hosseini.hemophiliaapp.core.datastore.database
+package zahra.hosseini.hemophiliaapp.main.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import zahra.hosseini.hemophiliaapp.core.datastore.database.DatabaseConstants
 
 @Entity(tableName = DatabaseConstants.BLEEDING_TABLE)
 data class BleedingEntity(

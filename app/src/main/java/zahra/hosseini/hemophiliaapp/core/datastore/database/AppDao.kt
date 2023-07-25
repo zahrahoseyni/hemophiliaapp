@@ -1,6 +1,7 @@
 package zahra.hosseini.hemophiliaapp.core.datastore.database
 
 import androidx.room.*
+import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
 
 @Dao
 interface AppDao {

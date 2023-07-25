@@ -1,4 +1,4 @@
-package zahra.hosseini.hemophiliaapp
+package zahra.hosseini.hemophiliaapp.core.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
