@@ -69,18 +69,6 @@ fun RegisterInjection() {
             onItemSelected = { index, _ -> reasonSelectedIndex = index },
         )
 
-        val sedativeOptions = listOf(
-            stringResource(R.string.yes),
-            stringResource(R.string.no),
-        )
-        var sedativeSelectedIndex by remember { mutableStateOf(-1) }
-
-        LargeDropdownMenu(
-            label = stringResource(id = R.string.question_for_sedative),
-            items = sedativeOptions,
-            selectedIndex = sedativeSelectedIndex,
-            onItemSelected = { index, _ -> sedativeSelectedIndex = index },
-        )
 
         DefaultButton(text = stringResource(id = R.string.submit)) {}
 
