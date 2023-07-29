@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -14,9 +16,7 @@ import androidx.compose.ui.unit.dp
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.PickerItem
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.*
 import java.util.*
 
 @Composable
@@ -29,6 +29,7 @@ fun RegisterBleeding() {
     ) {
 
         val context = LocalContext.current
+        val intervalOfNumbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
         val reasonOptions = listOf(
             stringResource(R.string.injury),
@@ -134,6 +135,16 @@ fun RegisterBleeding() {
             selectedIndex = sedativeSelectedIndex,
             onItemSelected = { index, _ -> sedativeSelectedIndex = index },
         )
+
+        LazyRow(
+        ) {
+            intervalOfNumbers.forEach {
+                item {
+                    NumberButton(number = it)
+                }
+
+            }
+        }
 
         DefaultButton(text = stringResource(id = R.string.submit)) {
         }
