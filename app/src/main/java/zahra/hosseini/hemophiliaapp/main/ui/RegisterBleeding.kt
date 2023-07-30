@@ -1,22 +1,28 @@
 package zahra.hosseini.hemophiliaapp.main.ui
 
 import android.app.TimePickerDialog
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.extension.toPersianNumber
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.*
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 import java.util.*
 
 @Composable
@@ -29,7 +35,7 @@ fun RegisterBleeding() {
     ) {
 
         val context = LocalContext.current
-        val intervalOfNumbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        val intervalOfNumbers = arrayListOf(1, 2, 3, 4, 5)
 
         val reasonOptions = listOf(
             stringResource(R.string.injury),
@@ -56,8 +62,7 @@ fun RegisterBleeding() {
         rememberPersianDatePicker.updateDisplayMonthNames(true)
 
         if (showDialog.value) {
-            PersianDatePickerDialog(
-                rememberPersianDatePicker,
+            PersianDatePickerDialog(rememberPersianDatePicker,
                 Modifier.fillMaxWidth(),
                 onDismissRequest = { showDialog.value = false },
                 onDateChanged = { year, month, day ->
@@ -74,9 +79,7 @@ fun RegisterBleeding() {
 
         // Creating a TimePicker dialog
         val mTimePickerDialog = TimePickerDialog(
-            context,
-            R.style.TimePickerTheme,
-            { _, mHour: Int, mMinute: Int ->
+            context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
                 bleedingTime = "${mHour}:${mMinute}"
             }, mHour, mMinute, false
         )
@@ -136,18 +139,58 @@ fun RegisterBleeding() {
             onItemSelected = { index, _ -> sedativeSelectedIndex = index },
         )
 
+        var selectedIndex by remember { mutableStateOf(-1) }
+
         LazyRow(
+            modifier = Modifier.padding(
+                top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp
+            ), userScrollEnabled = true
+
         ) {
-            intervalOfNumbers.forEach {
+            intervalOfNumbers.forEachIndexed { index, number ->
                 item {
-                    NumberButton(number = it)
+
+                    NumberButton(number = number, isSelected = selectedIndex == index) {
+                        selectedIndex = index
+                    }
+                    /*            Button(
+                                    onClick = {
+                                        selectedIndex = index
+                                    }, modifier = Modifier
+                                        .wrapContentHeight()
+                                        .wrapContentWidth(),
+                                    colors = ButtonDefaults.buttonColors(
+                                        containerColor = MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
+                                        disabledContainerColor = MaterialTheme.hemophiliaColors.designSystem.Neutral30
+                                    ),
+                                    border = BorderStroke(
+                                        1.dp,
+                                        MaterialTheme.hemophiliaColors.designSystem.Neutral30
+                                    ),
+                                    shape = androidx.compose.material.MaterialTheme.shapes.medium,
+                                    enabled = selectedIndex != index
+                                ) {
+                                    Text(
+                                        number.toString().toPersianNumber(),
+                                        style = MaterialTheme.hemophiliaTypography.text12,
+                                        color = if (selectedIndex == index)
+                                            MaterialTheme.hemophiliaColors.designSystem.PrimaryText
+                                        else MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
+                                    )
+                                }*/
                 }
 
             }
         }
 
-        DefaultButton(text = stringResource(id = R.string.submit)) {
-        }
+        DefaultButton(text = stringResource(id = R.string.submit)) {}
 
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun Preview() {
+    RegisterBleeding()
+
 }

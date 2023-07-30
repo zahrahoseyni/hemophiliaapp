@@ -17,7 +17,7 @@ fun String.toPersianNumber(): String {
             '8' -> fa = '۸'
             '9' -> fa = '۹'
         }
-        result = "${result}$en"
+        result = "${result}$fa"
     }
     return result
 }
