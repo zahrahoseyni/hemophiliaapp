@@ -58,6 +58,10 @@
     <string name="un_complete_form_message">اطلاعات مورد نظر را وارد کنید</string>
     <string name="register_injection">ثبت تزریق</string>
     <string name="register_not_injection">ثبت عدم تزریق</string>
+    <string name="login_with_number">ورود با شماره تلفن همراه</string>
+    <string name="self_care_report">گزارشات خود مراقبتی</string>
+    <string name="user_profile">حساب کاربری</string>
+    <string name="register">ثبت نام</string>
 
 
 </resources>

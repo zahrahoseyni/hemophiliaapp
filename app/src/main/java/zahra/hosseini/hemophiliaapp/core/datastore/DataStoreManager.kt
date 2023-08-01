@@ -1,7 +1,6 @@
 package zahra.hosseini.hemophiliaapp.core.datastore
 
 import android.content.Context
-import androidx.annotation.BoolRes
 import androidx.datastore.preferences.createDataStore
 import androidx.datastore.preferences.edit
 import androidx.datastore.preferences.preferencesKey
@@ -15,31 +14,19 @@ class DataStoreManager(context: Context) {
 
     companion object {
         val MOBILE_NUMBER = preferencesKey<String>("MOBILE_NUMBER")
-        val AGE = preferencesKey<String>("AGE")
-        val WEIGHT = preferencesKey<String>("WEIGHT")
-        val FAMILY_HISTORY = preferencesKey<Boolean>("FAMILY_HISTORY")
-        val TIME_OF_DIAGNOSIS = preferencesKey<String>("TIME_OF_DIAGNOSIS")
-        val SEX = preferencesKey<String>("SEX")
+        val IS_USER_LOGIN = preferencesKey<Boolean>("IS_USER_LOGIN")
     }
 
-
-    // Store user data
-    // refer to the data store and using edit
-    // we can store values using the keys
-    suspend fun storeUserInfo(userInfo: UserInfo) {
+    suspend fun storeUserLogin(isLogin: Boolean) {
         dataStore.edit {
-            it[AGE] = userInfo.age
-            it[WEIGHT] = userInfo.weight
-            it[FAMILY_HISTORY] = userInfo.family_history
-            it[TIME_OF_DIAGNOSIS] = userInfo.timeOfDiagnosis
-            it[SEX] = userInfo.sex
-
+            it[IS_USER_LOGIN] = isLogin
         }
     }
 
-    // Store user data
-    // refer to the data store and using edit
-    // we can store values using the keys
+    val isUserLogin: Flow<Boolean> = dataStore.data.map {
+        it[IS_USER_LOGIN] ?: false
+    }
+
     suspend fun storePhoneNumber(phoneNumber: String) {
         dataStore.edit {
             it[MOBILE_NUMBER] = phoneNumber
@@ -51,14 +38,5 @@ class DataStoreManager(context: Context) {
         it[MOBILE_NUMBER] ?: ""
     }
 
-    // Create a name flow to retrieve name from the preferences
-    val getUserInfoFlow: Flow<String> = dataStore.data.map {
-        it[MOBILE_NUMBER] ?: ""
-        it[AGE] ?: ""
-        it[WEIGHT] ?: ""
-        it[FAMILY_HISTORY] ?: ""
-        it[TIME_OF_DIAGNOSIS] ?: ""
-        it[SEX] ?: ""
-    }
 
 }

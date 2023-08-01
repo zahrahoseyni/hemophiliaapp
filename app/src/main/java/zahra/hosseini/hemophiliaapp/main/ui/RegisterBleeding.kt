@@ -153,31 +153,6 @@ fun RegisterBleeding() {
                     NumberButton(number = number, isSelected = selectedIndex == index) {
                         selectedIndex = index
                     }
-                    /*            Button(
-                                    onClick = {
-                                        selectedIndex = index
-                                    }, modifier = Modifier
-                                        .wrapContentHeight()
-                                        .wrapContentWidth(),
-                                    colors = ButtonDefaults.buttonColors(
-                                        containerColor = MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
-                                        disabledContainerColor = MaterialTheme.hemophiliaColors.designSystem.Neutral30
-                                    ),
-                                    border = BorderStroke(
-                                        1.dp,
-                                        MaterialTheme.hemophiliaColors.designSystem.Neutral30
-                                    ),
-                                    shape = androidx.compose.material.MaterialTheme.shapes.medium,
-                                    enabled = selectedIndex != index
-                                ) {
-                                    Text(
-                                        number.toString().toPersianNumber(),
-                                        style = MaterialTheme.hemophiliaTypography.text12,
-                                        color = if (selectedIndex == index)
-                                            MaterialTheme.hemophiliaColors.designSystem.PrimaryText
-                                        else MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
-                                    )
-                                }*/
                 }
 
             }

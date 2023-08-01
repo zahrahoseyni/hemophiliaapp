@@ -30,19 +30,20 @@ fun NumberButton(
             onButtonClicked()
         }, modifier = modifier
             .wrapContentHeight()
-            .wrapContentWidth(),
+            .wrapContentWidth()
+            .padding(3.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
             disabledContainerColor = MaterialTheme.hemophiliaColors.designSystem.Neutral30
         ),
         border = BorderStroke(1.dp, MaterialTheme.hemophiliaColors.designSystem.Neutral30),
         shape = androidx.compose.material.MaterialTheme.shapes.medium,
-        enabled = isSelected
+        enabled = !isSelected
     ) {
         Text(
             number.toString().toPersianNumber(),
             style = MaterialTheme.hemophiliaTypography.text12,
-            color = if (isSelected)
+            color = if (!isSelected)
                 MaterialTheme.hemophiliaColors.designSystem.PrimaryText
             else MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
         )

@@ -5,8 +5,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import zahra.hosseini.hemophiliaapp.authentication.login.presentation.LoginScreen
-import zahra.hosseini.hemophiliaapp.authentication.register.RegisterScreen
+import zahra.hosseini.hemophiliaapp.authentication.presentation.LoginScreen
+import zahra.hosseini.hemophiliaapp.authentication.presentation.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.ui.root.ProfileScreen
@@ -16,7 +16,7 @@ import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 fun NavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = NavRoute.Home.path
+        startDestination = NavRoute.Splash.path
     ) {
         addSplashScreen(navController, this)
 

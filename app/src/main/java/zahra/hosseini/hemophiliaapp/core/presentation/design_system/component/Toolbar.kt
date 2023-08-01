@@ -22,13 +22,13 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
-fun Toolbar(title: String, showBackBtn: Boolean, onBackButtonClick: () -> Unit) {
+fun Toolbar(header: String, showBackBtn: Boolean, onBackButtonClick: () -> Unit) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         TopAppBar(
             title = {
                 Text(
-                    text = title, style = MaterialTheme.hemophiliaTypography.text16Medium,
+                    text = header, style = MaterialTheme.hemophiliaTypography.text16Medium,
                     color = MaterialTheme.hemophiliaColors.designSystem.OnPrimary,
                 )
             },

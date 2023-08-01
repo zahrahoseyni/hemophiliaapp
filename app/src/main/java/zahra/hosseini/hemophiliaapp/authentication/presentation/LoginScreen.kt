@@ -1,6 +1,5 @@
-package zahra.hosseini.hemophiliaapp.authentication.login.presentation
+package zahra.hosseini.hemophiliaapp.authentication.presentation
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.MaterialTheme
@@ -67,7 +66,9 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
             if (phoneNumber.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
                     dataStoreManager.storePhoneNumber(phoneNumber = phoneNumber)
+                    dataStoreManager.storeUserLogin(true)
                 }
+
                 navigateToHome()
 
             } else {
