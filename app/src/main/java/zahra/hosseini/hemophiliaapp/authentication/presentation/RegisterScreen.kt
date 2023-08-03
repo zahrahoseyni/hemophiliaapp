@@ -13,6 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -28,7 +29,10 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
-fun RegisterScreen(navigateToHome: () -> Unit) {
+fun RegisterScreen(
+    viewModel: AuthenticationViewModel = hiltViewModel(),
+    navigateToHome: () -> Unit,
+) {
     val context = LocalContext.current
 
     Column(
@@ -120,16 +124,16 @@ fun RegisterScreen(navigateToHome: () -> Unit) {
                         context.resources.getString(R.string.have_not) -> false
                         else -> {}
                     }
-               /*     dataStoreManager.storeUserInfo(
-                        userInfo = UserInfo(
-                            age = age,
-                            weight = weight,
-                            height = height,
-                            sex = sexOptions[sexSelectedIndex],
-                            family_history = familyHistory as Boolean,
-                            timeOfDiagnosis = timeOfDiagnosis
-                        )
-                    )*/
+                    /*     dataStoreManager.storeUserInfo(
+                             userInfo = UserInfo(
+                                 age = age,
+                                 weight = weight,
+                                 height = height,
+                                 sex = sexOptions[sexSelectedIndex],
+                                 family_history = familyHistory as Boolean,
+                                 timeOfDiagnosis = timeOfDiagnosis
+                             )
+                         )*/
                 }
                 navigateToHome()
             }

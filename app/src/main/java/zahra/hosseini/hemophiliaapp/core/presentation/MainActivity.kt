@@ -12,7 +12,6 @@ import zahra.hosseini.hemophiliaapp.main.ui.MainScreen
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private val authenticationViewModel:AuthenticationViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

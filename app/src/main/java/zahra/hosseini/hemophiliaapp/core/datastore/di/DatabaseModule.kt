@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-private object DatabaseModule {
+object DatabaseModule {
 
     @Provides
     fun provideAppDao(appDatabase: HemophiliaDatabase): AppDao {
