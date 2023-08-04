@@ -38,7 +38,7 @@ fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         val (phoneNumber, setPhoneNumber) = remember {
-            mutableStateOf("")
+            mutableStateOf("09395099494")
         }
         var enabled by remember { mutableStateOf(true) }
 

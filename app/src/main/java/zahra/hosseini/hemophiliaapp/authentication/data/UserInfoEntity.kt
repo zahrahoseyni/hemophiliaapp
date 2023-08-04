@@ -8,7 +8,7 @@ import zahra.hosseini.hemophiliaapp.core.datastore.database.DatabaseConstants
 @Entity(tableName = DatabaseConstants.USER_INFO_TABLE)
 data class UserInfoEntity(
     @PrimaryKey(autoGenerate = true)
-    val userId: Int,
+    val userId: Int = 0,
     @ColumnInfo(name = "phone_number")
     val phoneNumber: String,
     @ColumnInfo(name = "sex")

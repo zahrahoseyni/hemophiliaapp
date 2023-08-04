@@ -1,6 +1,7 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
@@ -11,16 +12,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFloatingActionButton
+import kotlin.math.log
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
-fun HomeScreen(navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit) {
+fun HomeScreen(
+    viewModel: AuthenticationViewModel = hiltViewModel(),
+    navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit,
+) {
 
     val context = LocalContext.current
 
@@ -30,17 +37,17 @@ fun HomeScreen(navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjecti
             items = listOf(
                 MultiFabItem(
                     id = 1,
-                    iconRes = R.drawable.ic_outline_person_add_24,
+                    iconRes = R.drawable.ic_injection,
                     label = stringResource(R.string.register_injection)
                 ),
                 MultiFabItem(
                     id = 2,
-                    iconRes = R.drawable.ic_outline_group_add_24,
+                    iconRes = R.drawable.ic_not_injection,
                     label = stringResource(R.string.register_not_injection)
                 ),
                 MultiFabItem(
                     id = 3,
-                    iconRes = R.drawable.ic_outline_video_call_24,
+                    iconRes = R.drawable.ic_bleeding,
                     label = stringResource(R.string.register_bleeding)
                 )
             ),
@@ -57,6 +64,7 @@ fun HomeScreen(navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjecti
                 showLabel = true
             )
         )
-    }) {}
+    }) {
+    }
 }
 

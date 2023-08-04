@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -36,7 +37,7 @@ fun BottomBarNav(navController: NavController) {
         BottomNavigationItem(
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Home,
+                    painter = painterResource(id = R.drawable.ic_profile),
                     contentDescription = NavRoute.Profile.path
                 )
             },
@@ -63,7 +64,7 @@ fun BottomBarNav(navController: NavController) {
         BottomNavigationItem(
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Home,
+                    painter = painterResource(id = R.drawable.ic_training),
                     contentDescription = NavRoute.Training.path
                 )
             },
@@ -90,7 +91,7 @@ fun BottomBarNav(navController: NavController) {
         BottomNavigationItem(
             icon = {
                 Icon(
-                    imageVector = Icons.Default.Home,
+                    painter = painterResource(id = R.drawable.ic_reminder),
                     contentDescription = NavRoute.Reminder.path
                 )
             },

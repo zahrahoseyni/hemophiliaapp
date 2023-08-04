@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.authentication.data
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +21,8 @@ class RegisterRepository(private val appDao: AppDao) {
     fun getAllUsers() {
         coroutineScope.launch(Dispatchers.IO) {
             allUsers.postValue(appDao.getAllUser())
+            allUsers.value?.get(0)?.sex?.let { Log.d("dfkjbdgvd", it) }
+
         }
     }
 

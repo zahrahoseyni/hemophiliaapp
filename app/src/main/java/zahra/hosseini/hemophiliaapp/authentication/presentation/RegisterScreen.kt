@@ -19,6 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.datastore.UserInfo
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
@@ -34,6 +35,7 @@ fun RegisterScreen(
     navigateToHome: () -> Unit,
 ) {
     val context = LocalContext.current
+    val dataStoreManager = DataStoreManager(context)
 
     Column(
         modifier = Modifier.padding(20.dp),
@@ -124,16 +126,18 @@ fun RegisterScreen(
                         context.resources.getString(R.string.have_not) -> false
                         else -> {}
                     }
-                    /*     dataStoreManager.storeUserInfo(
-                             userInfo = UserInfo(
-                                 age = age,
-                                 weight = weight,
-                                 height = height,
-                                 sex = sexOptions[sexSelectedIndex],
-                                 family_history = familyHistory as Boolean,
-                                 timeOfDiagnosis = timeOfDiagnosis
-                             )
-                         )*/
+                    viewModel.addUser(
+                        userInfoEntity = UserInfoEntity(
+                            phoneNumber = dataStoreManager.getPhoneNumberFlow.toString(),
+                            age = age,
+                            weight = weight,
+                            height = height,
+                            sex = sexOptions[sexSelectedIndex],
+                            familyHistory = familyHistory as Boolean,
+                            timeOfDiagnosis = timeOfDiagnosis
+                        )
+                    )
+
                 }
                 navigateToHome()
             }
