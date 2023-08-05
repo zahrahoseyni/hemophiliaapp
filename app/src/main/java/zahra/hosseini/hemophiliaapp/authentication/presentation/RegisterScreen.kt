@@ -1,9 +1,13 @@
 package zahra.hosseini.hemophiliaapp.authentication.presentation
 
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -36,13 +40,16 @@ fun RegisterScreen(
 ) {
     val context = LocalContext.current
     val dataStoreManager = DataStoreManager(context)
+    val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.padding(20.dp),
-        verticalArrangement = Arrangement.spacedBy(5.dp),
+        modifier = Modifier
+            .padding(20.dp)
+            .verticalScroll(state = scrollState), verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+        val (phoneNumber, setPhoneNumber) = remember { mutableStateOf("") }
         val (weight, setWeight) = remember { mutableStateOf("") }
         val (height, setHeight) = remember { mutableStateOf("") }
         val (age, setAge) = remember { mutableStateOf("") }
@@ -64,6 +71,13 @@ fun RegisterScreen(
             modifier = Modifier.padding(top = 20.dp, bottom = 10.dp)
         )
 
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.phone_number),
+            inputType = KeyboardType.Number,
+            value = phoneNumber,
+            setValue = setPhoneNumber,
+            11
+        )
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.sex),
@@ -111,24 +125,29 @@ fun RegisterScreen(
             3
         )
 
-        Spacer(modifier = Modifier.padding(16.dp))
+        Spacer(modifier = Modifier.padding(8.dp))
 
         DefaultButton(text = stringResource(id = R.string.submit)) {
-            if (weight.isEmpty() || height.isEmpty() || age.isEmpty()
+            if (phoneNumber.isEmpty() || weight.isEmpty() || height.isEmpty() || age.isEmpty()
                 || timeOfDiagnosis.isEmpty() || sexSelectedIndex == -1 || familyHistorySelectedIndex == -1
             ) {
                 context.showMessage(context.getString(R.string.un_complete_form_message))
 
             } else {
+
                 CoroutineScope(Dispatchers.IO).launch {
+
+                    dataStoreManager.storePhoneNumber(phoneNumber = phoneNumber)
+                    dataStoreManager.storeUserLogin(true)
+
                     val familyHistory = when (familyHistoryOptions[familyHistorySelectedIndex]) {
                         context.resources.getString(R.string.have) -> true
                         context.resources.getString(R.string.have_not) -> false
                         else -> {}
                     }
-                    viewModel.addUser(
+                    viewModel.insertUserDetails(
                         userInfoEntity = UserInfoEntity(
-                            phoneNumber = dataStoreManager.getPhoneNumberFlow.toString(),
+                            phoneNumber = phoneNumber,
                             age = age,
                             weight = weight,
                             height = height,

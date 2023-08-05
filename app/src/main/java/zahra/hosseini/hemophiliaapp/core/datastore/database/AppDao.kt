@@ -1,6 +1,7 @@
 package zahra.hosseini.hemophiliaapp.core.datastore.database
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
 
@@ -21,9 +22,10 @@ interface AppDao {
     fun getAllRegisteredBleeding(): MutableList<BleedingEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUserInfo(userInfoEntity: UserInfoEntity)
+    fun insertUserInfo(userInfoEntity: UserInfoEntity): Long
 
-    @Query("SELECT * FROM USER_INFO_TABLE ORDER BY userId DESC")
-    fun getAllUser(): MutableList<UserInfoEntity>
+    @Transaction
+    @Query("SELECT * FROM USER_INFO_TABLE")
+    fun getUserInfo(): Flow<UserInfoEntity>
 
 }

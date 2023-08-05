@@ -1,18 +1,22 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.util.Log
 import android.widget.Toast
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
@@ -30,6 +34,20 @@ fun HomeScreen(
 ) {
 
     val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            viewModel.getUserDetails()
+            viewModel.userDetails.collect { user ->
+                Log.d("hgdsfs", user.phoneNumber)
+                Log.d("hgdsfs", user.sex)
+                Log.d("hgdsfs", user.familyHistory.toString())
+                Log.d("hgdsfs", user.timeOfDiagnosis)
+            }
+
+        }
+    }
 
     Scaffold(floatingActionButton = {
         MultiFloatingActionButton(
@@ -65,6 +83,8 @@ fun HomeScreen(
             )
         )
     }) {
+
     }
+
 }
 

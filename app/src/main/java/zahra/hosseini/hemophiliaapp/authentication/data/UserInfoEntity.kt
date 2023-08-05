@@ -6,10 +6,8 @@ import androidx.room.PrimaryKey
 import zahra.hosseini.hemophiliaapp.core.datastore.database.DatabaseConstants
 
 @Entity(tableName = DatabaseConstants.USER_INFO_TABLE)
-data class UserInfoEntity(
-    @PrimaryKey(autoGenerate = true)
-    val userId: Int = 0,
-    @ColumnInfo(name = "phone_number")
+open class UserInfoEntity(
+    @PrimaryKey(autoGenerate = false)
     val phoneNumber: String,
     @ColumnInfo(name = "sex")
     val sex: String,
