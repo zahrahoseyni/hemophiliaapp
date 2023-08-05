@@ -28,8 +28,8 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 
 @Composable
 fun LoginScreen(navigateToHome: () -> Unit, navigateToRegister: () -> Unit) {
-    val context = LocalContext.current
 
+    val context = LocalContext.current
    val dataStoreManager = DataStoreManager(context)
 
     Column(

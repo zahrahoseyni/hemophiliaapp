@@ -26,7 +26,7 @@ fun ProfileScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(R.drawable.user_avatar),
+            painter = painterResource(R.drawable.ic_profile),
             contentDescription = "avatar",
             contentScale = ContentScale.Crop,            // crop the image if it's not a square
             modifier = Modifier

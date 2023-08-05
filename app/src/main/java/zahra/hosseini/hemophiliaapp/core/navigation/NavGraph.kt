@@ -40,7 +40,7 @@ fun NavGraph(navController: NavHostController) {
 
 private fun addLoginScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Login.path) {
         LoginScreen(
@@ -56,12 +56,15 @@ private fun addLoginScreen(
 
 private fun addSplashScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Splash.path) {
         SplashScreen(
             navigateToLogin = {
                 navController.navigate(NavRoute.Login.path)
+            },
+            navigateToHome = {
+                navController.navigate(NavRoute.Home.path)
             }
         )
     }
@@ -69,7 +72,7 @@ private fun addSplashScreen(
 
 private fun addHomeScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Home.path) {
         HomeScreen(
@@ -86,7 +89,7 @@ private fun addHomeScreen(
 
 private fun addProfileScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Profile.path) {
         ProfileScreen(
@@ -97,7 +100,7 @@ private fun addProfileScreen(
 
 private fun addRegisterScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Register.path) {
         RegisterScreen(
@@ -110,7 +113,7 @@ private fun addRegisterScreen(
 
 private fun addTrainingScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Training.path) {
         TrainingScreen(
@@ -120,7 +123,7 @@ private fun addTrainingScreen(
 
 private fun addReminderScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.Reminder.path) {
         ReminderScreen(
@@ -130,7 +133,7 @@ private fun addReminderScreen(
 
 private fun addRegisterBleedingScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterBleeding.path) {
         RegisterBleeding()
@@ -139,7 +142,7 @@ private fun addRegisterBleedingScreen(
 
 private fun addRegisterInjectionScreen(
     navController: NavHostController,
-    navGraphBuilder: NavGraphBuilder
+    navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterInjection.path) {
         RegisterInjection()
