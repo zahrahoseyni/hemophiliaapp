@@ -1,28 +1,58 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.authentication.data.EmptyUserInfoEntity
+import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ProfileRowItem
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(
+    viewModel: AuthenticationViewModel = hiltViewModel(),
+) {
+
+    val scrollState = rememberScrollState()
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+    var userInfoEntity by remember { mutableStateOf(EmptyUserInfoEntity()) }
+
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            viewModel.getUserDetails()
+            viewModel.userDetails.collect { user ->
+                userInfoEntity = user as EmptyUserInfoEntity
+            }
+
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight().padding(16.dp),
+            .verticalScroll(state = scrollState)
+            .fillMaxHeight()
+            .padding(top = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
@@ -39,10 +69,27 @@ fun ProfileScreen() {
                 )
         )
 
-        ProfileRowItem(label = "زن", iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = "25", iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = "60", iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = "160", iconRes = R.drawable.ic_outline_group_add_24)
+        Spacer(
+            Modifier
+                .fillMaxWidth()
+                .height(30.dp)
+        )
+
+        val familyHistory = when (userInfoEntity.familyHistory) {
+            true -> "سابقه خانوادگی دارم"
+            false -> "سابقه خانوادگی ندارم"
+            else -> {
+                "_"
+            }
+        }
+
+        ProfileRowItem(label = userInfoEntity.phoneNumber, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = userInfoEntity.sex, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = userInfoEntity.weight, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = userInfoEntity.height, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = userInfoEntity.age, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = familyHistory, iconRes = R.drawable.ic_outline_group_add_24)
+        ProfileRowItem(label = "${userInfoEntity.timeOfDiagnosis} سالگی", iconRes = R.drawable.ic_outline_group_add_24)
 
 
     }

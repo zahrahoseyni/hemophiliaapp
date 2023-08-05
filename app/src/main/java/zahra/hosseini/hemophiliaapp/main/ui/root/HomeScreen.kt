@@ -34,20 +34,7 @@ fun HomeScreen(
 ) {
 
     val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
-        coroutineScope.launch {
-            viewModel.getUserDetails()
-            viewModel.userDetails.collect { user ->
-                Log.d("hgdsfs", user.phoneNumber)
-                Log.d("hgdsfs", user.sex)
-                Log.d("hgdsfs", user.familyHistory.toString())
-                Log.d("hgdsfs", user.timeOfDiagnosis)
-            }
-
-        }
-    }
 
     Scaffold(floatingActionButton = {
         MultiFloatingActionButton(
