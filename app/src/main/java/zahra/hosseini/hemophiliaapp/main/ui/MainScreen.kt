@@ -39,7 +39,7 @@ fun MainScreen() {
         val header = when (currentRoute) {
             NavRoute.Login.path -> stringResource(id = R.string.login_with_number)
             NavRoute.Home.path -> stringResource(id = R.string.self_care_report)
-            NavRoute.Profile.path -> stringResource(id = R.string.self_care_report)
+            NavRoute.Profile.path -> stringResource(id = R.string.user_profile)
             NavRoute.Register.path -> stringResource(id = R.string.register)
             NavRoute.RegisterBleeding.path -> stringResource(id = R.string.register_bleeding)
             NavRoute.RegisterInjection.path -> stringResource(id = R.string.register_injection)

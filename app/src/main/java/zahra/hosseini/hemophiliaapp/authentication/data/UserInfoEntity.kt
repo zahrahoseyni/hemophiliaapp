@@ -8,18 +8,18 @@ import zahra.hosseini.hemophiliaapp.core.datastore.database.DatabaseConstants
 @Entity(tableName = DatabaseConstants.USER_INFO_TABLE)
 open class UserInfoEntity(
     @PrimaryKey(autoGenerate = false)
-    val phoneNumber: String,
+    var phoneNumber: String,
     @ColumnInfo(name = "sex")
-    val sex: String,
+    var sex: String,
     @ColumnInfo(name = "weight")
-    val weight: String,
+    var weight: String,
     @ColumnInfo(name = "height")
-    val height: String,
+    var height: String,
     @ColumnInfo(name = "age")
-    val age: String,
+    var age: String,
     @ColumnInfo(name = "family_history")
-    val familyHistory: Boolean,
+    var familyHistory: Boolean,
     @ColumnInfo(name = "time_of_diagnosis")
-    val timeOfDiagnosis: String,
+    var timeOfDiagnosis: String,
 
     )

@@ -37,7 +37,7 @@ fun ProfileRowItem(
         ) {
             Text(
                 text = label, style = MaterialTheme.hemophiliaTypography.text16Medium,
-                color = MaterialTheme.hemophiliaColors.designSystem.Neutral40
+                color = MaterialTheme.hemophiliaColors.designSystem.Neutral30
             )
 
             Icon(

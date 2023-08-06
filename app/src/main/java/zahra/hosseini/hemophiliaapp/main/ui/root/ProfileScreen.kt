@@ -16,15 +16,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
-import zahra.hosseini.hemophiliaapp.authentication.data.EmptyUserInfoEntity
-import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ProfileRowItem
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 
 @Composable
@@ -35,13 +36,41 @@ fun ProfileScreen(
     val scrollState = rememberScrollState()
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    var userInfoEntity by remember { mutableStateOf(EmptyUserInfoEntity()) }
+
+    var (phoneNumber, setPhoneNumber) = remember { mutableStateOf("") }
+    var (weight, setWeight) = remember { mutableStateOf("") }
+    var (height, setHeight) = remember { mutableStateOf("") }
+    var (age, setAge) = remember { mutableStateOf("") }
+    var (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
+
+    val sexOptions =
+        listOf(stringResource(id = R.string.woman), stringResource(id = R.string.man))
+    var sexSelectedIndex by remember { mutableStateOf(-1) }
+
+    val familyHistoryOptions =
+        listOf(stringResource(id = R.string.have), stringResource(id = R.string.have_not))
+    var familyHistorySelectedIndex by remember { mutableStateOf(-1) }
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
             viewModel.getUserDetails()
             viewModel.userDetails.collect { user ->
-                userInfoEntity = user as EmptyUserInfoEntity
+                setPhoneNumber(user.phoneNumber)
+                setWeight(user.weight)
+                setHeight(user.height)
+                setAge(user.age)
+                setTimeOfDiagnosis(user.timeOfDiagnosis)
+                sexSelectedIndex = when (user.sex) {
+                    "مرد" -> 0
+                    "زن" -> 1
+                    else -> {
+                        -1
+                    }
+                }
+                familyHistorySelectedIndex = when (user.familyHistory) {
+                    true -> 0
+                    false -> 1
+                }
             }
 
         }
@@ -52,8 +81,9 @@ fun ProfileScreen(
             .fillMaxWidth()
             .verticalScroll(state = scrollState)
             .fillMaxHeight()
-            .padding(top = 30.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .padding(top = 30.dp, bottom = 60.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Image(
             painter = painterResource(R.drawable.ic_profile),
@@ -75,21 +105,59 @@ fun ProfileScreen(
                 .height(30.dp)
         )
 
-        val familyHistory = when (userInfoEntity.familyHistory) {
-            true -> "سابقه خانوادگی دارم"
-            false -> "سابقه خانوادگی ندارم"
-            else -> {
-                "_"
-            }
-        }
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.phone_number),
+            inputType = KeyboardType.Number,
+            value = phoneNumber,
+            setValue = setPhoneNumber,
+            11
+        )
 
-        ProfileRowItem(label = userInfoEntity.phoneNumber, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = userInfoEntity.sex, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = userInfoEntity.weight, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = userInfoEntity.height, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = userInfoEntity.age, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = familyHistory, iconRes = R.drawable.ic_outline_group_add_24)
-        ProfileRowItem(label = "${userInfoEntity.timeOfDiagnosis} سالگی", iconRes = R.drawable.ic_outline_group_add_24)
+        LargeDropdownMenu(
+            label = stringResource(id = R.string.sex),
+            items = sexOptions,
+            selectedIndex = sexSelectedIndex,
+            onItemSelected = { index, _ -> sexSelectedIndex = index },
+        )
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.weight),
+            inputType = KeyboardType.NumberPassword,
+            value = weight,
+            setValue = setWeight,
+            3
+        )
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.height),
+            inputType = KeyboardType.NumberPassword,
+            value = height,
+            setValue = setHeight,
+            3
+        )
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.age),
+            inputType = KeyboardType.NumberPassword,
+            value = age,
+            setValue = setAge,
+            3
+        )
+
+        LargeDropdownMenu(
+            label = stringResource(id = R.string.family_history),
+            items = familyHistoryOptions,
+            selectedIndex = familyHistorySelectedIndex,
+            onItemSelected = { index, _ -> familyHistorySelectedIndex = index },
+        )
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.timeـofـdiagnosis),
+            inputType = KeyboardType.NumberPassword,
+            value = timeOfDiagnosis,
+            setValue = setTimeOfDiagnosis,
+            3
+        )
 
 
     }

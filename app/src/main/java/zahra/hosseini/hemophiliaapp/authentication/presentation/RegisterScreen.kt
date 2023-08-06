@@ -45,7 +45,7 @@ fun RegisterScreen(
     Column(
         modifier = Modifier
             .padding(20.dp)
-            .verticalScroll(state = scrollState), verticalArrangement = Arrangement.spacedBy(5.dp),
+            .verticalScroll(state = scrollState), verticalArrangement = Arrangement.spacedBy(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
