@@ -38,7 +38,7 @@ fun RtlLabelInOutlineTextField(
             label = {
                 Text(
                     text = label,
-                    style = MaterialTheme.hemophiliaTypography.text14,
+                    style = MaterialTheme.hemophiliaTypography.text12,
                     color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
                 )
             },

@@ -146,6 +146,10 @@ private fun addRegisterInjectionScreen(
     navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterInjection.path) {
-        RegisterInjection()
+        RegisterInjection(
+            navigateToHome = {
+                navController.navigate(NavRoute.Home.path)
+            }
+        )
     }
 }
