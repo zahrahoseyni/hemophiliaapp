@@ -10,13 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
-import zahra.hosseini.hemophiliaapp.main.ui.RegisterBleeding
 
 @Composable
 fun ProfileRowItem(

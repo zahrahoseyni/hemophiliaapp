@@ -42,6 +42,7 @@ fun PickerItem(value: String?, label: String, onDateOrTimePickerItemClicked: () 
                 textStyle = TextStyle(
                     fontFamily = regularFont,
                     fontSize = 14.sp,
+                    letterSpacing = 5.sp,
                     color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
                 ),
                 modifier = Modifier

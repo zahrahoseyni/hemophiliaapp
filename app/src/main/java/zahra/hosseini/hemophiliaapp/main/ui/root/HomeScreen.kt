@@ -19,17 +19,19 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.main.InjectionViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFloatingActionButton
 import kotlin.math.log
 
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter", "StateFlowValueCalledInComposition")
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun HomeScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
+    viewModel2: InjectionViewModel = hiltViewModel(),
     navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit,
 ) {
 
@@ -70,6 +72,16 @@ fun HomeScreen(
             )
         )
     }) {
+/*        viewModel2.getAllInjectionList()
+        if (viewModel2.injectionList.value.isNotEmpty()) {
+            Log.d("jfsd", viewModel2.injectionList.value[0].treatmentType)
+            Log.d("jfsd", viewModel2.injectionList.value[0].injectionId.toString())
+            Log.d("jfsd", viewModel2.injectionList.value[0].dosage)
+            Log.d("jfsd", viewModel2.injectionList.value[0].activeInhibitor)
+            Log.d("jfsd", viewModel2.injectionList.value[0].injectionDate)
+            Log.d("jfsd", viewModel2.injectionList.value[0].injectionTime)
+            Log.d("jfsd", viewModel2.injectionList.value[0].injectionReason)
+        }*/
 
     }
 

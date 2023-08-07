@@ -1,14 +1,8 @@
 package zahra.hosseini.hemophiliaapp.main.ui
 
 import android.app.TimePickerDialog
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,14 +13,13 @@ import androidx.compose.ui.unit.dp
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.core.extension.toPersianNumber
+import zahra.hosseini.hemophiliaapp.core.extension.formatDate
+import zahra.hosseini.hemophiliaapp.core.extension.formatTime
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.*
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 import java.util.*
 
 @Composable
-fun RegisterBleeding() {
+fun RegisterBleedingScreen() {
 
     Column(
         modifier = Modifier.padding(20.dp),
@@ -66,7 +59,7 @@ fun RegisterBleeding() {
                 Modifier.fillMaxWidth(),
                 onDismissRequest = { showDialog.value = false },
                 onDateChanged = { year, month, day ->
-                    bleedingDate = "$year/$month/$day"
+                    bleedingDate = "$year/$month/$day".formatDate()
                 })
         }
 
@@ -80,7 +73,7 @@ fun RegisterBleeding() {
         // Creating a TimePicker dialog
         val mTimePickerDialog = TimePickerDialog(
             context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
-                bleedingTime = "${mHour}:${mMinute}"
+                bleedingTime = "${mHour}:${mMinute}".formatTime()
             }, mHour, mMinute, false
         )
 
@@ -166,6 +159,6 @@ fun RegisterBleeding() {
 @Preview(showBackground = true)
 @Composable
 fun Preview() {
-    RegisterBleeding()
+    RegisterBleedingScreen()
 
 }

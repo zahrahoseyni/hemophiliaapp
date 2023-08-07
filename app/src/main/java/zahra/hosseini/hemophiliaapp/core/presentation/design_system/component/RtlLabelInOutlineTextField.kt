@@ -44,6 +44,7 @@ fun RtlLabelInOutlineTextField(
             },
             textStyle = androidx.compose.ui.text.TextStyle(
                 fontFamily = regularFont,
+                letterSpacing = 5.sp,
                 fontSize = 14.sp, color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
             ),
             keyboardOptions = KeyboardOptions(

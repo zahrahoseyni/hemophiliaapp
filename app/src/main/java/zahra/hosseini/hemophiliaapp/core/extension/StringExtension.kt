@@ -21,3 +21,27 @@ fun String.toPersianNumber(): String {
     }
     return result
 }
+
+fun String.formatTime(): String {
+    val parts = this.split(":")
+    val hour = parts[0].toInt()
+    val minute = parts[1].toInt()
+
+    val formattedHour = String.format("%02d", hour)
+    val formattedMinute = String.format("%02d", minute)
+
+    return "${formattedHour.toPersianNumber()}:${formattedMinute.toPersianNumber()}"
+}
+
+fun String.formatDate(): String {
+    val parts = this.split("/")
+    val year = parts[0].toInt()
+    val month = parts[1].toInt()
+    val day = parts[2].toInt()
+
+    val formattedYear = String.format("%02d", year)
+    val formattedMonth = String.format("%02d", month)
+    val formattedDay = String.format("%02d", day)
+
+    return "${formattedYear.toPersianNumber()}/${formattedMonth.toPersianNumber()}/${formattedDay.toPersianNumber()}"
+}

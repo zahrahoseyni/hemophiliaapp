@@ -137,7 +137,7 @@ private fun addRegisterBleedingScreen(
     navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterBleeding.path) {
-        RegisterBleeding()
+        RegisterBleedingScreen()
     }
 }
 
@@ -146,7 +146,7 @@ private fun addRegisterInjectionScreen(
     navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterInjection.path) {
-        RegisterInjection(
+        RegisterInjectionScreen(
             navigateToHome = {
                 navController.navigate(NavRoute.Home.path)
             }

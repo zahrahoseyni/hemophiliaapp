@@ -10,29 +10,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
+import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.core.extension.formatDate
+import zahra.hosseini.hemophiliaapp.core.extension.formatTime
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.PickerItem
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.main.InjectionViewModel
+import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
 import java.util.*
 
 @Composable
-fun RegisterInjection(navigateToHome: () -> Unit) {
+fun RegisterInjectionScreen(
+    viewModel: InjectionViewModel = hiltViewModel(),
+    navigateToHome: () -> Unit
+) {
 
     val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.padding(20.dp).verticalScroll(state = scrollState),
+        modifier = Modifier
+            .padding(20.dp)
+            .verticalScroll(state = scrollState),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -56,7 +65,7 @@ fun RegisterInjection(navigateToHome: () -> Unit) {
                 Modifier.fillMaxWidth(),
                 onDismissRequest = { showDialog.value = false },
                 onDateChanged = { year, month, day ->
-                    injectionDate = "$year/$month/$day"
+                    injectionDate = "$year/$month/$day".formatDate()
                 })
         }
 
@@ -70,7 +79,7 @@ fun RegisterInjection(navigateToHome: () -> Unit) {
         // Creating a TimePicker dialog
         val mTimePickerDialog = TimePickerDialog(
             context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
-                injectionTime = "${mHour}:${mMinute}"
+                injectionTime = "${mHour}:${mMinute}".formatTime()
             }, mHour, mMinute, false
         )
 
@@ -141,29 +150,19 @@ fun RegisterInjection(navigateToHome: () -> Unit) {
 
             } else {
 
-/*                CoroutineScope(Dispatchers.IO).launch {
-
-                    dataStoreManager.storePhoneNumber(phoneNumber = phoneNumber)
-                    dataStoreManager.storeUserLogin(true)
-
-                    val familyHistory = when (familyHistoryOptions[familyHistorySelectedIndex]) {
-                        context.resources.getString(R.string.have) -> true
-                        context.resources.getString(R.string.have_not) -> false
-                        else -> {}
-                    }
-                    viewModel.insertUserDetails(
-                        userInfoEntity = UserInfoEntity(
-                            phoneNumber = phoneNumber,
-                            age = age,
-                            weight = weight,
-                            height = height,
-                            sex = sexOptions[sexSelectedIndex],
-                            familyHistory = familyHistory as Boolean,
-                            timeOfDiagnosis = timeOfDiagnosis
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.insertInjectionDetails(
+                        injectionEntity = InjectionEntity(
+                            activeInhibitor = activeInhibitorOptions[activeInhibitorSelectedIndex],
+                            treatmentType = treatmentOptions[treatmentSelectedIndex],
+                            dosage = dosage,
+                            injectionDate = injectionDate,
+                            injectionTime = injectionTime,
+                            injectionReason = reasonOptions[reasonSelectedIndex],
                         )
                     )
 
-                }*/
+                }
                 navigateToHome()
             }
         }
