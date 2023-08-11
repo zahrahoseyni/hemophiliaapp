@@ -7,9 +7,11 @@ import androidx.room.RoomDatabase
 import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
 import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
+import zahra.hosseini.hemophiliaapp.main.data.NotInjectionEntity
 
 @Database(
-    entities = [BleedingEntity::class, UserInfoEntity::class, InjectionEntity::class],
+    entities = [BleedingEntity::class, UserInfoEntity::class, InjectionEntity::class,
+        NotInjectionEntity::class],
     version = DatabaseConstants.DATABASE_VERSION
 )
 abstract class HemophiliaDatabase : RoomDatabase() {

@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
 import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
+import zahra.hosseini.hemophiliaapp.main.data.NotInjectionEntity
 
 @Dao
 interface AppDao {
@@ -27,4 +28,10 @@ interface AppDao {
 
     @Query("SELECT * FROM BLEEDING_TABLE ORDER BY bleedingId DESC")
     fun getAllRegisteredBleeding(): Flow<List<BleedingEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertNotInjectionInfo(notInjectionEntity: NotInjectionEntity): Long
+
+    @Query("SELECT * FROM NOT_INJECTION_TABLE ORDER BY notInjectionId DESC")
+    fun getAllRegisteredNotInjection(): Flow<List<NotInjectionEntity>>
 }

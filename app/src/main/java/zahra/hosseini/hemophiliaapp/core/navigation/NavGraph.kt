@@ -36,6 +36,8 @@ fun NavGraph(navController: NavHostController) {
         addRegisterBleedingScreen(navController, this)
 
         addRegisterInjectionScreen(navController, this)
+
+        addRegisterNotInjectionScreen(navController, this)
     }
 }
 
@@ -82,7 +84,9 @@ private fun addHomeScreen(
             },
             navigateToRegisterInjection = {
                 navController.navigate(NavRoute.RegisterInjection.path)
-
+            },
+            navigateToRegisterNotInjection = {
+                navController.navigate(NavRoute.RegisterNotInjection.path)
             }
         )
     }
@@ -150,6 +154,19 @@ private fun addRegisterInjectionScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterInjection.path) {
         RegisterInjectionScreen(
+            navigateToHome = {
+                navController.navigate(NavRoute.Home.path)
+            }
+        )
+    }
+}
+
+private fun addRegisterNotInjectionScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.RegisterNotInjection.path) {
+        RegisterNotInjectionScreen(
             navigateToHome = {
                 navController.navigate(NavRoute.Home.path)
             }

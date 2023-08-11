@@ -34,7 +34,9 @@ fun HomeScreen(
     authenticationViewModel: AuthenticationViewModel = hiltViewModel(),
     injectionViewModel: InjectionViewModel = hiltViewModel(),
     bleedingViewModel: BleedingViewModel = hiltViewModel(),
-    navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit,
+    navigateToRegisterBleeding: () -> Unit,
+    navigateToRegisterInjection: () -> Unit,
+    navigateToRegisterNotInjection: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -64,7 +66,7 @@ fun HomeScreen(
             onFabItemClicked = {
                 when (it.id) {
                     1 -> navigateToRegisterInjection()
-                    //2 ->
+                    2 -> navigateToRegisterNotInjection()
                     3 -> navigateToRegisterBleeding()
                 }
             },
@@ -74,19 +76,12 @@ fun HomeScreen(
             )
         )
     }) {
-/*        bleedingViewModel.getAllBleedingList()
-        if (bleedingViewModel.bleedingList.value.isNotEmpty()) {
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingReason)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingId.toString())
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingTopic)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingIntensity)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingDate)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingTime)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].amountOfDisability)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].amountOfPain)
-            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].usingSedative)
-            bleedingViewModel.bleedingList.value[0].sedativeName?.let { it1 -> Log.d("jfsd", it1) }
-        }*/
+     injectionViewModel.getAllNotInjectionList()
+        if (injectionViewModel.notInjectionList.value.isNotEmpty()) {
+            Log.d("jfsd", injectionViewModel.notInjectionList.value[0].injectionReason)
+            Log.d("jfsd", injectionViewModel.notInjectionList.value[0].notInjectionId.toString())
+            Log.d("jfsd", injectionViewModel.notInjectionList.value[0].injectionDate)
+        }
 
     }
 

@@ -62,5 +62,10 @@
     <string name="self_care_report">گزارشات خود مراقبتی</string>
     <string name="user_profile">حساب کاربری</string>
     <string name="register">ثبت نام</string>
+    <string name="forgetting">فراموشی</string>
+    <string name="being_busy">مشغول بودن</string>
+    <string name="inaccessible_treatment">در دسترس نبودن درمان</string>
+    <string name="modifying_treatment">تغییر درمان</string>
+    <string name="not_feeling_good">نداشتن احساس خوب برای انجام</string>
 
 </resources>

@@ -11,4 +11,5 @@ sealed class NavRoute(val path: String) {
     object Reminder : NavRoute("reminder")
     object RegisterBleeding : NavRoute("register_bleeding")
     object RegisterInjection : NavRoute("register_injection")
+    object RegisterNotInjection : NavRoute("register_not_injection")
 }
