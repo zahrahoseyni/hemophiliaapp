@@ -45,6 +45,7 @@ fun MainScreen() {
             NavRoute.RegisterInjection.path -> stringResource(id = R.string.register_injection)
             NavRoute.Training.path -> stringResource(id = R.string.training)
             NavRoute.Reminder.path -> stringResource(id = R.string.reminder)
+            NavRoute.FirstTrainingBlog.path -> stringResource(id = R.string.training_card_title1)
             else -> {
                 stringResource(id = R.string.app_name)
             }
@@ -59,6 +60,7 @@ fun MainScreen() {
             NavRoute.RegisterBleeding.path,
             NavRoute.RegisterInjection.path,
             NavRoute.Login.path,
+            NavRoute.FirstTrainingBlog.path,
             -> true
             else -> {
                 false

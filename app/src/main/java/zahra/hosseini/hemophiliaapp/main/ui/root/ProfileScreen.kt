@@ -32,7 +32,6 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 fun ProfileScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
 ) {
-
     val scrollState = rememberScrollState()
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()

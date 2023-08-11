@@ -11,6 +11,7 @@ import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.ui.root.ProfileScreen
 import zahra.hosseini.hemophiliaapp.main.ui.root.TrainingScreen
+import zahra.hosseini.hemophiliaapp.main.ui.training.FirstTrainingBlogScreen
 import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
 
 @Composable
@@ -36,6 +37,12 @@ fun NavGraph(navController: NavHostController) {
         addRegisterBleedingScreen(navController, this)
 
         addRegisterInjectionScreen(navController, this)
+
+        addRegisterNotInjectionScreen(navController, this)
+
+        addFirstTrainingBlogScreen(navController, this)
+
+        addRegisterNotInjectionScreen(navController, this)
 
         addRegisterNotInjectionScreen(navController, this)
     }
@@ -122,6 +129,15 @@ private fun addTrainingScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.Training.path) {
         TrainingScreen(
+            navigateToFirstTrainingBlog = {
+                navController.navigate(NavRoute.FirstTrainingBlog.path)
+            },
+            navigateToSecondTrainingBlog = {
+
+            },
+            navigateToThirdTrainingBlog = {
+
+            }
         )
     }
 }
@@ -171,5 +187,14 @@ private fun addRegisterNotInjectionScreen(
                 navController.navigate(NavRoute.Home.path)
             }
         )
+    }
+}
+
+private fun addFirstTrainingBlogScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.FirstTrainingBlog.path) {
+        FirstTrainingBlogScreen()
     }
 }
