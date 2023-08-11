@@ -48,6 +48,7 @@ fun MainScreen() {
             NavRoute.FirstTrainingBlog.path -> stringResource(id = R.string.training_card_title1)
             NavRoute.SecondTrainingBlog.path -> stringResource(id = R.string.training_card_title2)
             NavRoute.ThirdTrainingBlog.path -> stringResource(id = R.string.training_card_title3)
+            NavRoute.AboutUs.path -> stringResource(id = R.string.about_us)
             else -> {
                 stringResource(id = R.string.app_name)
             }
@@ -65,6 +66,7 @@ fun MainScreen() {
             NavRoute.FirstTrainingBlog.path,
             NavRoute.SecondTrainingBlog.path,
             NavRoute.ThirdTrainingBlog.path,
+            NavRoute.AboutUs.path,
             -> true
             else -> {
                 false

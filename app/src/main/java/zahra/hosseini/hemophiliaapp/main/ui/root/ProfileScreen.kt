@@ -1,14 +1,14 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
 import android.util.Log
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,11 +26,14 @@ import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.TrainingCard
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
 fun ProfileScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
+    navigateToAboutUs: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
     val context = LocalContext.current
@@ -80,7 +83,8 @@ fun ProfileScreen(
             .fillMaxWidth()
             .verticalScroll(state = scrollState)
             .fillMaxHeight()
-            .padding(top = 30.dp, bottom = 60.dp),
+            .background(color = MaterialTheme.hemophiliaColors.designSystem.Neutral00)
+            .padding(top = 30.dp, bottom = 70.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
@@ -158,12 +162,52 @@ fun ProfileScreen(
             3
         )
 
+        OutlinedCard(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(color = MaterialTheme.hemophiliaColors.designSystem.Neutral00)
+                .padding(16.dp),
+            border = BorderStroke(
+                width = 1.dp,
+                color = MaterialTheme.hemophiliaColors.designSystem.Neutral20
+            ),
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp),
+                horizontalAlignment = Alignment.End,
+                verticalArrangement = Arrangement.spacedBy(5.dp)
+            ) {
+                Text(
+                    modifier = Modifier
+                        .padding(
+                            start = 12.dp,
+                            end = 12.dp,
+                            top = 8.dp,
+                            bottom = 16.dp
+                        )
+                        .clickable {
+                            navigateToAboutUs()
+                        },
+                    text = stringResource(id = R.string.about_us),
+                    style = MaterialTheme.hemophiliaTypography.text14Medium,
+                    color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                )
+
+                Text(
+                    modifier = Modifier.padding(
+                        start = 12.dp,
+                        end = 12.dp,
+                        top = 8.dp,
+                        bottom = 16.dp
+                    ),
+                    text = stringResource(id = R.string.log_out),
+                    style = MaterialTheme.hemophiliaTypography.text14Medium,
+                    color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                )
+            }
+        }
 
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun BottomNavigationPreview() {
-    ProfileScreen()
 }

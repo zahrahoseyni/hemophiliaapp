@@ -26,7 +26,7 @@ fun BottomBarNav(navController: NavController) {
 
     if (currentRoute == null || currentRoute == NavRoute.Login.path ||
         currentRoute == NavRoute.Register.path || currentRoute == NavRoute.Splash.path ||
-        currentRoute == NavRoute.RegisterInjection.path || currentRoute == NavRoute.RegisterBleeding.path
+        currentRoute == NavRoute.RegisterInjection.path || currentRoute == NavRoute.RegisterBleeding.path || currentRoute == NavRoute.AboutUs.path
     ) {
         return
     }
