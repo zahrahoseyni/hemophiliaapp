@@ -1,4 +1,4 @@
-package zahra.hosseini.hemophiliaapp.main
+package zahra.hosseini.hemophiliaapp.main.ui
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -16,13 +16,15 @@ import zahra.hosseini.hemophiliaapp.authentication.data.EmptyUserInfoEntity
 import zahra.hosseini.hemophiliaapp.authentication.data.RegisterRepository
 import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
+import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
+import zahra.hosseini.hemophiliaapp.main.data.BleedingRepository
 import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
 import zahra.hosseini.hemophiliaapp.main.data.InjectionRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class InjectionViewModel @Inject constructor(
-    private val injectionRepository: InjectionRepository,
+class BleedingViewModel @Inject constructor(
+    private val bleedingRepository: BleedingRepository,
     @ApplicationContext context: Context,
 ) : ViewModel() {
 
@@ -30,24 +32,25 @@ class InjectionViewModel @Inject constructor(
     private val _response = MutableLiveData<Long>()
     val response: LiveData<Long> = _response
 
-    fun insertInjectionDetails(injectionEntity: InjectionEntity) {
+    fun insertBleedingDetails(bleedingEntity: BleedingEntity) {
         viewModelScope.launch(Dispatchers.IO) {
-            _response.postValue(injectionRepository.insertInjectionDetails(injectionEntity))
+            _response.postValue(bleedingRepository.insertBleedingDetails(bleedingEntity))
         }
     }
 
-    private val _injectionList = MutableStateFlow<List<InjectionEntity>>(emptyList())
-    val injectionList: StateFlow<List<InjectionEntity>> = _injectionList
 
-    fun getAllInjectionList() {
+    private val _bleedingList = MutableStateFlow<List<BleedingEntity>>(emptyList())
+    val bleedingList: StateFlow<List<BleedingEntity>> = _bleedingList
+
+    fun getAllBleedingList() {
         viewModelScope.launch(Dispatchers.IO) {
-            injectionRepository.getAllRegisteredInjection()
+            bleedingRepository.getAllRegisteredBleeding()
                 .catch { e ->
                     //Log error here
                     e.message.toString()
                 }
                 .collect {
-                    _injectionList.value = it
+                    _bleedingList.value = it
                 }
         }
     }

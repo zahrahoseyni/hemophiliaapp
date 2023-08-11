@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.main.InjectionViewModel
+import zahra.hosseini.hemophiliaapp.main.ui.BleedingViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
@@ -30,8 +31,9 @@ import kotlin.math.log
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun HomeScreen(
-    viewModel: AuthenticationViewModel = hiltViewModel(),
-    viewModel2: InjectionViewModel = hiltViewModel(),
+    authenticationViewModel: AuthenticationViewModel = hiltViewModel(),
+    injectionViewModel: InjectionViewModel = hiltViewModel(),
+    bleedingViewModel: BleedingViewModel = hiltViewModel(),
     navigateToRegisterBleeding: () -> Unit, navigateToRegisterInjection: () -> Unit,
 ) {
 
@@ -72,15 +74,18 @@ fun HomeScreen(
             )
         )
     }) {
-/*        viewModel2.getAllInjectionList()
-        if (viewModel2.injectionList.value.isNotEmpty()) {
-            Log.d("jfsd", viewModel2.injectionList.value[0].treatmentType)
-            Log.d("jfsd", viewModel2.injectionList.value[0].injectionId.toString())
-            Log.d("jfsd", viewModel2.injectionList.value[0].dosage)
-            Log.d("jfsd", viewModel2.injectionList.value[0].activeInhibitor)
-            Log.d("jfsd", viewModel2.injectionList.value[0].injectionDate)
-            Log.d("jfsd", viewModel2.injectionList.value[0].injectionTime)
-            Log.d("jfsd", viewModel2.injectionList.value[0].injectionReason)
+/*        bleedingViewModel.getAllBleedingList()
+        if (bleedingViewModel.bleedingList.value.isNotEmpty()) {
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingReason)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingId.toString())
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingTopic)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingIntensity)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingDate)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].bleedingTime)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].amountOfDisability)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].amountOfPain)
+            Log.d("jfsd", bleedingViewModel.bleedingList.value[0].usingSedative)
+            bleedingViewModel.bleedingList.value[0].sedativeName?.let { it1 -> Log.d("jfsd", it1) }
         }*/
 
     }

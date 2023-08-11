@@ -3,26 +3,45 @@ package zahra.hosseini.hemophiliaapp.main.ui
 import android.app.TimePickerDialog
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.razaghimahdi.compose_persian_date.PersianDatePickerDialog
 import com.razaghimahdi.compose_persian_date.core.rememberPersianDatePicker
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.extension.formatDate
 import zahra.hosseini.hemophiliaapp.core.extension.formatTime
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.*
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
+import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
+import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
 import java.util.*
 
 @Composable
-fun RegisterBleedingScreen() {
+fun RegisterBleedingScreen(
+    viewModel: BleedingViewModel = hiltViewModel(), navigateToHome: () -> Unit
+) {
+
+    val scrollState = rememberScrollState()
 
     Column(
-        modifier = Modifier.padding(20.dp),
+        modifier = Modifier
+            .padding(20.dp)
+            .verticalScroll(state = scrollState),
         verticalArrangement = Arrangement.spacedBy(5.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -78,7 +97,7 @@ fun RegisterBleedingScreen() {
         )
 
         LargeDropdownMenu(
-            label = stringResource(id = R.string.type_of_treatment),
+            label = stringResource(id = R.string.reason),
             items = reasonOptions,
             selectedIndex = reasonSelectedIndex,
             onItemSelected = { index, _ -> reasonSelectedIndex = index },
@@ -125,14 +144,18 @@ fun RegisterBleedingScreen() {
         )
         var sedativeSelectedIndex by remember { mutableStateOf(-1) }
 
-        LargeDropdownMenu(
-            label = stringResource(id = R.string.question_for_sedative),
-            items = sedativeOptions,
-            selectedIndex = sedativeSelectedIndex,
-            onItemSelected = { index, _ -> sedativeSelectedIndex = index },
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Text(
+            text = stringResource(id = R.string.amount_of_disability),
+            style = MaterialTheme.hemophiliaTypography.text12,
+            color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(end = 16.dp)
         )
 
-        var selectedIndex by remember { mutableStateOf(-1) }
+        var disabilitySelectedIndex by remember { mutableStateOf(-1) }
 
         LazyRow(
             modifier = Modifier.padding(
@@ -143,22 +166,87 @@ fun RegisterBleedingScreen() {
             intervalOfNumbers.forEachIndexed { index, number ->
                 item {
 
-                    NumberButton(number = number, isSelected = selectedIndex == index) {
-                        selectedIndex = index
+                    NumberButton(number = number, isSelected = disabilitySelectedIndex == index) {
+                        disabilitySelectedIndex = index
                     }
                 }
 
             }
         }
 
-        DefaultButton(text = stringResource(id = R.string.submit)) {}
+        Spacer(modifier = Modifier.height(5.dp))
+
+        Text(
+            text = stringResource(id = R.string.amount_of_pain),
+            style = MaterialTheme.hemophiliaTypography.text12,
+            color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(end = 16.dp)
+        )
+
+        var painSelectedIndex by remember { mutableStateOf(-1) }
+
+        LazyRow(
+            modifier = Modifier.padding(
+                top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp
+            ), userScrollEnabled = true
+
+        ) {
+            intervalOfNumbers.forEachIndexed { index, number ->
+                item {
+
+                    NumberButton(number = number, isSelected = painSelectedIndex == index) {
+                        painSelectedIndex = index
+                    }
+                }
+
+            }
+        }
+
+
+        LargeDropdownMenu(
+            label = stringResource(id = R.string.question_for_sedative),
+            items = sedativeOptions,
+            selectedIndex = sedativeSelectedIndex,
+            onItemSelected = { index, _ -> sedativeSelectedIndex = index },
+        )
+
+        val (sedativeName, setSedativeName) = remember { mutableStateOf("") }
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.sedative_name),
+            inputType = KeyboardType.Text,
+            value = sedativeName,
+            setValue = setSedativeName,
+            10
+        )
+
+        DefaultButton(text = stringResource(id = R.string.submit)) {
+            if (reasonSelectedIndex == -1 || bleedingTopicSelectedIndex == -1 || intensitySelectedIndex == -1 || bleedingDate.isEmpty() || bleedingTime.isEmpty() || disabilitySelectedIndex == -1 || painSelectedIndex == -1 || sedativeSelectedIndex == -1) {
+                context.showMessage(context.getString(R.string.un_complete_form_message))
+
+            } else {
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.insertBleedingDetails(
+                        bleedingEntity = BleedingEntity(
+                            bleedingReason = reasonOptions[reasonSelectedIndex],
+                            bleedingTopic = bleedingTopicOptions[bleedingTopicSelectedIndex],
+                            bleedingIntensity = intensityOptions[intensitySelectedIndex],
+                            bleedingDate = bleedingDate,
+                            bleedingTime = bleedingTime,
+                            amountOfDisability = disabilitySelectedIndex.toString(),
+                            amountOfPain = painSelectedIndex.toString(),
+                            usingSedative = sedativeOptions[sedativeSelectedIndex],
+                            sedativeName = sedativeName,
+                        )
+                    )
+
+                }
+
+                navigateToHome()
+            }
+        }
 
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun Preview() {
-    RegisterBleedingScreen()
-
 }

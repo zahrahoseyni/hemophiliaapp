@@ -149,7 +149,6 @@ fun RegisterInjectionScreen(
                 context.showMessage(context.getString(R.string.un_complete_form_message))
 
             } else {
-
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModel.insertInjectionDetails(
                         injectionEntity = InjectionEntity(

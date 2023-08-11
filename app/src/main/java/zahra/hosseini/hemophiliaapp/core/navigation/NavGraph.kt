@@ -137,7 +137,10 @@ private fun addRegisterBleedingScreen(
     navGraphBuilder: NavGraphBuilder,
 ) {
     navGraphBuilder.composable(route = NavRoute.RegisterBleeding.path) {
-        RegisterBleedingScreen()
+        RegisterBleedingScreen(
+            navigateToHome =
+            { navController.navigate(NavRoute.Home.path) }
+        )
     }
 }
 

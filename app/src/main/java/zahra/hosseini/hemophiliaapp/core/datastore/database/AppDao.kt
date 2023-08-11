@@ -10,12 +10,6 @@ import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
 interface AppDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBleeding(bleedingEntity: BleedingEntity)
-
-    @Query("SELECT * FROM BLEEDING_TABLE ORDER BY bleedingId DESC")
-    fun getAllRegisteredBleeding(): MutableList<BleedingEntity>
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUserInfo(userInfoEntity: UserInfoEntity): Long
 
     @Transaction
@@ -27,4 +21,10 @@ interface AppDao {
 
     @Query("SELECT * FROM INJECTION_TABLE ORDER BY injectionId DESC")
     fun getAllRegisteredInjection(): Flow<List<InjectionEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertBleedingInfo(bleedingEntity: BleedingEntity): Long
+
+    @Query("SELECT * FROM BLEEDING_TABLE ORDER BY bleedingId DESC")
+    fun getAllRegisteredBleeding(): Flow<List<BleedingEntity>>
 }
