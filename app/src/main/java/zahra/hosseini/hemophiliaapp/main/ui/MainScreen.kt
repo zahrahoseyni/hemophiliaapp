@@ -1,36 +1,28 @@
 package zahra.hosseini.hemophiliaapp.main.ui
 
 import android.annotation.SuppressLint
-import android.widget.Toast
-import androidx.compose.animation.ExperimentalAnimationApi
+import android.app.Activity
+import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import zahra.hosseini.hemophiliaapp.core.navigation.NavGraph
 import androidx.compose.material.*
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import zahra.hosseini.hemophiliaapp.R
-import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.core.navigation.BottomBarNav
 import zahra.hosseini.hemophiliaapp.core.navigation.NavRoute
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.Toolbar
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppTheme
-import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
-import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabOption
-import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFabItem
-import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.MultiFloatingActionButton
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
-
     val context = LocalContext.current
-
     AppTheme {
         val navController = rememberNavController()
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -42,6 +34,7 @@ fun MainScreen() {
             NavRoute.Profile.path -> stringResource(id = R.string.user_profile)
             NavRoute.Register.path -> stringResource(id = R.string.register)
             NavRoute.RegisterBleeding.path -> stringResource(id = R.string.register_bleeding)
+            NavRoute.RegisterNotInjection.path -> stringResource(id = R.string.register_not_injection)
             NavRoute.RegisterInjection.path -> stringResource(id = R.string.register_injection)
             NavRoute.Training.path -> stringResource(id = R.string.training)
             NavRoute.Reminder.path -> stringResource(id = R.string.reminder)
@@ -58,11 +51,12 @@ fun MainScreen() {
             NavRoute.Profile.path,
             NavRoute.Training.path,
             NavRoute.Reminder.path,
+            NavRoute.Login.path,
             -> false
             NavRoute.Register.path,
             NavRoute.RegisterBleeding.path,
             NavRoute.RegisterInjection.path,
-            NavRoute.Login.path,
+            NavRoute.RegisterNotInjection.path,
             NavRoute.FirstTrainingBlog.path,
             NavRoute.SecondTrainingBlog.path,
             NavRoute.ThirdTrainingBlog.path,
@@ -75,7 +69,11 @@ fun MainScreen() {
 
         Scaffold(topBar = {
             if (currentRoute == NavRoute.Splash.path) return@Scaffold
-            else Toolbar(header = header, showBackBtn = showBackIcon) {}
+            else Toolbar(header = header, showBackBtn = showBackIcon) {
+                if (currentRoute != null) {
+                    handleBackPress(currentRoute, navController)
+                }
+            }
         }, bottomBar = { BottomBarNav(navController = navController) }
 
         ) {
@@ -85,6 +83,19 @@ fun MainScreen() {
         }
     }
 
+}
+
+fun handleBackPress(currentRoute: String, navController: NavHostController) {
+    when (currentRoute) {
+        NavRoute.FirstTrainingBlog.path,
+        NavRoute.SecondTrainingBlog.path,
+        NavRoute.ThirdTrainingBlog.path,
+        NavRoute.Register.path,
+        NavRoute.RegisterBleeding.path,
+        NavRoute.RegisterInjection.path,
+        NavRoute.RegisterNotInjection.path,
+        NavRoute.AboutUs.path -> navController.popBackStack()
+    }
 }
 
 

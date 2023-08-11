@@ -1,6 +1,7 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -24,6 +25,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.TrainingCard
@@ -39,11 +41,11 @@ fun ProfileScreen(
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
 
-    var (phoneNumber, setPhoneNumber) = remember { mutableStateOf("") }
-    var (weight, setWeight) = remember { mutableStateOf("") }
-    var (height, setHeight) = remember { mutableStateOf("") }
-    var (age, setAge) = remember { mutableStateOf("") }
-    var (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
+    val (phoneNumber, setPhoneNumber) = remember { mutableStateOf("") }
+    val (weight, setWeight) = remember { mutableStateOf("") }
+    val (height, setHeight) = remember { mutableStateOf("") }
+    val (age, setAge) = remember { mutableStateOf("") }
+    val (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
 
     val sexOptions =
         listOf(stringResource(id = R.string.woman), stringResource(id = R.string.man))
@@ -88,6 +90,7 @@ fun ProfileScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+
         Image(
             painter = painterResource(R.drawable.ic_profile),
             contentDescription = "avatar",
