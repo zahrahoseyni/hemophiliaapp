@@ -3,11 +3,11 @@ package zahra.hosseini.hemophiliaapp.main.ui.root
 import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Context
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,16 +18,21 @@ import androidx.compose.ui.unit.dp
 import ir.ayantech.ayannotif.NotificationBridge
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.extension.formatTime
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ReminderCard
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
+import java.time.Duration
+import java.time.LocalDateTime
+import java.time.LocalTime
 import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.properties.Delegates
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ReminderScreen() {
 
@@ -84,15 +89,18 @@ fun ReminderScreen() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 fun setReminder(mHour: Int, mMinute: Int, context: Context, notificationTitle: String) {
+
     val channel = "channel"
     val duration = calculateDuration(mHour, mMinute)
     val dataStoreManager = DataStoreManager(context)
+    var notificationId by Delegates.notNull<Int>()
 
     CoroutineScope(Dispatchers.IO).launch {
-        dataStoreManager.getNotificationId.collect { notificationId ->
+        dataStoreManager.getNotificationId.collectLatest { it ->
             NotificationBridge(context as Activity).SetNotification(
-                notificationId,
+                it,
                 duration,
                 notificationTitle,
                 "یادآوری",
@@ -106,17 +114,23 @@ fun setReminder(mHour: Int, mMinute: Int, context: Context, notificationTitle: S
                 channel,
                 "#FFB2B2B2"
             )
-            dataStoreManager.storeNotificationId(notificationId + 1)
 
+            notificationId = it
         }
+
+        dataStoreManager.storeNotificationId(notificationId + 1)
+
     }
+
+    context.showMessage(" $notificationTitle تنظیم شد")
+
 
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 fun calculateDuration(mHour: Int, mMinute: Int): Long {
-    val currentTime = System.currentTimeMillis()
-    val selectedTime = TimeUnit.MINUTES.toMillis(mMinute.toLong())
-        .plus(TimeUnit.HOURS.toMillis(mHour.toLong()))
-
-    return selectedTime - currentTime
+    val selectedTime = LocalTime.of(mHour, mMinute)
+    val currentDate = LocalDateTime.now().toLocalDate()
+    val selectedDateTime = LocalDateTime.of(currentDate, selectedTime)
+    return Duration.between(LocalDateTime.now(), selectedDateTime).toMillis()
 }
