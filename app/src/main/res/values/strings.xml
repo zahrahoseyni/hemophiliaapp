@@ -73,6 +73,8 @@
     <string name="training_card_title1">آموزش هموفیلی، علائم و درمان آن</string>
     <string name="training_card_title2">آموزش داروهای متفرقه و مسکن</string>
     <string name="training_card_title3">آموزش نحوه خود مراقبتی بیماری</string>
+    <string name="logout_title">خروج</string>
+    <string name="logout_description">آیا میخواهید از حساب کاربری خود خارج شوید؟</string>
 
 
     <string name="training_second_blog_title">داروهای موجود و موثر برای بیماری هموفیلی</string>
