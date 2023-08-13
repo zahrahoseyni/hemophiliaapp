@@ -16,19 +16,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
-import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.TrainingCard
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
@@ -36,6 +35,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 fun ProfileScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
     navigateToAboutUs: () -> Unit,
+    navigateToLogin: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
     val context = LocalContext.current
@@ -175,42 +175,48 @@ fun ProfileScreen(
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral20
             ),
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-                horizontalAlignment = Alignment.End,
-                verticalArrangement = Arrangement.spacedBy(5.dp)
-            ) {
-                Text(
-                    modifier = Modifier
-                        .padding(
-                            start = 12.dp,
-                            end = 12.dp,
-                            top = 8.dp,
-                            bottom = 16.dp
-                        )
-                        .clickable {
-                            navigateToAboutUs()
-                        },
-                    text = stringResource(id = R.string.about_us),
-                    style = MaterialTheme.hemophiliaTypography.text14Medium,
-                    color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
-                )
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
-                Text(
-                    modifier = Modifier.padding(
-                        start = 12.dp,
-                        end = 12.dp,
-                        top = 8.dp,
-                        bottom = 16.dp
-                    ),
-                    text = stringResource(id = R.string.log_out),
-                    style = MaterialTheme.hemophiliaTypography.text14Medium,
-                    color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(5.dp)
+                ) {
+                    Text(
+                        modifier = Modifier
+                            .padding(
+                                start = 12.dp,
+                                end = 12.dp,
+                                top = 8.dp,
+                                bottom = 16.dp
+                            )
+                            .clickable {
+                                navigateToAboutUs()
+                            },
+                        text = stringResource(id = R.string.about_us),
+                        style = MaterialTheme.hemophiliaTypography.text14Medium,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                    )
+
+                    Text(
+                        modifier = Modifier
+                            .padding(
+                                start = 12.dp,
+                                end = 12.dp,
+                                top = 8.dp,
+                                bottom = 16.dp
+                            )
+                            .clickable {
+
+                            },
+                        text = stringResource(id = R.string.log_out),
+                        style = MaterialTheme.hemophiliaTypography.text14Medium,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                    )
+                }
             }
         }
-
     }
+
 }

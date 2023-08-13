@@ -53,16 +53,17 @@ fun AboutUseScreen(modifier: Modifier = Modifier) {
 
                     Text(
                         text = stringResource(id = R.string.about_us_text),
-                        style = MaterialTheme.hemophiliaTypography.text12,
+                        style = MaterialTheme.hemophiliaTypography.text14,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
                     )
+                    Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
                         text = stringResource(id = R.string.contact_us),
-                        style = MaterialTheme.hemophiliaTypography.text12,
+                        style = MaterialTheme.hemophiliaTypography.text14Medium,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
+                        textAlign = TextAlign.Start,
                     )
 
                 }

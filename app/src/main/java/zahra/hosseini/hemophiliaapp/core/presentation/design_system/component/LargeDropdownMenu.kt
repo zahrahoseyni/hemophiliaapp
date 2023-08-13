@@ -158,16 +158,16 @@ fun LargeDropdownMenuItem(
         else -> MaterialTheme.colorScheme.onSurface.copy(alpha = ALPHA_FULL)
     }
 
-    CompositionLocalProvider(LocalContentColor provides contentColor) {
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl)
+    {
         Box(modifier = Modifier
             .clickable(enabled) { onClick() }
             .fillMaxWidth()
-            .padding(16.dp), Alignment.CenterEnd) {
+            .padding(16.dp)) {
             Text(
                 text = text,
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
-                textAlign = TextAlign.End,
                 modifier = Modifier.fillMaxWidth()
             )
         }
