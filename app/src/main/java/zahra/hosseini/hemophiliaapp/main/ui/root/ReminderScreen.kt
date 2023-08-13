@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.content.Context
 import android.os.Build
 import android.util.Log
+import androidx.activity.compose.BackHandler
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -24,6 +25,7 @@ import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.extension.formatTime
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
+import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ReminderCard
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import java.time.Duration
@@ -86,6 +88,10 @@ fun ReminderScreen() {
             mTimePickerDialog.show()
         }
 
+
+    }
+    BackHandler(enabled = true) {
+        (context as MainActivity).onBackPress()
     }
 }
 

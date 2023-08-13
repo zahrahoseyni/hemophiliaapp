@@ -1,5 +1,7 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,10 +13,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
+import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.TrainingCard
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 
@@ -25,6 +29,7 @@ fun TrainingScreen(
     navigateToThirdTrainingBlog: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
+    val context = LocalContext.current
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -57,5 +62,9 @@ fun TrainingScreen(
             navigateToThirdTrainingBlog()
         }
 
+    }
+
+    BackHandler(enabled = true) {
+        (context as MainActivity).onBackPress()
     }
 }

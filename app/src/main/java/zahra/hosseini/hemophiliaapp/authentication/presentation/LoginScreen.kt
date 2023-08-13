@@ -1,5 +1,7 @@
 package zahra.hosseini.hemophiliaapp.authentication.presentation
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.MaterialTheme
@@ -22,6 +24,7 @@ import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
+import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
@@ -32,7 +35,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 fun LoginScreen(
     authenticationViewModel: AuthenticationViewModel = hiltViewModel(),
     navigateToHome: () -> Unit,
-    navigateToRegister: () -> Unit
+    navigateToRegister: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -104,4 +107,9 @@ fun LoginScreen(
             })
 
     }
+
+    BackHandler(enabled = true) {
+        (context as MainActivity).finish()
+    }
+
 }

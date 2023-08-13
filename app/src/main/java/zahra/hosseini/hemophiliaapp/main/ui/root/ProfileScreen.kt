@@ -1,5 +1,7 @@
 package zahra.hosseini.hemophiliaapp.main.ui.root
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -30,6 +32,8 @@ import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
+import zahra.hosseini.hemophiliaapp.core.extension.showMessage
+import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
@@ -75,15 +79,15 @@ fun ProfileScreen(
                         // perform the confirm action and
                         // close the dialog
                         CoroutineScope(Dispatchers.IO).launch {
-                            dataStoreManager.storePhoneNumber(phoneNumber = phoneNumber)
-                            dataStoreManager.storeUserLogin(true)
+                            dataStoreManager.storePhoneNumber(phoneNumber = "")
+                            dataStoreManager.storeUserLogin(false)
                         }
                         navigateToLogin()
                         logOutDialog.value = false
                     }) {
                         Text(
                             text = stringResource(id = R.string.yes),
-                            style = MaterialTheme.hemophiliaTypography.text12,
+                            style = MaterialTheme.hemophiliaTypography.text12Bold,
                             color = MaterialTheme.hemophiliaColors.designSystem.Neutral40
                         )
                     }
@@ -95,7 +99,7 @@ fun ProfileScreen(
                     }) {
                         Text(
                             text = stringResource(id = R.string.no),
-                            style = MaterialTheme.hemophiliaTypography.text12,
+                            style = MaterialTheme.hemophiliaTypography.text12Bold,
                             color = MaterialTheme.hemophiliaColors.designSystem.Primary
                         )
                     }
@@ -280,4 +284,8 @@ fun ProfileScreen(
         }
     }
 
+
+    BackHandler(enabled = true) {
+        (context as MainActivity).onBackPress()
+    }
 }

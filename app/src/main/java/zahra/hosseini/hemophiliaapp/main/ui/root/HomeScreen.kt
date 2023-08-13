@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.compose.BackHandler
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
@@ -19,6 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
+import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.main.InjectionViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.BleedingViewModel
 import zahra.hosseini.hemophiliaapp.main.ui.floatingactionbutton.FabIcon
@@ -40,7 +42,6 @@ fun HomeScreen(
 ) {
 
     val context = LocalContext.current
-
 
     Scaffold(floatingActionButton = {
         MultiFloatingActionButton(
@@ -76,13 +77,18 @@ fun HomeScreen(
             )
         )
     }) {
-     injectionViewModel.getAllNotInjectionList()
+/*        injectionViewModel.getAllNotInjectionList()
         if (injectionViewModel.notInjectionList.value.isNotEmpty()) {
             Log.d("jfsd", injectionViewModel.notInjectionList.value[0].injectionReason)
             Log.d("jfsd", injectionViewModel.notInjectionList.value[0].notInjectionId.toString())
             Log.d("jfsd", injectionViewModel.notInjectionList.value[0].injectionDate)
-        }
+        }*/
 
+
+    }
+
+    BackHandler(enabled = true) {
+        (context as MainActivity).onBackPress()
     }
 
 }

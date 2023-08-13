@@ -3,6 +3,10 @@ package zahra.hosseini.hemophiliaapp.main.ui
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
+import android.os.Build
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.compose.BackHandler
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import zahra.hosseini.hemophiliaapp.core.navigation.NavGraph
@@ -19,6 +23,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.To
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.AppTheme
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter", "UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun MainScreen() {
@@ -94,7 +99,8 @@ fun handleBackPress(currentRoute: String, navController: NavHostController) {
         NavRoute.RegisterBleeding.path,
         NavRoute.RegisterInjection.path,
         NavRoute.RegisterNotInjection.path,
-        NavRoute.AboutUs.path -> navController.popBackStack()
+        NavRoute.AboutUs.path,
+        -> navController.popBackStack()
     }
 }
 
