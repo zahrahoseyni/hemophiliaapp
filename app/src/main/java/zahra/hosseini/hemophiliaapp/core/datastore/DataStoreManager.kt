@@ -15,6 +15,7 @@ class DataStoreManager(context: Context) {
     companion object {
         val MOBILE_NUMBER = preferencesKey<String>("MOBILE_NUMBER")
         val IS_USER_LOGIN = preferencesKey<Boolean>("IS_USER_LOGIN")
+        val NOTIFICATION_ID = preferencesKey<Int>("NOTIFICATION_ID")
     }
 
     suspend fun storeUserLogin(isLogin: Boolean) {
@@ -38,5 +39,14 @@ class DataStoreManager(context: Context) {
         it[MOBILE_NUMBER] ?: ""
     }
 
+    suspend fun storeNotificationId(id: Int) {
+        dataStore.edit {
+            it[NOTIFICATION_ID] = id
+        }
+    }
+
+    val getNotificationId: Flow<Int> = dataStore.data.map {
+        it[NOTIFICATION_ID] ?: 0
+    }
 
 }

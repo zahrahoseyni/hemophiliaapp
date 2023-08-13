@@ -10,6 +10,7 @@ import zahra.hosseini.hemophiliaapp.authentication.presentation.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.ui.root.ProfileScreen
+import zahra.hosseini.hemophiliaapp.main.ui.root.ReminderScreen
 import zahra.hosseini.hemophiliaapp.main.ui.root.TrainingScreen
 import zahra.hosseini.hemophiliaapp.main.ui.training.FirstTrainingBlogScreen
 import zahra.hosseini.hemophiliaapp.main.ui.training.SecondTrainingBlogScreen
