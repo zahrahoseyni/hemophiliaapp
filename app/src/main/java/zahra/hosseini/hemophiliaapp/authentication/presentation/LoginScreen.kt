@@ -73,7 +73,7 @@ fun LoginScreen(
 
         DefaultButton(text = stringResource(id = R.string.login)) {
             if (phoneNumber.isNotEmpty()) {
-                if (authenticationViewModel.userDetails.value.phoneNumber == "")
+                if (authenticationViewModel.userDetails.value.phoneNumber == "" || authenticationViewModel.userDetails.value.phoneNumber != phoneNumber)
                     context.showMessage(context.getString(R.string.invalid_phone_number_message))
                 else {
                     CoroutineScope(Dispatchers.IO).launch {

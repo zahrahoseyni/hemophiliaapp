@@ -1,7 +1,5 @@
 package zahra.hosseini.hemophiliaapp.authentication.presentation
 
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -25,7 +23,6 @@ import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.authentication.AuthenticationViewModel
 import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
-import zahra.hosseini.hemophiliaapp.core.datastore.UserInfo
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
