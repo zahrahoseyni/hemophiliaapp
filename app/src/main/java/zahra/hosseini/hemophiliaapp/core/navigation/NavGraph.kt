@@ -9,15 +9,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import zahra.hosseini.hemophiliaapp.authentication.presentation.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.presentation.RegisterScreen
+import zahra.hosseini.hemophiliaapp.main.bleeding.presentation.RegisterBleedingScreen
+import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterInjectionScreen
+import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterNotInjectionScreen
+import zahra.hosseini.hemophiliaapp.main.profile.presentation.AboutUseScreen
 import zahra.hosseini.hemophiliaapp.main.ui.*
-import zahra.hosseini.hemophiliaapp.main.ui.root.HomeScreen
-import zahra.hosseini.hemophiliaapp.main.ui.root.ProfileScreen
-import zahra.hosseini.hemophiliaapp.main.ui.root.ReminderScreen
-import zahra.hosseini.hemophiliaapp.main.ui.root.TrainingScreen
-import zahra.hosseini.hemophiliaapp.main.ui.training.FirstTrainingBlogScreen
-import zahra.hosseini.hemophiliaapp.main.ui.training.SecondTrainingBlogScreen
-import zahra.hosseini.hemophiliaapp.main.ui.training.ThirdTrainingBlogScreen
-import zahra.hosseini.hemophiliaapp.splashscreen.ui.SplashScreen
+import zahra.hosseini.hemophiliaapp.main.home.presentation.HomeScreen
+import zahra.hosseini.hemophiliaapp.main.profile.presentation.ProfileScreen
+import zahra.hosseini.hemophiliaapp.main.reminder.presentation.ReminderScreen
+import zahra.hosseini.hemophiliaapp.main.training.presentation.TrainingScreen
+import zahra.hosseini.hemophiliaapp.main.training.presentation.FirstTrainingBlogScreen
+import zahra.hosseini.hemophiliaapp.main.training.presentation.SecondTrainingBlogScreen
+import zahra.hosseini.hemophiliaapp.main.training.presentation.ThirdTrainingBlogScreen
+import zahra.hosseini.hemophiliaapp.splashscreen.presentation.SplashScreen
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable

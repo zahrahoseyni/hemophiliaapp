@@ -2,10 +2,10 @@ package zahra.hosseini.hemophiliaapp.core.datastore.database
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
-import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
-import zahra.hosseini.hemophiliaapp.main.data.BleedingEntity
-import zahra.hosseini.hemophiliaapp.main.data.InjectionEntity
-import zahra.hosseini.hemophiliaapp.main.data.NotInjectionEntity
+import zahra.hosseini.hemophiliaapp.authentication.data.model.UserInfoEntity
+import zahra.hosseini.hemophiliaapp.main.bleeding.data.model.BleedingEntity
+import zahra.hosseini.hemophiliaapp.main.injection.data.model.InjectionEntity
+import zahra.hosseini.hemophiliaapp.main.injection.data.model.NotInjectionEntity
 
 @Dao
 interface AppDao {

@@ -11,11 +11,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.launch
-import zahra.hosseini.hemophiliaapp.authentication.data.EmptyUserInfoEntity
+import zahra.hosseini.hemophiliaapp.authentication.data.model.EmptyUserInfoEntity
 import zahra.hosseini.hemophiliaapp.authentication.data.RegisterRepository
-import zahra.hosseini.hemophiliaapp.authentication.data.UserInfoEntity
+import zahra.hosseini.hemophiliaapp.authentication.data.model.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import javax.inject.Inject
 

@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import zahra.hosseini.hemophiliaapp.authentication.data.RegisterRepository
 import zahra.hosseini.hemophiliaapp.core.datastore.database.AppDao
-import zahra.hosseini.hemophiliaapp.main.data.BleedingRepository
-import zahra.hosseini.hemophiliaapp.main.data.InjectionRepository
+import zahra.hosseini.hemophiliaapp.main.bleeding.data.BleedingRepository
+import zahra.hosseini.hemophiliaapp.main.injection.data.InjectionRepository
 import javax.inject.Singleton
 
 @Module

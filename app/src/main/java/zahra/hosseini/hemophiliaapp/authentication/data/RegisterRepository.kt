@@ -1,6 +1,7 @@
 package zahra.hosseini.hemophiliaapp.authentication.data
 
 import kotlinx.coroutines.flow.Flow
+import zahra.hosseini.hemophiliaapp.authentication.data.model.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.core.datastore.database.AppDao
 
 class RegisterRepository(private val appDao: AppDao) {
