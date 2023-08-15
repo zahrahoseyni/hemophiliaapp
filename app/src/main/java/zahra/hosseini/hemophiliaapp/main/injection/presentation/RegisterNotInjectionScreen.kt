@@ -100,6 +100,8 @@ fun RegisterNotInjectionScreen(
                     )
 
                 }
+
+                context.showMessage(context.getString(R.string.info_successfully_added))
                 navigateToHome()
             }
         }

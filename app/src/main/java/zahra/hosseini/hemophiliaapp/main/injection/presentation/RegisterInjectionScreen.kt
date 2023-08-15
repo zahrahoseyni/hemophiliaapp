@@ -124,11 +124,11 @@ fun RegisterInjectionScreen(
         )
 
 
-        PickerItem(injectionDate, stringResource(id = R.string.bleeding_date)) {
+        PickerItem(injectionDate, stringResource(id = R.string.injection_date)) {
             showDialog.value = true
         }
 
-        PickerItem(injectionTime, stringResource(id = R.string.bleeding_time)) {
+        PickerItem(injectionTime, stringResource(id = R.string.injection_time)) {
             mTimePickerDialog.show()
         }
 
@@ -161,6 +161,8 @@ fun RegisterInjectionScreen(
                     )
 
                 }
+
+                context.showMessage(context.getString(R.string.info_successfully_added))
                 navigateToHome()
             }
         }

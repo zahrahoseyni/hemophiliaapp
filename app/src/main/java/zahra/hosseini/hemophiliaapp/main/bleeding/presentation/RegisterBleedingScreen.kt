@@ -37,7 +37,6 @@ fun RegisterBleedingScreen(
 ) {
 
     val scrollState = rememberScrollState()
-
     Column(
         modifier = Modifier
             .padding(20.dp)
@@ -47,7 +46,7 @@ fun RegisterBleedingScreen(
     ) {
 
         val context = LocalContext.current
-        val intervalOfNumbers = arrayListOf(1, 2, 3, 4, 5)
+        val intervalOfNumbers = arrayListOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
         val reasonOptions = listOf(
             stringResource(R.string.injury),
@@ -204,24 +203,32 @@ fun RegisterBleedingScreen(
             }
         }
 
+        var sedativeNameIsVisible = remember { mutableStateOf(false) }
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.question_for_sedative),
             items = sedativeOptions,
             selectedIndex = sedativeSelectedIndex,
-            onItemSelected = { index, _ -> sedativeSelectedIndex = index },
+            onItemSelected = { index, _ ->
+                sedativeSelectedIndex = index
+                when (sedativeSelectedIndex) {
+                    0 -> sedativeNameIsVisible.value = true
+                    1 -> sedativeNameIsVisible.value = false
+                }
+            },
         )
 
         val (sedativeName, setSedativeName) = remember { mutableStateOf("") }
 
-        RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.sedative_name),
-            inputType = KeyboardType.Text,
-            value = sedativeName,
-            setValue = setSedativeName,
-            10
-        )
-
+        if (sedativeNameIsVisible.value) {
+            RtlLabelInOutlineTextField(
+                label = stringResource(id = R.string.sedative_name),
+                inputType = KeyboardType.Text,
+                value = sedativeName,
+                setValue = setSedativeName,
+                10
+            )
+        }
         DefaultButton(text = stringResource(id = R.string.submit)) {
             if (reasonSelectedIndex == -1 || bleedingTopicSelectedIndex == -1 || intensitySelectedIndex == -1 || bleedingDate.isEmpty() || bleedingTime.isEmpty() || disabilitySelectedIndex == -1 || painSelectedIndex == -1 || sedativeSelectedIndex == -1) {
                 context.showMessage(context.getString(R.string.un_complete_form_message))
@@ -244,6 +251,7 @@ fun RegisterBleedingScreen(
 
                 }
 
+                context.showMessage(context.getString(R.string.info_successfully_added))
                 navigateToHome()
             }
         }
