@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -45,6 +46,7 @@ fun TrainingCard(
                 Image(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .height(200.dp)
                         .clip(shape = RoundedCornerShape(size = 8.dp)),
                     painter = cardBackgroundImg,
                     contentDescription = null,

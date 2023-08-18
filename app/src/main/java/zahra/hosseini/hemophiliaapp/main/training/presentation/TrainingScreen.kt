@@ -43,7 +43,7 @@ fun TrainingScreen(
     ) {
         TrainingCard(
             stringResource(id = R.string.training_card_title1),
-            painterResource(id = R.drawable.image1)
+            painterResource(id = R.drawable.blogimg11)
         ) {
             navigateToFirstTrainingBlog()
         }

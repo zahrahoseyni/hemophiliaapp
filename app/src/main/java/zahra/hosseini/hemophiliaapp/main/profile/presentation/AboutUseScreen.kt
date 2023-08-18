@@ -13,8 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -86,6 +88,17 @@ fun AboutUseScreen(modifier: Modifier = Modifier) {
                         style = MaterialTheme.hemophiliaTypography.text14Medium,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Start,
+                    )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Image(
+                        modifier = Modifier
+                            .wrapContentSize()
+                            .wrapContentHeight(),
+                        painter = painterResource(id = R.drawable.university_of_tehran_logo),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
                     )
 
                 }

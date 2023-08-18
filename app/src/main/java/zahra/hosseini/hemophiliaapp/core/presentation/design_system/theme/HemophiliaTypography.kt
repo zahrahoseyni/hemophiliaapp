@@ -87,4 +87,9 @@ data class HemophiliaTypography(
         fontSize = 20.sp,
         fontWeight = FontWeight.Medium
     ),
+    val text22Bold: TextStyle = TextStyle(
+        fontFamily = boldFont,
+        fontSize = 22.sp,
+        fontWeight = FontWeight.Bold
+    ),
 )

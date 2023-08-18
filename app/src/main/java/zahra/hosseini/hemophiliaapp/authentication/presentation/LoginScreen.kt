@@ -2,6 +2,7 @@ package zahra.hosseini.hemophiliaapp.authentication.presentation
 
 import android.app.Activity
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.MaterialTheme
@@ -9,7 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -51,12 +54,24 @@ fun LoginScreen(
         }
         var enabled by remember { mutableStateOf(true) }
 
-        Spacer(modifier = Modifier.padding(50.dp))
+        Spacer(modifier = Modifier.padding(30.dp))
 
         Text(
             text = stringResource(R.string.app_name),
-            style = MaterialTheme.hemophiliaTypography.text20Medium,
-            color = MaterialTheme.hemophiliaColors.designSystem.Primary,
+            style = MaterialTheme.hemophiliaTypography.text22Bold,
+            color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
+        )
+
+        Spacer(modifier = Modifier.padding(20.dp))
+
+        Image(
+            modifier = Modifier
+                .height(100.dp)
+                .width(100.dp),
+            painter = painterResource(id = R.drawable.logo),
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            alignment = Alignment.Center
         )
 
         Spacer(modifier = Modifier.padding(50.dp))
