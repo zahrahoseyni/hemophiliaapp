@@ -82,7 +82,7 @@ fun RegisterNotInjectionScreen(
             onItemSelected = { index, _ -> reasonSelectedIndex = index },
         )
 
-        PickerItem(date, stringResource(id = R.string.bleeding_date)) {
+        PickerItem(date, stringResource(id = R.string.not_injection_date)) {
             showDialog.value = true
         }
 
@@ -94,7 +94,7 @@ fun RegisterNotInjectionScreen(
                 CoroutineScope(Dispatchers.IO).launch {
                     viewModel.insertNotInjectionDetails(
                         notInjectionEntity = NotInjectionEntity(
-                            injectionDate = date,
+                            notInjectionDate = date,
                             injectionReason = reasonOptions[reasonSelectedIndex],
                         )
                     )

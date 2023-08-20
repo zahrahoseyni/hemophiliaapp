@@ -28,11 +28,17 @@
     <string name="dosage">دوز دارو استفاده در تزریق</string>
     <string name="injection_date">تاریخ تزریق</string>
     <string name="injection_time">زمان تزریق</string>
+    <string name="date">تاریخ ثبت</string>
+    <string name="bleeding">خونریزی</string>
+    <string name="injection">تزریق</string>
     <string name="prophylactic_fa">پیشگیری</string>
     <string name="injection_reason">علت انجام تزریق</string>
+    <string name="not_injection_reason">علت عدم انجام تزریق</string>
+    <string name="bleeding_reason">علت خونریزی</string>
     <string name="related_to_physical_actions">مرتبط با فعالیت بدنی</string>
     <string name="surgery">جراحی</string>
     <string name="extra">سایر</string>
+    <string name="no_data">تا کنون اطلاعاتی ثبت نکرده اید</string>
     <string name="not_injection_date">تاریخ عدم تزیرق</string>
     <string name="register_bleeding">ثبت خونریزی</string>
     <string name="reason">علت</string>

@@ -10,7 +10,7 @@ data class NotInjectionEntity(
     @PrimaryKey(autoGenerate = true)
     val notInjectionId: Int = 0,
     @ColumnInfo(name = "not_injection_date")
-    val injectionDate: String,
+    val notInjectionDate: String,
     @ColumnInfo(name = "not_injection_reason")
     val injectionReason: String
 )
