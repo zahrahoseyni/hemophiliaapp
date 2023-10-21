@@ -8,10 +8,11 @@ import zahra.hosseini.hemophiliaapp.authentication.data.model.UserInfoEntity
 import zahra.hosseini.hemophiliaapp.main.bleeding.data.model.BleedingEntity
 import zahra.hosseini.hemophiliaapp.main.injection.data.model.InjectionEntity
 import zahra.hosseini.hemophiliaapp.main.injection.data.model.NotInjectionEntity
+import zahra.hosseini.hemophiliaapp.main.reminder.data.model.ReminderEntity
 
 @Database(
     entities = [BleedingEntity::class, UserInfoEntity::class, InjectionEntity::class,
-        NotInjectionEntity::class],
+        NotInjectionEntity::class, ReminderEntity::class],
     version = DatabaseConstants.DATABASE_VERSION
 )
 abstract class HemophiliaDatabase : RoomDatabase() {

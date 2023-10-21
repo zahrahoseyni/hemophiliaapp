@@ -121,7 +121,12 @@ fun HomeScreen(
                 )
             ) {
                 item {
-                    TableHeader(modifier = Modifier)
+                    TableHeader(
+                        modifier = Modifier,
+                        title1 = stringResource(id = R.string.injection),
+                        title2 = stringResource(id = R.string.bleeding),
+                        title3 = stringResource(id = R.string.date)
+                    )
                 }
 
                 reportList.forEach { reportModel ->

@@ -8,4 +8,5 @@ object DatabaseConstants {
     const val INJECTION_TABLE = "injection_table"
     const val NOT_INJECTION_TABLE = "not_injection_table"
     const val USER_INFO_TABLE = "user_info_table"
+    const val REMINDER_TABLE = "reminder_table"
 }

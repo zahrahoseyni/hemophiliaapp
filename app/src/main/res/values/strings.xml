@@ -221,4 +221,8 @@ Email: erfanm7578@gmail.com
     <string name="references_text32">سایت رسمی بیمارستان نمازی شیراز</string>
     <string name="references_text33">هاکنبری مریلین، ویلسون دیوید. 1394.درسنامه پرستاری کودکان ونگ. ترجمه پوران سامی، محمود بدیعی، فاطمه احدی. تهران: نشر و تبلیغ بشری. ص 1089-1095</string>
 
+    <string name="reminder_type">نوع یادآور</string>
+    <string name="time">زمان</string>
+    <string name="bmi_title">BMI شاخص</string>
+
 </resources>

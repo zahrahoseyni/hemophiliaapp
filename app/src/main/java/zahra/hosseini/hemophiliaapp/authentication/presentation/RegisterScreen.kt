@@ -99,6 +99,24 @@ fun RegisterScreen(
             3
         )
 
+        var BMIIsVisible = remember { mutableStateOf(true) }
+
+        var (bmi, setBmi) = remember { mutableStateOf("") }
+        if (weight != "" && height.length == 3) {
+            val a  = weight.toDouble().div(height.toDouble().times(height.toDouble()))
+            bmi = a.toString()
+            if (BMIIsVisible.value) {
+
+                RtlLabelInOutlineTextField(
+                    label = stringResource(id = R.string.bmi_title),
+                    inputType = KeyboardType.Text,
+                    value = bmi,
+                    setValue = setBmi,
+                    10
+                )
+            }
+        }
+
         RtlLabelInOutlineTextField(
             label = stringResource(id = R.string.age),
             inputType = KeyboardType.NumberPassword,
@@ -106,6 +124,7 @@ fun RegisterScreen(
             setValue = setAge,
             3
         )
+
 
         LargeDropdownMenu(
             label = stringResource(id = R.string.family_history),

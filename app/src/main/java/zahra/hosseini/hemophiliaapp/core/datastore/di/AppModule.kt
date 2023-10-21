@@ -8,6 +8,7 @@ import zahra.hosseini.hemophiliaapp.authentication.data.RegisterRepository
 import zahra.hosseini.hemophiliaapp.core.datastore.database.AppDao
 import zahra.hosseini.hemophiliaapp.main.bleeding.data.BleedingRepository
 import zahra.hosseini.hemophiliaapp.main.injection.data.InjectionRepository
+import zahra.hosseini.hemophiliaapp.main.reminder.data.ReminderRepository
 import javax.inject.Singleton
 
 @Module
@@ -32,5 +33,10 @@ object AppModule {
         return BleedingRepository(appDao)
     }
 
+    @Singleton
+    @Provides
+    fun provideReminderRepository(appDao: AppDao): ReminderRepository {
+        return ReminderRepository(appDao)
+    }
 
 }

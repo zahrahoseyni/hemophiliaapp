@@ -14,7 +14,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
-fun TableHeader(modifier: Modifier = Modifier) {
+fun TableHeader(modifier: Modifier = Modifier, title1: String, title2: String, title3: String) {
 
     Column(verticalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
 
@@ -29,23 +29,23 @@ fun TableHeader(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-   /*         Text(
-                text = stringResource(id = R.string.bleeding_reason),
-                style = MaterialTheme.hemophiliaTypography.text16Bold,
-                color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-            )*/
+            /*         Text(
+                         text = stringResource(id = R.string.bleeding_reason),
+                         style = MaterialTheme.hemophiliaTypography.text16Bold,
+                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                     )*/
             Text(
-                text = stringResource(id = R.string.injection),
-                style = MaterialTheme.hemophiliaTypography.text16Bold,
-                color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-            )
-            Text(
-                text = stringResource(id = R.string.bleeding),
+                text = title1,
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
             )
             Text(
-                text = stringResource(id = R.string.date),
+                text = title2,
+                style = MaterialTheme.hemophiliaTypography.text16Bold,
+                color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+            )
+            Text(
+                text = title3,
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
             )

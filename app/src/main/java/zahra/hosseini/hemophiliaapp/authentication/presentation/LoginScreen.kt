@@ -1,6 +1,5 @@
 package zahra.hosseini.hemophiliaapp.authentication.presentation
 
-import android.app.Activity
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
