@@ -33,6 +33,7 @@ fun String.formatTime(): String {
     return "${formattedHour.toPersianNumber()}:${formattedMinute.toPersianNumber()}"
 }
 
+
 fun String.formatDate(): String {
     val parts = this.split("/")
     val year = parts[0].toInt()

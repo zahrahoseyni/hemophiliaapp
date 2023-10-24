@@ -48,6 +48,12 @@ data class DesignSystem(
     val DisabledText: Color = Gray20,
     val TertiaryText: Color = White,
 
+    val tin: Color = Blue,
+    val normal: Color = Green,
+    val highWeight: Color = Yellow,
+    val overWeight: Color = Orange,
+    val fat: Color = Red,
+
 
 )
 

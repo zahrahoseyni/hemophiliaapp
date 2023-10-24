@@ -10,7 +10,7 @@ import zahra.hosseini.hemophiliaapp.core.datastore.database.DatabaseConstants
 data class ReminderEntity(
     @PrimaryKey(autoGenerate = true)
     val reminderId: Int = 0,
-    val reminderTitle: String,
+    val reminderDescription: String,
     val reminderType: String,
     val reminderTime: String,
 )

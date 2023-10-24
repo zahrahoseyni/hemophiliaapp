@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import zahra.hosseini.hemophiliaapp.core.extension.formatTime
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 import zahra.hosseini.hemophiliaapp.main.reminder.data.model.ReminderEntity
@@ -19,14 +20,14 @@ fun ReminderItemComponent(modifier: Modifier = Modifier, reminderModel: Reminder
     Column(verticalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
 
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
                     start = 16.dp,
                     end = 16.dp,
                 ),
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
 /*            Text(
                 text = reportModel.bleedingReason.ifEmpty { "ــ" },
@@ -35,22 +36,25 @@ fun ReminderItemComponent(modifier: Modifier = Modifier, reminderModel: Reminder
                 textAlign = TextAlign.End
             )*/
             Text(
-                text = reminderModel.reminderTime,
+                text = reminderModel.reminderTime.formatTime(),
+                modifier = modifier.weight(1F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.Start
             )
             Text(
                 text = reminderModel.reminderType,
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.Center
             )
             Text(
-                text = reminderModel.reminderTitle,
+                text = reminderModel.reminderDescription,
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.End
             )
         }
 

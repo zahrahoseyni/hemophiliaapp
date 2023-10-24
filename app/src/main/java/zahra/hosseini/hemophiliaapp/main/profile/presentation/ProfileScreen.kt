@@ -50,6 +50,7 @@ fun ProfileScreen(
     val (phoneNumber, setPhoneNumber) = remember { mutableStateOf("") }
     val (weight, setWeight) = remember { mutableStateOf("") }
     val (height, setHeight) = remember { mutableStateOf("") }
+    val (bmi, setBmi) = remember { mutableStateOf("") }
     val (age, setAge) = remember { mutableStateOf("") }
     val (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
 
@@ -132,6 +133,7 @@ fun ProfileScreen(
                 setPhoneNumber(user.phoneNumber)
                 setWeight(user.weight)
                 setHeight(user.height)
+                setBmi(user.bmi)
                 setAge(user.age)
                 setTimeOfDiagnosis(user.timeOfDiagnosis)
                 sexSelectedIndex = when (user.sex) {
@@ -184,7 +186,7 @@ fun ProfileScreen(
             inputType = KeyboardType.Number,
             value = phoneNumber,
             setValue = setPhoneNumber,
-            11
+            inputLength = 11
         )
 
         LargeDropdownMenu(
@@ -199,7 +201,7 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = weight,
             setValue = setWeight,
-            3
+            inputLength = 3
         )
 
         RtlLabelInOutlineTextField(
@@ -207,7 +209,15 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = height,
             setValue = setHeight,
-            3
+            inputLength = 3
+        )
+
+        RtlLabelInOutlineTextField(
+            label = stringResource(id = R.string.bmi_title),
+            inputType = KeyboardType.NumberPassword,
+            value = bmi,
+            setValue = setBmi,
+            inputLength = 3
         )
 
         RtlLabelInOutlineTextField(
@@ -215,7 +225,7 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = age,
             setValue = setAge,
-            3
+            inputLength =  3
         )
 
         LargeDropdownMenu(
@@ -230,7 +240,7 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = timeOfDiagnosis,
             setValue = setTimeOfDiagnosis,
-            3
+            inputLength =  3
         )
 
         OutlinedCard(

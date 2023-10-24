@@ -73,7 +73,7 @@ fun RegisterScreen(
             inputType = KeyboardType.Number,
             value = phoneNumber,
             setValue = setPhoneNumber,
-            11
+            inputLength = 11
         )
 
         LargeDropdownMenu(
@@ -88,7 +88,7 @@ fun RegisterScreen(
             inputType = KeyboardType.NumberPassword,
             value = weight,
             setValue = setWeight,
-            3
+            inputLength = 3
         )
 
         RtlLabelInOutlineTextField(
@@ -96,23 +96,33 @@ fun RegisterScreen(
             inputType = KeyboardType.NumberPassword,
             value = height,
             setValue = setHeight,
-            3
+            inputLength = 3
         )
 
         var BMIIsVisible = remember { mutableStateOf(true) }
 
         var (bmi, setBmi) = remember { mutableStateOf("") }
         if (weight != "" && height.length == 3) {
-            val a  = weight.toDouble().div(height.toDouble().times(height.toDouble()))
-            bmi = a.toString()
+            bmi =
+                weight.toFloat().div((height.toFloat() / 100) * (height.toFloat() / 100)).toString()
+
+            var bmiTextColor = MaterialTheme.hemophiliaColors.designSystem.Neutral30
             if (BMIIsVisible.value) {
+                bmiTextColor = when (bmi.toFloat()) {
+                    in 0F..18.5F -> MaterialTheme.hemophiliaColors.designSystem.tin
+                    in 18.6F..24.9F -> MaterialTheme.hemophiliaColors.designSystem.normal
+                    in 25F..29.9F -> MaterialTheme.hemophiliaColors.designSystem.highWeight
+                    in 30F..34.9F -> MaterialTheme.hemophiliaColors.designSystem.overWeight
+                    else -> MaterialTheme.hemophiliaColors.designSystem.fat
+                }
 
                 RtlLabelInOutlineTextField(
                     label = stringResource(id = R.string.bmi_title),
                     inputType = KeyboardType.Text,
                     value = bmi,
                     setValue = setBmi,
-                    10
+                    inputLength = 10,
+                    textColor = bmiTextColor
                 )
             }
         }
@@ -122,7 +132,7 @@ fun RegisterScreen(
             inputType = KeyboardType.NumberPassword,
             value = age,
             setValue = setAge,
-            3
+            inputLength = 3
         )
 
 
@@ -138,7 +148,7 @@ fun RegisterScreen(
             inputType = KeyboardType.NumberPassword,
             value = timeOfDiagnosis,
             setValue = setTimeOfDiagnosis,
-            3
+            inputLength = 3
         )
 
         Spacer(modifier = Modifier.padding(8.dp))
@@ -167,6 +177,7 @@ fun RegisterScreen(
                             age = age,
                             weight = weight,
                             height = height,
+                            bmi = bmi,
                             sex = sexOptions[sexSelectedIndex],
                             familyHistory = familyHistory as Boolean,
                             timeOfDiagnosis = timeOfDiagnosis

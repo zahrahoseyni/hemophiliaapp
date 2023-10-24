@@ -5,7 +5,8 @@ class EmptyUserInfoEntity(
     sex: String = "",
     weight: String = "",
     height: String = "",
+    bmi: String = "",
     age: String = "",
     familyHistory: Boolean = false,
     timeOfDiagnosis: String = "",
-) : UserInfoEntity(phoneNumber, sex, weight, height, age, familyHistory, timeOfDiagnosis)
+) : UserInfoEntity(phoneNumber, sex, weight, height,bmi, age, familyHistory, timeOfDiagnosis)

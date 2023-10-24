@@ -120,7 +120,7 @@ fun RegisterInjectionScreen(
             inputType = KeyboardType.NumberPassword,
             value = dosage,
             setValue = setDosage,
-            10
+            inputLength = 10
         )
 
 

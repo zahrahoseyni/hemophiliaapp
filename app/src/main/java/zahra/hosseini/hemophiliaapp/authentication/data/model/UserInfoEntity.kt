@@ -15,6 +15,8 @@ open class UserInfoEntity(
     var weight: String,
     @ColumnInfo(name = "height")
     var height: String,
+    @ColumnInfo(name = "bmi")
+    var bmi: String,
     @ColumnInfo(name = "age")
     var age: String,
     @ColumnInfo(name = "family_history")

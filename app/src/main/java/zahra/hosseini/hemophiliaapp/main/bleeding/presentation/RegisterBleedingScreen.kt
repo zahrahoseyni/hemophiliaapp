@@ -253,7 +253,7 @@ fun RegisterBleedingScreen(
                 inputType = KeyboardType.Text,
                 value = sedativeName,
                 setValue = setSedativeName,
-                10
+                inputLength = 10
             )
         }
         DefaultButton(text = stringResource(id = R.string.submit)) {

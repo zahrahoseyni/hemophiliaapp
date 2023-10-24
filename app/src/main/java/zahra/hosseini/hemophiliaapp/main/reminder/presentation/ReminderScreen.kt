@@ -10,12 +10,15 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.AlertDialog
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import ir.ayantech.ayannotif.NotificationBridge
@@ -28,9 +31,7 @@ import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.extension.formatTime
 import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ReminderCard
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.ReminderItemComponent
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.TableHeader
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.*
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.main.bleeding.data.model.BleedingEntity
 import zahra.hosseini.hemophiliaapp.main.injection.InjectionViewModel
@@ -42,6 +43,7 @@ import java.time.LocalTime
 import java.util.*
 import kotlin.properties.Delegates
 
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("StateFlowValueCalledInComposition")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -50,7 +52,6 @@ fun ReminderScreen(
 ) {
 
     val context = LocalContext.current
-
     reminderViewModel.getAllReminders()
 
     Column(
@@ -66,6 +67,59 @@ fun ReminderScreen(
         var selectedTime by remember { mutableStateOf("") }
         var notificationTitle by remember { mutableStateOf("") }
 
+        val openDialog = remember { mutableStateOf(false) }
+        val (reminderDescription, setReminderDescription) = remember { mutableStateOf("") }
+
+        if (openDialog.value) {
+
+            NoPaddingAlertDialog(
+                title = {
+                    Surface(
+                        color = MaterialTheme.hemophiliaColors.designSystem.Primary,
+                        contentColor = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                        modifier = Modifier
+                            .fillMaxWidth()
+
+                    ) {
+                        Text(
+                            text = " جزییات یادآور را وارد کنید️",
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 8.dp, vertical = 16.dp),
+                        )
+                    }
+                },
+                text = {
+                    Column(Modifier.fillMaxWidth()) {
+                        RtlLabelInOutlineTextField(
+                            value = reminderDescription,
+                            setValue = setReminderDescription,
+                            label = stringResource(id = R.string.description),
+                            inputLength = 30,
+                            inputType = KeyboardType.Text
+                        )
+                    }
+                },
+                onDismissRequest = { /*TODO*/ },
+                confirmButton = {
+                    DefaultButton(text = stringResource(id = R.string.continue_btn), onClick = {
+                        openDialog.value = false
+                        setReminder(
+                            selectedTime.split(":")[0].toInt(),
+                            selectedTime.split(":")[1].toInt(),
+                            context,
+                            notificationTitle,
+                            reminderViewModel,
+                            reminderDescription
+                        )
+                        setReminderDescription("")
+                    })
+                }
+            )
+        }
+
+
         // Declaring and initializing a calendar
         val mCalendar = Calendar.getInstance()
         val mHour = mCalendar[Calendar.HOUR_OF_DAY]
@@ -75,10 +129,9 @@ fun ReminderScreen(
         val mTimePickerDialog = TimePickerDialog(
             context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
                 selectedTime = "${mHour}:${mMinute}".formatTime()
-                setReminder(mHour, mMinute, context, notificationTitle, reminderViewModel)
+                openDialog.value = true
             }, mHour, mMinute, false
         )
-
 
         ReminderCard(
             title = stringResource(id = R.string.reminder_text1),
@@ -100,6 +153,7 @@ fun ReminderScreen(
             notificationTitle = context.getString(R.string.reminder_text3)
             mTimePickerDialog.show()
         }
+
         val reminderList = reminderViewModel.reminderList.value
 
         LazyColumn(
@@ -140,6 +194,7 @@ fun setReminder(
     context: Context,
     notificationTitle: String,
     reminderViewModel: ReminderViewModel,
+    reminderDescription: String,
 ) {
 
     val channel = "channel"
@@ -151,7 +206,7 @@ fun setReminder(
 
         reminderViewModel.insertReminder(
             reminderEntity = ReminderEntity(
-                reminderTitle = notificationTitle,
+                reminderDescription = reminderDescription,
                 reminderTime = "${mHour}:${mMinute}",
                 reminderType = notificationTitle,
             )
@@ -161,7 +216,7 @@ fun setReminder(
                 it,
                 duration,
                 notificationTitle,
-                "یادآوری",
+                reminderDescription,
                 100,
                 2,
                 "",

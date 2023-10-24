@@ -80,7 +80,7 @@ fun LoginScreen(
             inputType = KeyboardType.NumberPassword,
             value = phoneNumber,
             setValue = setPhoneNumber,
-            11
+            inputLength = 11
         )
 
         Spacer(modifier = Modifier.padding(10.dp))

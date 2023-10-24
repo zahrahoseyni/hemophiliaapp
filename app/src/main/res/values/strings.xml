@@ -201,9 +201,9 @@
 Email: erfanm7578@gmail.com
 </string>
 
-    <string name="reminder_text1">یادآور زمان مصرف دارو</string>
-    <string name="reminder_text2">یادآور زمان مراجعه به پزشک</string>
-    <string name="reminder_text3">یادآور تمرینات توانبخشی</string>
+    <string name="reminder_text1">مصرف دارو</string>
+    <string name="reminder_text2">مراجعه به پزشک</string>
+    <string name="reminder_text3">تمرینات توانبخشی</string>
 
     <string name="info_successfully_added">اطلاعات با موفقیت ثبت شد</string>
 
@@ -224,5 +224,6 @@ Email: erfanm7578@gmail.com
     <string name="reminder_type">نوع یادآور</string>
     <string name="time">زمان</string>
     <string name="bmi_title">BMI شاخص</string>
+    <string name="description">توضیحات</string>
 
 </resources>

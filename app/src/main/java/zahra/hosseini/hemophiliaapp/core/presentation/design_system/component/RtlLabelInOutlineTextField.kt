@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -21,6 +22,7 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.regula
 @Composable
 fun RtlLabelInOutlineTextField(
     label: String,
+    textColor: Color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
     inputType: KeyboardType,
     value: String,
     setValue: (String) -> Unit,
@@ -37,13 +39,13 @@ fun RtlLabelInOutlineTextField(
                 Text(
                     text = label,
                     style = MaterialTheme.hemophiliaTypography.text12,
-                    color = MaterialTheme.hemophiliaColors.designSystem.Neutral30,
+                    color = textColor,
                 )
             },
             textStyle = androidx.compose.ui.text.TextStyle(
                 fontFamily = regularFont,
                 letterSpacing = 5.sp,
-                fontSize = 14.sp, color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
+                fontSize = 14.sp, color = textColor,
             ),
             keyboardOptions = KeyboardOptions(
                 keyboardType = inputType,

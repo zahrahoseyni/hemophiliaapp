@@ -32,6 +32,9 @@ val Transparent = Color(0x00000000)
 
 val Green = Color(0xFF00C893)
 val Red = Color(0xFFFF3B30)
+val Orange = Color(0xFFFF7400)
+val Yellow = Color(0xFFFFC100)
+val Blue = Color(0xFF8AC7FE)
 
 val LightBackgroundDefault = Color(0xFFFFFFFF)
 val LightBackgroundPrimary = Color(0xFFEEEEEE)

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import zahra.hosseini.hemophiliaapp.R
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
@@ -19,7 +20,7 @@ fun TableHeader(modifier: Modifier = Modifier, title1: String, title2: String, t
     Column(verticalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
 
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = modifier
                 .fillMaxWidth()
                 .padding(
@@ -36,18 +37,24 @@ fun TableHeader(modifier: Modifier = Modifier, title1: String, title2: String, t
                      )*/
             Text(
                 text = title1,
+                modifier = modifier.weight(1F),
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                textAlign = TextAlign.Start
             )
             Text(
                 text = title2,
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                textAlign = TextAlign.Center
             )
             Text(
                 text = title3,
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                textAlign = TextAlign.End
             )
         }
 
