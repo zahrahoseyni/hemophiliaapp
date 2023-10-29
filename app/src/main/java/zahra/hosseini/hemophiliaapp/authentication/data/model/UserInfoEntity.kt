@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.authentication.data.model
 
+import android.graphics.Color
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -23,5 +24,4 @@ open class UserInfoEntity(
     var familyHistory: Boolean,
     @ColumnInfo(name = "time_of_diagnosis")
     var timeOfDiagnosis: String,
-
     )

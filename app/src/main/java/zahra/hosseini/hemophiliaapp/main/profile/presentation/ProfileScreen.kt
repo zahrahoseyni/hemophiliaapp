@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
@@ -32,6 +33,7 @@ import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.Gray30
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
@@ -53,7 +55,6 @@ fun ProfileScreen(
     val (bmi, setBmi) = remember { mutableStateOf("") }
     val (age, setAge) = remember { mutableStateOf("") }
     val (timeOfDiagnosis, setTimeOfDiagnosis) = remember { mutableStateOf("") }
-
     val sexOptions = listOf(stringResource(id = R.string.woman), stringResource(id = R.string.man))
     var sexSelectedIndex by remember { mutableStateOf(-1) }
 
@@ -148,8 +149,8 @@ fun ProfileScreen(
                     false -> 1
                 }
             }
-
         }
+
     }
 
     Column(
@@ -162,6 +163,7 @@ fun ProfileScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+
 
         Image(
             painter = painterResource(R.drawable.ic_profile),
@@ -212,12 +214,13 @@ fun ProfileScreen(
             inputLength = 3
         )
 
+
         RtlLabelInOutlineTextField(
             label = stringResource(id = R.string.bmi_title),
             inputType = KeyboardType.NumberPassword,
             value = bmi,
             setValue = setBmi,
-            inputLength = 3
+            inputLength = 3,
         )
 
         RtlLabelInOutlineTextField(
@@ -225,7 +228,7 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = age,
             setValue = setAge,
-            inputLength =  3
+            inputLength = 3
         )
 
         LargeDropdownMenu(
@@ -240,7 +243,7 @@ fun ProfileScreen(
             inputType = KeyboardType.NumberPassword,
             value = timeOfDiagnosis,
             setValue = setTimeOfDiagnosis,
-            inputLength =  3
+            inputLength = 3
         )
 
         OutlinedCard(

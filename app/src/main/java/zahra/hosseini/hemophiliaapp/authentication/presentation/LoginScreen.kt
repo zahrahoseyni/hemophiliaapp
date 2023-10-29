@@ -65,8 +65,8 @@ fun LoginScreen(
 
         Image(
             modifier = Modifier
-                .height(100.dp)
-                .width(100.dp),
+                .height(150.dp)
+                .width(150.dp),
             painter = painterResource(id = R.drawable.logo),
             contentDescription = null,
             contentScale = ContentScale.Crop,

@@ -42,6 +42,7 @@ fun HomeScreen(
     navigateToRegisterBleeding: () -> Unit,
     navigateToRegisterInjection: () -> Unit,
     navigateToRegisterNotInjection: () -> Unit,
+    navigateToDoctors: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -64,14 +65,20 @@ fun HomeScreen(
                     id = 3,
                     iconRes = R.drawable.ic_bleeding,
                     label = stringResource(R.string.register_bleeding)
+                ),
+                MultiFabItem(
+                    id = 4,
+                    iconRes = R.drawable.ic_call,
+                    label = stringResource(R.string.doctor_appointment)
                 )
             ),
-            fabIcon = FabIcon(iconRes = R.drawable.ic_baseline_add_24, iconRotate = 45f),
+            fabIcon = FabIcon(iconRes = R.drawable.ic_edit, iconRotate = 45f),
             onFabItemClicked = {
                 when (it.id) {
                     1 -> navigateToRegisterInjection()
                     2 -> navigateToRegisterNotInjection()
                     3 -> navigateToRegisterBleeding()
+                    4 -> navigateToDoctors()
                 }
             },
             fabOption = FabOption(

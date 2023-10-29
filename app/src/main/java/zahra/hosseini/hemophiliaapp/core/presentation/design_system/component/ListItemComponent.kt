@@ -19,7 +19,7 @@ fun ListItemComponent(modifier: Modifier = Modifier, reportModel: ReportModel) {
     Column(verticalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
 
         Row(
-            horizontalArrangement = Arrangement.SpaceBetween,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(
@@ -36,21 +36,24 @@ fun ListItemComponent(modifier: Modifier = Modifier, reportModel: ReportModel) {
             )*/
             Text(
                 text = reportModel.injection.ifEmpty { "ــ" },
+                modifier = modifier.weight(1F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.Start
             )
             Text(
                 text = reportModel.bleeding.ifEmpty { "ــ" },
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.Center
             )
             Text(
                 text = reportModel.date,
+                modifier = modifier.weight(2F),
                 style = MaterialTheme.hemophiliaTypography.text14,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                textAlign = TextAlign.Justify
+                textAlign = TextAlign.End
             )
         }
 

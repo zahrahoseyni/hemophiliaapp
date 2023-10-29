@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bleed Stop</string>
+    <string name="app_name">هموفیلیا یار</string>
     <string name="login">ورود</string>
     <string name="about_us">درباره ما</string>
     <string name="log_out">خروج از حساب کاربری</string>
@@ -41,6 +41,7 @@
     <string name="no_data">تا کنون اطلاعاتی ثبت نکرده اید</string>
     <string name="not_injection_date">تاریخ عدم تزیرق</string>
     <string name="register_bleeding">ثبت خونریزی</string>
+    <string name="doctor_appointment">ارتباط با پزشک</string>
     <string name="reason">علت</string>
     <string name="injury">صدمه</string>
     <string name="spontaneity">خودبخودی</string>
@@ -225,5 +226,11 @@ Email: erfanm7578@gmail.com
     <string name="time">زمان</string>
     <string name="bmi_title">BMI شاخص</string>
     <string name="description">توضیحات</string>
+
+    <string name="doctor_name">نام پزشک</string>
+    <string name="doctor_expertise">تخصص</string>
+    <string name="doctor_contact">ارتباط با پزشک</string>
+    <string name="details">جزییات</string>
+    <string name="call">تماس</string>
 
 </resources>

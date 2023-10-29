@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import zahra.hosseini.hemophiliaapp.authentication.presentation.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.presentation.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.bleeding.presentation.RegisterBleedingScreen
+import zahra.hosseini.hemophiliaapp.main.doctors.presentation.DoctorsPageScreen
 import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterInjectionScreen
 import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterNotInjectionScreen
 import zahra.hosseini.hemophiliaapp.main.profile.presentation.AboutUseScreen
@@ -49,6 +50,8 @@ fun NavGraph(navController: NavHostController) {
         addRegisterInjectionScreen(navController, this)
 
         addRegisterNotInjectionScreen(navController, this)
+
+        addDoctorsPageScreen(navController, this)
 
         addFirstTrainingBlogScreen(navController, this)
 
@@ -110,6 +113,9 @@ private fun addHomeScreen(
             },
             navigateToRegisterNotInjection = {
                 navController.navigate(NavRoute.RegisterNotInjection.path)
+            },
+            navigateToDoctors = {
+                navController.navigate(NavRoute.DoctorsPage.path)
             }
         )
     }
@@ -212,6 +218,21 @@ private fun addRegisterNotInjectionScreen(
         )
     }
 }
+
+@RequiresApi(Build.VERSION_CODES.O)
+private fun addDoctorsPageScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.DoctorsPage.path) {
+        DoctorsPageScreen(
+            navigateToHome = {
+                navController.navigate(NavRoute.Home.path)
+            }
+        )
+    }
+}
+
 
 private fun addFirstTrainingBlogScreen(
     navController: NavHostController,

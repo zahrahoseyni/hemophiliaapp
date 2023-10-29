@@ -41,6 +41,7 @@ fun MainScreen() {
             NavRoute.RegisterBleeding.path -> stringResource(id = R.string.register_bleeding)
             NavRoute.RegisterNotInjection.path -> stringResource(id = R.string.register_not_injection)
             NavRoute.RegisterInjection.path -> stringResource(id = R.string.register_injection)
+            NavRoute.DoctorsPage.path -> stringResource(id = R.string.doctor_contact)
             NavRoute.Training.path -> stringResource(id = R.string.training)
             NavRoute.Reminder.path -> stringResource(id = R.string.reminder)
             NavRoute.FirstTrainingBlog.path -> stringResource(id = R.string.training_card_title1)
@@ -66,6 +67,7 @@ fun MainScreen() {
             NavRoute.SecondTrainingBlog.path,
             NavRoute.ThirdTrainingBlog.path,
             NavRoute.AboutUs.path,
+            NavRoute.DoctorsPage.path,
             -> true
             else -> {
                 false
@@ -99,6 +101,7 @@ fun handleBackPress(currentRoute: String, navController: NavHostController) {
         NavRoute.RegisterBleeding.path,
         NavRoute.RegisterInjection.path,
         NavRoute.RegisterNotInjection.path,
+        NavRoute.DoctorsPage.path,
         NavRoute.AboutUs.path,
         -> navController.popBackStack()
     }

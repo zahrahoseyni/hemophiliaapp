@@ -24,7 +24,7 @@ val Typography = Typography(
     labelSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.danaregular)),
         fontSize = 12.sp,
-        color = Red10
+        color = Purple10
     ),
     titleSmall = TextStyle(
         fontFamily = FontFamily(Font(R.font.danabold)),

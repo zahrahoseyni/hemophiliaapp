@@ -2,12 +2,12 @@ package zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Red00 = Color(0xFFBE0316)
-val Red05 = Color(0xFFAB0213)
-val Red10 = Color(0xFF980211)
-val Red15 = Color(0xFF85020F)
-val Red20 = Color(0xFF72010D)
-val Red25 = Color(0xFF5F010B)
+val Purple00 = Color(0xFF9E1F64)
+val Purple05 = Color(0xFF8e1b5a)
+val Purple10 = Color(0xFF7e1850)
+val Purple15 = Color(0xFF6e1546)
+val Purple20 = Color(0xFF5e123c)
+val Purple25 = Color(0xFF4f0f32)
 
 val Black = Color(0xFF000000)
 val White = Color(0xFFFFFFFF)
@@ -25,7 +25,7 @@ val Gray40 = Color(0xFF262626)
 val Gray45 = Color(0xFF1F1F1F)
 val Gray50 = Color(0xFF141414)
 
-val FunctionalSuccess = Color(0xFF34C74C)
+val FunctionalSuccess = Color(0xFF007F44)
 val FunctionalError = Color(0xFFFF3B30)
 val FunctionalAlert = Color(0xFFFF9500)
 val Transparent = Color(0x00000000)

@@ -43,7 +43,6 @@ import java.time.LocalTime
 import java.util.*
 import kotlin.properties.Delegates
 
-@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("StateFlowValueCalledInComposition")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -130,7 +129,7 @@ fun ReminderScreen(
             context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
                 selectedTime = "${mHour}:${mMinute}".formatTime()
                 openDialog.value = true
-            }, mHour, mMinute, false
+            }, mHour, mMinute, true
         )
 
         ReminderCard(
@@ -178,7 +177,6 @@ fun ReminderScreen(
                         ReminderItemComponent(modifier = Modifier, it)
                     }
                 }
-
             }
         }
     }

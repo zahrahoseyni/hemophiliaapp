@@ -15,7 +15,13 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
 
 @Composable
-fun TableHeader(modifier: Modifier = Modifier, title1: String, title2: String, title3: String) {
+fun TableHeader(
+    modifier: Modifier = Modifier,
+    title1: String,
+    title2: String,
+    title3: String,
+    weight1 :Float = 1F
+) {
 
     Column(verticalArrangement = Arrangement.Center, modifier = modifier.fillMaxWidth()) {
 
@@ -37,7 +43,7 @@ fun TableHeader(modifier: Modifier = Modifier, title1: String, title2: String, t
                      )*/
             Text(
                 text = title1,
-                modifier = modifier.weight(1F),
+                modifier = modifier.weight(weight1),
                 style = MaterialTheme.hemophiliaTypography.text16Bold,
                 color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                 textAlign = TextAlign.Start

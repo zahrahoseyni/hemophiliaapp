@@ -12,13 +12,13 @@ data class HemophiliaColors(
 )
 
 data class DesignSystem(
-    val Primary: Color = Red00,
-    val Primary00: Color = Red00,
-    val Primary05: Color = Red05,
-    val Primary10: Color = Red10,
-    val Primary15: Color = Red15,
-    val Primary20: Color = Red20,
-    val Primary25: Color = Red25,
+    val Primary: Color = Purple00,
+    val Primary00: Color = Purple00,
+    val Primary05: Color = Purple05,
+    val Primary10: Color = Purple10,
+    val Primary15: Color = Purple15,
+    val Primary20: Color = Purple20,
+    val Primary25: Color = Purple25,
 
     val Secondary: Color = Gray40,
 
@@ -53,6 +53,8 @@ data class DesignSystem(
     val highWeight: Color = Yellow,
     val overWeight: Color = Orange,
     val fat: Color = Red,
+
+    val action: Color = FunctionalSuccess,
 
 
 )

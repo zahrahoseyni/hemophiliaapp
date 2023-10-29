@@ -11,6 +11,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -27,8 +28,7 @@ import zahra.hosseini.hemophiliaapp.core.extension.showMessage
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.DefaultButton
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.*
 
 @Composable
 fun RegisterScreen(
@@ -106,14 +106,13 @@ fun RegisterScreen(
             bmi =
                 weight.toFloat().div((height.toFloat() / 100) * (height.toFloat() / 100)).toString()
 
-            var bmiTextColor = MaterialTheme.hemophiliaColors.designSystem.Neutral30
             if (BMIIsVisible.value) {
-                bmiTextColor = when (bmi.toFloat()) {
-                    in 0F..18.5F -> MaterialTheme.hemophiliaColors.designSystem.tin
-                    in 18.6F..24.9F -> MaterialTheme.hemophiliaColors.designSystem.normal
-                    in 25F..29.9F -> MaterialTheme.hemophiliaColors.designSystem.highWeight
-                    in 30F..34.9F -> MaterialTheme.hemophiliaColors.designSystem.overWeight
-                    else -> MaterialTheme.hemophiliaColors.designSystem.fat
+                val color = when (bmi.toFloat()) {
+                    in 0F..18.5F -> Blue
+                    in 18.6F..24.9F -> Green
+                    in 25F..29.9F -> Yellow
+                    in 30F..34.9F -> Orange
+                    else -> Red
                 }
 
                 RtlLabelInOutlineTextField(
@@ -122,7 +121,7 @@ fun RegisterScreen(
                     value = bmi,
                     setValue = setBmi,
                     inputLength = 10,
-                    textColor = bmiTextColor
+                    textColor = color
                 )
             }
         }
@@ -180,7 +179,7 @@ fun RegisterScreen(
                             bmi = bmi,
                             sex = sexOptions[sexSelectedIndex],
                             familyHistory = familyHistory as Boolean,
-                            timeOfDiagnosis = timeOfDiagnosis
+                            timeOfDiagnosis = timeOfDiagnosis,
                         )
                     )
 
