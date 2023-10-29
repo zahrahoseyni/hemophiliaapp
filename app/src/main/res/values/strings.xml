@@ -2,6 +2,7 @@
     <string name="app_name">هموفیلیا یار</string>
     <string name="login">ورود</string>
     <string name="about_us">درباره ما</string>
+    <string name="password">ایجاد رمز ورود به برنامه</string>
     <string name="log_out">خروج از حساب کاربری</string>
     <string name="phone_number">شماره تلفن همراه</string>
     <string name="register_description">اگر حساب کاربری ندارید، ثبت نام کنید</string>
@@ -232,5 +233,9 @@ Email: erfanm7578@gmail.com
     <string name="doctor_contact">ارتباط با پزشک</string>
     <string name="details">جزییات</string>
     <string name="call">تماس</string>
+
+    <string name="input_password">رمز ورود</string>
+<!--    <string name="call">تماس</string>
+    <string name="call">تماس</string>-->
 
 </resources>

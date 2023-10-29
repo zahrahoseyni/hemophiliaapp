@@ -1,5 +1,6 @@
 package zahra.hosseini.hemophiliaapp.core.navigation
 
+import PasswordSettingScreen
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
@@ -64,6 +65,8 @@ fun NavGraph(navController: NavHostController) {
         addRegisterNotInjectionScreen(navController, this)
 
         addAboutUsScreen(navController, this)
+
+        addPasswordSettingScreen(navController, this)
     }
 }
 
@@ -132,6 +135,9 @@ private fun addProfileScreen(
             },
             navigateToLogin = {
                 navController.navigate(NavRoute.Login.path)
+            },
+            navigateToPasswordScreen = {
+                navController.navigate(NavRoute.PasswordSetting.path)
             }
         )
     }
@@ -267,5 +273,16 @@ private fun addAboutUsScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.AboutUs.path) {
         AboutUseScreen()
+    }
+}
+
+private fun addPasswordSettingScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.PasswordSetting.path) {
+        PasswordSettingScreen(navigateToProfileScreen = {
+            navController.navigate(NavRoute.Profile.path)
+        })
     }
 }

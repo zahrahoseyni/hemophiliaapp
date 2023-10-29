@@ -33,15 +33,14 @@ import zahra.hosseini.hemophiliaapp.core.datastore.DataStoreManager
 import zahra.hosseini.hemophiliaapp.core.presentation.MainActivity
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.LargeDropdownMenu
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.component.RtlLabelInOutlineTextField
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.Gray30
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
-import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaTypography
+import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.*
 
 @Composable
 fun ProfileScreen(
     viewModel: AuthenticationViewModel = hiltViewModel(),
     navigateToAboutUs: () -> Unit,
     navigateToLogin: () -> Unit,
+    navigateToPasswordScreen: () -> Unit,
 ) {
     val scrollState = rememberScrollState()
     val context = LocalContext.current
@@ -215,13 +214,23 @@ fun ProfileScreen(
         )
 
 
-        RtlLabelInOutlineTextField(
-            label = stringResource(id = R.string.bmi_title),
-            inputType = KeyboardType.NumberPassword,
-            value = bmi,
-            setValue = setBmi,
-            inputLength = 3,
-        )
+        if (bmi.isNotEmpty()) {
+            val color = when (bmi.toFloat()) {
+                in 0F..18.5F -> Blue
+                in 18.6F..24.9F -> Green
+                in 25F..29.9F -> Yellow
+                in 30F..34.9F -> Orange
+                else -> Red
+            }
+            RtlLabelInOutlineTextField(
+                label = stringResource(id = R.string.bmi_title),
+                inputType = KeyboardType.NumberPassword,
+                value = bmi,
+                setValue = setBmi,
+                inputLength = 3,
+                textColor = color
+            )
+        }
 
         RtlLabelInOutlineTextField(
             label = stringResource(id = R.string.age),
@@ -272,6 +281,19 @@ fun ProfileScreen(
                                 navigateToAboutUs()
                             },
                         text = stringResource(id = R.string.about_us),
+                        style = MaterialTheme.hemophiliaTypography.text14Medium,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                    )
+
+                    Text(
+                        modifier = Modifier
+                            .padding(
+                                start = 12.dp, end = 12.dp, top = 8.dp, bottom = 16.dp
+                            )
+                            .clickable {
+                                navigateToPasswordScreen()
+                            },
+                        text = stringResource(id = R.string.password),
                         style = MaterialTheme.hemophiliaTypography.text14Medium,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
                     )

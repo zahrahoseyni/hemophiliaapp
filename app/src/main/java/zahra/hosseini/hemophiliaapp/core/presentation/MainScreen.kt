@@ -48,6 +48,7 @@ fun MainScreen() {
             NavRoute.SecondTrainingBlog.path -> stringResource(id = R.string.training_card_title2)
             NavRoute.ThirdTrainingBlog.path -> stringResource(id = R.string.training_card_title3)
             NavRoute.AboutUs.path -> stringResource(id = R.string.about_us)
+            NavRoute.PasswordSetting.path -> stringResource(id = R.string.password)
             else -> {
                 stringResource(id = R.string.app_name)
             }
@@ -67,6 +68,7 @@ fun MainScreen() {
             NavRoute.SecondTrainingBlog.path,
             NavRoute.ThirdTrainingBlog.path,
             NavRoute.AboutUs.path,
+            NavRoute.PasswordSetting.path,
             NavRoute.DoctorsPage.path,
             -> true
             else -> {
@@ -103,6 +105,7 @@ fun handleBackPress(currentRoute: String, navController: NavHostController) {
         NavRoute.RegisterNotInjection.path,
         NavRoute.DoctorsPage.path,
         NavRoute.AboutUs.path,
+        NavRoute.PasswordSetting.path,
         -> navController.popBackStack()
     }
 }
