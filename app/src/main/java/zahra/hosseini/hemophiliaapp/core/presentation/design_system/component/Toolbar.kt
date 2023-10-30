@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemophiliaColors
@@ -24,7 +25,12 @@ import zahra.hosseini.hemophiliaapp.core.presentation.design_system.theme.hemoph
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Toolbar(header: String, showBackBtn: Boolean, onBackButtonClick: () -> Unit) {
+fun Toolbar(
+    header: String,
+    showBackBtn: Boolean,
+    backIconDrawable: ImageVector = Icons.Filled.ArrowBack,
+    onBackButtonClick: () -> Unit,
+) {
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
         CenterAlignedTopAppBar(
@@ -38,7 +44,7 @@ fun Toolbar(header: String, showBackBtn: Boolean, onBackButtonClick: () -> Unit)
                 if (showBackBtn)
                     IconButton(onClick = { onBackButtonClick() }) {
                         Icon(
-                            imageVector = Icons.Filled.ArrowBack,
+                            imageVector = backIconDrawable,
                             contentDescription = "Back Btn",
                             modifier = Modifier
                                 .rotate(180F)

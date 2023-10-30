@@ -94,11 +94,11 @@ fun AboutUseScreen(modifier: Modifier = Modifier) {
 
                     Image(
                         modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
+                            .height(250.dp)
+                            .width(250.dp),
                         painter = painterResource(id = R.drawable.university_of_tehran_logo),
                         contentDescription = null,
-                        contentScale = ContentScale.Crop,
+                        contentScale = ContentScale.Fit,
                     )
 
                 }
@@ -107,10 +107,3 @@ fun AboutUseScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
-/*
-fun String.changeStyleOfString(): String {
-    val str = SpannableStringBuilder(this)
-    str.setSpan(StyleSpan(Typeface.BOLD_ITALIC), 133, 146, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-    return str.toString()
-}*/

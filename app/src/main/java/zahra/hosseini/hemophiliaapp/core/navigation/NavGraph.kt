@@ -12,6 +12,7 @@ import zahra.hosseini.hemophiliaapp.authentication.presentation.LoginScreen
 import zahra.hosseini.hemophiliaapp.authentication.presentation.RegisterScreen
 import zahra.hosseini.hemophiliaapp.main.bleeding.presentation.RegisterBleedingScreen
 import zahra.hosseini.hemophiliaapp.main.doctors.presentation.DoctorsPageScreen
+import zahra.hosseini.hemophiliaapp.main.home.presentation.GuidanceScreen
 import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterInjectionScreen
 import zahra.hosseini.hemophiliaapp.main.injection.presentation.RegisterNotInjectionScreen
 import zahra.hosseini.hemophiliaapp.main.profile.presentation.AboutUseScreen
@@ -67,6 +68,8 @@ fun NavGraph(navController: NavHostController) {
         addAboutUsScreen(navController, this)
 
         addPasswordSettingScreen(navController, this)
+
+        addGuidanceScreen(navController, this)
     }
 }
 
@@ -284,5 +287,14 @@ private fun addPasswordSettingScreen(
         PasswordSettingScreen(navigateToProfileScreen = {
             navController.navigate(NavRoute.Profile.path)
         })
+    }
+}
+
+private fun addGuidanceScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.Guidance.path) {
+        GuidanceScreen()
     }
 }

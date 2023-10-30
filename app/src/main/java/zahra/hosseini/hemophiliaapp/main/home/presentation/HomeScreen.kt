@@ -65,12 +65,12 @@ fun HomeScreen(
                     id = 3,
                     iconRes = R.drawable.ic_bleeding,
                     label = stringResource(R.string.register_bleeding)
-                ),
+                )/*,
                 MultiFabItem(
                     id = 4,
                     iconRes = R.drawable.ic_call,
                     label = stringResource(R.string.doctor_appointment)
-                )
+                )*/
             ),
             fabIcon = FabIcon(iconRes = R.drawable.ic_edit, iconRotate = 45f),
             onFabItemClicked = {
@@ -78,7 +78,7 @@ fun HomeScreen(
                     1 -> navigateToRegisterInjection()
                     2 -> navigateToRegisterNotInjection()
                     3 -> navigateToRegisterBleeding()
-                    4 -> navigateToDoctors()
+                   // 4 -> navigateToDoctors()
                 }
             },
             fabOption = FabOption(

@@ -55,22 +55,22 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.padding(30.dp))
 
-        Text(
-            text = stringResource(R.string.app_name),
-            style = MaterialTheme.hemophiliaTypography.text22Bold,
-            color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
-        )
-
-        Spacer(modifier = Modifier.padding(20.dp))
-
         Image(
             modifier = Modifier
-                .height(150.dp)
-                .width(150.dp),
+                .height(160.dp)
+                .width(160.dp),
             painter = painterResource(id = R.drawable.logo),
             contentDescription = null,
             contentScale = ContentScale.Crop,
             alignment = Alignment.Center
+        )
+        Spacer(modifier = Modifier.padding(20.dp))
+
+
+        Text(
+            text = stringResource(R.string.login_app_name),
+            style = MaterialTheme.hemophiliaTypography.text22Bold,
+            color = MaterialTheme.hemophiliaColors.designSystem.PrimaryText,
         )
 
         Spacer(modifier = Modifier.padding(50.dp))
@@ -88,7 +88,7 @@ fun LoginScreen(
 
         DefaultButton(text = stringResource(id = R.string.login)) {
             if (phoneNumber.isNotEmpty()) {
-                if (authenticationViewModel.userDetails.value == null|| authenticationViewModel.userDetails.value.phoneNumber != phoneNumber)
+                if (authenticationViewModel.userDetails.value == null || authenticationViewModel.userDetails.value.phoneNumber != phoneNumber)
                     context.showMessage(context.getString(R.string.invalid_phone_number_message))
                 else {
                     CoroutineScope(Dispatchers.IO).launch {

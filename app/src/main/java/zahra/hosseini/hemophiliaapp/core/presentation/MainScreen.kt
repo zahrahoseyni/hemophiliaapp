@@ -11,6 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import zahra.hosseini.hemophiliaapp.core.navigation.NavGraph
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -49,18 +52,19 @@ fun MainScreen() {
             NavRoute.ThirdTrainingBlog.path -> stringResource(id = R.string.training_card_title3)
             NavRoute.AboutUs.path -> stringResource(id = R.string.about_us)
             NavRoute.PasswordSetting.path -> stringResource(id = R.string.password)
+            NavRoute.Guidance.path -> stringResource(id = R.string.guidance)
             else -> {
                 stringResource(id = R.string.app_name)
             }
         }
         val showBackIcon = when (currentRoute) {
-            NavRoute.Home.path,
             NavRoute.Profile.path,
             NavRoute.Training.path,
             NavRoute.Reminder.path,
             NavRoute.Login.path,
             -> false
             NavRoute.Register.path,
+            NavRoute.Home.path,
             NavRoute.RegisterBleeding.path,
             NavRoute.RegisterInjection.path,
             NavRoute.RegisterNotInjection.path,
@@ -70,6 +74,7 @@ fun MainScreen() {
             NavRoute.AboutUs.path,
             NavRoute.PasswordSetting.path,
             NavRoute.DoctorsPage.path,
+            NavRoute.Guidance.path,
             -> true
             else -> {
                 false
@@ -77,10 +82,21 @@ fun MainScreen() {
         }
 
         Scaffold(topBar = {
-            if (currentRoute == NavRoute.Splash.path) return@Scaffold
-            else Toolbar(header = header, showBackBtn = showBackIcon) {
-                if (currentRoute != null) {
-                    handleBackPress(currentRoute, navController)
+            when (currentRoute) {
+                NavRoute.Splash.path -> return@Scaffold
+                NavRoute.Home.path -> {
+                    Toolbar(
+                        header = header,
+                        showBackBtn = showBackIcon,
+                        backIconDrawable = Icons.Filled.Info
+                    ) {
+                        navController.navigate(NavRoute.Guidance.path)
+                    }
+                }
+                else -> Toolbar(header = header, showBackBtn = showBackIcon) {
+                    if (currentRoute != null) {
+                        handleBackPress(currentRoute, navController)
+                    }
                 }
             }
         }, bottomBar = { BottomBarNav(navController = navController) }
@@ -106,6 +122,7 @@ fun handleBackPress(currentRoute: String, navController: NavHostController) {
         NavRoute.DoctorsPage.path,
         NavRoute.AboutUs.path,
         NavRoute.PasswordSetting.path,
+        NavRoute.Guidance.path,
         -> navController.popBackStack()
     }
 }
