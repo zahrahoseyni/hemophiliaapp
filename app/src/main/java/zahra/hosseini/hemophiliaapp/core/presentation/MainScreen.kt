@@ -53,6 +53,9 @@ fun MainScreen() {
             NavRoute.AboutUs.path -> stringResource(id = R.string.about_us)
             NavRoute.PasswordSetting.path -> stringResource(id = R.string.password)
             NavRoute.Guidance.path -> stringResource(id = R.string.guidance)
+            NavRoute.ExerciseReminder.path -> stringResource(id = R.string.reminder_text_exercise)
+            NavRoute.MedicineReminder.path -> stringResource(id = R.string.reminder_text_medicine)
+            NavRoute.DoctorAppointmentReminder.path -> stringResource(id = R.string.reminder_text_doctor)
             else -> {
                 stringResource(id = R.string.app_name)
             }
@@ -75,6 +78,9 @@ fun MainScreen() {
             NavRoute.PasswordSetting.path,
             NavRoute.DoctorsPage.path,
             NavRoute.Guidance.path,
+            NavRoute.ExerciseReminder.path,
+            NavRoute.DoctorAppointmentReminder.path,
+            NavRoute.MedicineReminder.path,
             -> true
             else -> {
                 false
@@ -123,6 +129,9 @@ fun handleBackPress(currentRoute: String, navController: NavHostController) {
         NavRoute.AboutUs.path,
         NavRoute.PasswordSetting.path,
         NavRoute.Guidance.path,
+        NavRoute.ExerciseReminder.path,
+        NavRoute.DoctorAppointmentReminder.path,
+        NavRoute.MedicineReminder.path,
         -> navController.popBackStack()
     }
 }

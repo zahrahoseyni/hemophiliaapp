@@ -118,9 +118,73 @@ fun ThirdTrainingBlogScreen() {
                         alignment = Alignment.Center
                     )
 
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text00),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text01),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
 
                     Text(
                         text = stringResource(id = R.string.training_third_blog_text5),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text02),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text03),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text04),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text05),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text06),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text07),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text08),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text09),
                         style = MaterialTheme.hemophiliaTypography.text14,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
@@ -147,6 +211,159 @@ fun ThirdTrainingBlogScreen() {
 
                     Text(
                         text = stringResource(id = R.string.training_third_blog_text7),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text10),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text11),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text12),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text13),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text15),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text16),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text17),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text18),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text19),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text20),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text21),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text22),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text23),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text24),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text25),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text26),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text27),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text28),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text29),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text30),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text31),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text32),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text33),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text34),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_third_blog_text35),
                         style = MaterialTheme.hemophiliaTypography.text14,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,

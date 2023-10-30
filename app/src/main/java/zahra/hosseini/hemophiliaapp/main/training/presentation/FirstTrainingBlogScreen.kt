@@ -65,6 +65,23 @@ fun FirstTrainingBlogScreen() {
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
                     )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text00),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text01),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            uriHandler.openUri("https://www.aparat.com/v/x9jYc")
+                        }
+                    )
 
                     Text(
                         text = stringResource(id = R.string.training_first_blog_text1),
@@ -72,7 +89,19 @@ fun FirstTrainingBlogScreen() {
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
                     )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text02),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
 
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text03),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
                     Text(
                         text = stringResource(id = R.string.training_first_blog_text2),
                         style = MaterialTheme.hemophiliaTypography.text14Bold,
@@ -123,6 +152,22 @@ fun FirstTrainingBlogScreen() {
                         textAlign = TextAlign.Justify,
                     )
                     Text(
+                        text = stringResource(id = R.string.training_first_blog_text04),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text05),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            uriHandler.openUri("https://www.aparat.com/v/gHxzo")
+                        }
+                    )
+                    Text(
                         text = stringResource(id = R.string.training_first_blog_text8),
                         style = MaterialTheme.hemophiliaTypography.text14Bold,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
@@ -133,6 +178,17 @@ fun FirstTrainingBlogScreen() {
                         style = MaterialTheme.hemophiliaTypography.text14,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text06),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            uriHandler.openUri("https://www.aparat.com/v/EUY7m")
+                        }
                     )
                     Text(
                         text = stringResource(id = R.string.training_first_blog_text10),
@@ -175,6 +231,28 @@ fun FirstTrainingBlogScreen() {
                         style = MaterialTheme.hemophiliaTypography.text14,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
                         textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text07),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text08),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_first_blog_text09),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            uriHandler.openUri("https://www.aparat.com/v/tONAv")
+                        }
                     )
 
                     Text(

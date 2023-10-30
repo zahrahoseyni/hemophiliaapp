@@ -28,6 +28,7 @@ fun BottomBarNav(navController: NavController) {
         currentRoute == NavRoute.Register.path || currentRoute == NavRoute.Splash.path ||
         currentRoute == NavRoute.RegisterInjection.path || currentRoute == NavRoute.RegisterBleeding.path || currentRoute == NavRoute.AboutUs.path
         || currentRoute == NavRoute.PasswordSetting.path || currentRoute == NavRoute.DoctorsPage.path || currentRoute == NavRoute.Guidance.path
+        || currentRoute == NavRoute.ExerciseReminder.path|| currentRoute == NavRoute.DoctorAppointmentReminder.path|| currentRoute == NavRoute.MedicineReminder.path
     ) {
         return
     }

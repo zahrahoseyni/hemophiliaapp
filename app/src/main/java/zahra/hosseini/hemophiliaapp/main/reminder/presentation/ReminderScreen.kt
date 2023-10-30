@@ -48,6 +48,9 @@ import kotlin.properties.Delegates
 @Composable
 fun ReminderScreen(
     reminderViewModel: ReminderViewModel = hiltViewModel(),
+    navigateToMedicineReminder: () -> Unit,
+    navigateToDoctorAppointmentReminder: () -> Unit,
+    navigateToExerciseReminder: () -> Unit,
 ) {
 
     val context = LocalContext.current
@@ -63,94 +66,23 @@ fun ReminderScreen(
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
 
-        var selectedTime by remember { mutableStateOf("") }
-        var notificationTitle by remember { mutableStateOf("") }
-
-        val openDialog = remember { mutableStateOf(false) }
-        val (reminderDescription, setReminderDescription) = remember { mutableStateOf("") }
-
-        if (openDialog.value) {
-
-            NoPaddingAlertDialog(
-                title = {
-                    Surface(
-                        color = MaterialTheme.hemophiliaColors.designSystem.Primary,
-                        contentColor = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
-                        modifier = Modifier
-                            .fillMaxWidth()
-
-                    ) {
-                        Text(
-                            text = " جزییات یادآور را وارد کنید️",
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 8.dp, vertical = 16.dp),
-                        )
-                    }
-                },
-                text = {
-                    Column(Modifier.fillMaxWidth()) {
-                        RtlLabelInOutlineTextField(
-                            value = reminderDescription,
-                            setValue = setReminderDescription,
-                            label = stringResource(id = R.string.description),
-                            inputLength = 30,
-                            inputType = KeyboardType.Text
-                        )
-                    }
-                },
-                onDismissRequest = { /*TODO*/ },
-                confirmButton = {
-                    DefaultButton(text = stringResource(id = R.string.continue_btn), onClick = {
-                        openDialog.value = false
-                        setReminder(
-                            selectedTime.split(":")[0].toInt(),
-                            selectedTime.split(":")[1].toInt(),
-                            context,
-                            notificationTitle,
-                            reminderViewModel,
-                            reminderDescription
-                        )
-                        setReminderDescription("")
-                    })
-                }
-            )
-        }
-
-
-        // Declaring and initializing a calendar
-        val mCalendar = Calendar.getInstance()
-        val mHour = mCalendar[Calendar.HOUR_OF_DAY]
-        val mMinute = mCalendar[Calendar.MINUTE]
-
-        // Creating a TimePicker dialog
-        val mTimePickerDialog = TimePickerDialog(
-            context, R.style.TimePickerTheme, { _, mHour: Int, mMinute: Int ->
-                selectedTime = "${mHour}:${mMinute}".formatTime()
-                openDialog.value = true
-            }, mHour, mMinute, true
-        )
-
         ReminderCard(
             title = stringResource(id = R.string.reminder_text1),
         ) {
-            notificationTitle = context.getString(R.string.reminder_text1)
-            mTimePickerDialog.show()
+
+            navigateToMedicineReminder()
         }
 
         ReminderCard(
             title = stringResource(id = R.string.reminder_text2),
         ) {
-            notificationTitle = context.getString(R.string.reminder_text2)
-            mTimePickerDialog.show()
+            navigateToDoctorAppointmentReminder()
         }
 
         ReminderCard(
             title = stringResource(id = R.string.reminder_text3),
         ) {
-            notificationTitle = context.getString(R.string.reminder_text3)
-            mTimePickerDialog.show()
+            navigateToExerciseReminder()
         }
 
         val reminderList = reminderViewModel.reminderList.value

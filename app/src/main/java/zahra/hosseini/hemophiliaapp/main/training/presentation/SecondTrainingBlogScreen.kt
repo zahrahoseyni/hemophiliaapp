@@ -170,6 +170,82 @@ fun SecondTrainingBlogScreen() {
                     )
 
                     Text(
+                        text = stringResource(id = R.string.training_second_blog_text8),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.End,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text9),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text10),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.End,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text11),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text12),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.clickable {
+                            uriHandler.openUri("https://www.aparat.com/v/6CFOq")
+                        }
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text13),
+                        style = MaterialTheme.hemophiliaTypography.text14Bold,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.End,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text14),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text15),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text16),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text17),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.training_second_blog_text18),
+                        style = MaterialTheme.hemophiliaTypography.text14,
+                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                        textAlign = TextAlign.Justify,
+                    )
+
+                    Text(
                         text = stringResource(id = R.string.references_title),
                         style = MaterialTheme.hemophiliaTypography.text16Bold,
                         color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,

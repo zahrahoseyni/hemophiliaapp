@@ -19,4 +19,7 @@ sealed class NavRoute(val path: String) {
     object AboutUs : NavRoute("about_us")
     object PasswordSetting : NavRoute("password_setting")
     object Guidance : NavRoute("guidance")
+    object MedicineReminder : NavRoute("medicine_reminder")
+    object DoctorAppointmentReminder : NavRoute("doctor_appointment_reminder")
+    object ExerciseReminder : NavRoute("exercise_reminder")
 }

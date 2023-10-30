@@ -19,7 +19,7 @@ import zahra.hosseini.hemophiliaapp.main.profile.presentation.AboutUseScreen
 import zahra.hosseini.hemophiliaapp.main.ui.*
 import zahra.hosseini.hemophiliaapp.main.home.presentation.HomeScreen
 import zahra.hosseini.hemophiliaapp.main.profile.presentation.ProfileScreen
-import zahra.hosseini.hemophiliaapp.main.reminder.presentation.ReminderScreen
+import zahra.hosseini.hemophiliaapp.main.reminder.presentation.*
 import zahra.hosseini.hemophiliaapp.main.training.presentation.TrainingScreen
 import zahra.hosseini.hemophiliaapp.main.training.presentation.FirstTrainingBlogScreen
 import zahra.hosseini.hemophiliaapp.main.training.presentation.SecondTrainingBlogScreen
@@ -70,6 +70,12 @@ fun NavGraph(navController: NavHostController) {
         addPasswordSettingScreen(navController, this)
 
         addGuidanceScreen(navController, this)
+
+        addMedicineReminderScreen(navController, this)
+
+        addDoctorAppointmentReminderScreen(navController, this)
+
+        addExerciseReminderScreen(navController, this)
     }
 }
 
@@ -186,6 +192,15 @@ private fun addReminderScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.Reminder.path) {
         ReminderScreen(
+            navigateToMedicineReminder = {
+                navController.navigate(NavRoute.MedicineReminder.path)
+            },
+            navigateToDoctorAppointmentReminder = {
+                navController.navigate(NavRoute.DoctorAppointmentReminder.path)
+            },
+            navigateToExerciseReminder = {
+                navController.navigate(NavRoute.ExerciseReminder.path)
+            }
         )
     }
 }
@@ -296,5 +311,40 @@ private fun addGuidanceScreen(
 ) {
     navGraphBuilder.composable(route = NavRoute.Guidance.path) {
         GuidanceScreen()
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+private fun addMedicineReminderScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.MedicineReminder.path) {
+        MedicineReminderScreen(navigateToReminder = {
+            navController.navigate(NavRoute.Reminder.path)
+        })
+    }
+}
+
+@RequiresApi(Build.VERSION_CODES.O)
+private fun addDoctorAppointmentReminderScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.DoctorAppointmentReminder.path) {
+        DoctorAppointmentReminderScreen(navigateToReminder = {
+            navController.navigate(NavRoute.Reminder.path)
+        })
+    }
+}
+
+private fun addExerciseReminderScreen(
+    navController: NavHostController,
+    navGraphBuilder: NavGraphBuilder,
+) {
+    navGraphBuilder.composable(route = NavRoute.ExerciseReminder.path) {
+        ExerciseReminderScreen(navigateToReminder = {
+            navController.navigate(NavRoute.Reminder.path)
+        })
     }
 }
