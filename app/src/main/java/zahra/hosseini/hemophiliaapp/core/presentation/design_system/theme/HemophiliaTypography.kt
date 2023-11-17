@@ -58,6 +58,10 @@ data class HemophiliaTypography(
         fontSize = 14.sp,
         fontWeight = FontWeight.Medium
     ),
+    val text16: TextStyle = TextStyle(
+        fontFamily = regularFont,
+        fontSize = 16.sp
+    ),
     val text16Medium: TextStyle = TextStyle(
         fontFamily = mediumFont,
         fontSize = 16.sp,

@@ -235,13 +235,24 @@ Email: erfanm7578@gmail.com
     <string name="references_text12">-Stonebraker JS, Bolton–Maggs PH, Soucie JM, Walker I, Brooker M. A study of variations in the reported haemophilia A prevalence around the world. Haemophilia. 2010;16(1):20–32.</string>
     <string name="references_text13">پروتکل درمان پیشگیرانه هموفیلی A و B . وزارت بهداشت درمان و آموزش پزشکی </string>
     <string name="references_text14">وب سایت رسمی دانشگاه علوم پزشکی کرمانشاه</string>
+    <string name="references_text15">Rogers GL, Herzog RW. Gene therapy for hemophilia. Frontiers in bioscience (Landmark edition).2015;20:556. </string>
+    <string name="references_text16">Centers for Disease Control and Prevention</string>
+    <string name="references_text17">National Health Service.</string>
+    <string name="references_aparat">آپارات</string>
 
     <string name="references_text21">مدیحی یحیی، عابدین زاده محمدرضا. بررسی تاثیر مصرف داروی تران اگزامیک اسید به عنوان پروفیلاکسی در بیماران مبتلا به هموفیلی. مجله دانشگاه علوم پزشکی شهرکرد (Journal of Shahrekord University of Medical Sciences)[Internet]. 1380؛3(2):39-45.</string>
     <string name="references_text22">https://daroog.com/treatment-of-hemophilia/</string>
+    <string name="references_text23">Centers for Disease Control and Prevention</string>
+    <string name="references_text24">National Health Service</string>
 
     <string name="references_text31">Santagostino E, Dougall A, Jackson M, Khair K, Mohan R, Chew K, Nedzinskas A, Ozelo MC, van den Berg HM, Pierce GF, Srivastava A. Comprehensive care of hemophilia. Srivastava A et al. Guidelines for the Management of Hemophilia 3rd edition [Internet]. Canada: WFH. 2020:21-36.</string>
     <string name="references_text32">سایت رسمی بیمارستان نمازی شیراز</string>
     <string name="references_text33">هاکنبری مریلین، ویلسون دیوید. 1394.درسنامه پرستاری کودکان ونگ. ترجمه پوران سامی، محمود بدیعی، فاطمه احدی. تهران: نشر و تبلیغ بشری. ص 1089-1095</string>
+    <string name="references_text34">Zhang H, Huang J, Kong X, Ma G, Fang Y. Health-related quality of life in children with haemophilia in China: a 4-year follow-up prospective cohort study. Health Qual Life Outcomes. 2019;17(1):28.</string>
+    <string name="references_text35">Mohamadi S, Moradveisi B, Rasouli M A, shafiee F. Assessment of oral health and quality of life in hemophilia and thalassemia major patients. jdm 2020; 33 (3) :158-169</string>
+    <string name="references_text36">Centers for Disease Control and Prevention</string>
+
+
 
     <string name="reminder_type">نوع یادآور</string>
     <string name="time">زمان</string>

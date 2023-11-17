@@ -45,234 +45,272 @@ fun SecondTrainingBlogScreen() {
                     color = MaterialTheme.hemophiliaColors.designSystem.Neutral10,
                     shape = RoundedCornerShape(16.dp)
                 )
-                .padding(5.dp),
-            contentAlignment = Alignment.CenterEnd
+                .padding(5.dp), contentAlignment = Alignment.CenterEnd
         ) {
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
 
                 Column(
                     verticalArrangement = Arrangement.spacedBy(5.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Image(
-                        modifier = Modifier
-                            .height(150.dp)
-                            .width(150.dp),
-                        painter = painterResource(id = R.drawable.blogimg21),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                    )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_title),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                    Column(
+                        verticalArrangement = Arrangement.spacedBy(5.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text1),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Image(
+                            modifier = Modifier
+                                .height(150.dp)
+                                .width(150.dp),
+                            painter = painterResource(id = R.drawable.blogimg21),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text2),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-                    Image(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
-                        painter = painterResource(id = R.drawable.blogimg22),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_title),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text3),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text1),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text2),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+                        Image(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .wrapContentHeight(),
+                            painter = painterResource(id = R.drawable.blogimg22),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            alignment = Alignment.Center
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text4),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-
-                    Image(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
-                        painter = painterResource(id = R.drawable.blogimg23),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    )
-                    Image(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
-                        painter = painterResource(id = R.drawable.blogimg24),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text3),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text5),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text4),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text6),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.End,
-                    )
+                        Image(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .wrapContentHeight(),
+                            painter = painterResource(id = R.drawable.blogimg23),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            alignment = Alignment.Center
+                        )
+                        Image(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .wrapContentHeight(),
+                            painter = painterResource(id = R.drawable.blogimg24),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            alignment = Alignment.Center
+                        )
 
 
-                    Image(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
-                        painter = painterResource(id = R.drawable.blogimg25),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    )
-                    Image(
-                        modifier = Modifier
-                            .wrapContentSize()
-                            .wrapContentHeight(),
-                        painter = painterResource(id = R.drawable.blogimg26),
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        alignment = Alignment.Center
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text5),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text7),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text6),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text8),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.End,
-                    )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text9),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text10),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.End,
-                    )
+                        Image(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .wrapContentHeight(),
+                            painter = painterResource(id = R.drawable.blogimg25),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            alignment = Alignment.Center
+                        )
+                        Image(
+                            modifier = Modifier
+                                .wrapContentSize()
+                                .wrapContentHeight(),
+                            painter = painterResource(id = R.drawable.blogimg26),
+                            contentDescription = null,
+                            contentScale = ContentScale.Crop,
+                            alignment = Alignment.Center
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text11),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text7),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text12),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.clickable {
-                            uriHandler.openUri("https://www.aparat.com/v/6CFOq")
-                        }
-                    )
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text13),
-                        style = MaterialTheme.hemophiliaTypography.text14Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.End,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text8),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text14),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Image(
+                            modifier = Modifier
+                                .height(200.dp)
+                                .width(200.dp),
+                            painter = painterResource(id = R.drawable.blogimg27),
+                            contentDescription = null,
+                            contentScale = ContentScale.FillWidth,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text15),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text16),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text17),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
-                    Text(
-                        text = stringResource(id = R.string.training_second_blog_text18),
-                        style = MaterialTheme.hemophiliaTypography.text14,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text9),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text10),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.references_title),
-                        style = MaterialTheme.hemophiliaTypography.text16Bold,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
-                        textAlign = TextAlign.Justify,
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text11),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.references_text21),
-                        style = MaterialTheme.hemophiliaTypography.text14Medium,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.Justify,
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.clickable {
-                            uriHandler.openUri("https://sid.ir/paper/58473/fa")
-                        }
-                    )
+                        Text(text = stringResource(id = R.string.training_second_blog_text12),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("https://www.aparat.com/v/6CFOq")
+                            })
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text13),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                        )
 
-                    Text(
-                        text = stringResource(id = R.string.references_text22),
-                        style = MaterialTheme.hemophiliaTypography.text14Medium,
-                        color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
-                        textAlign = TextAlign.End,
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.clickable {
-                            uriHandler.openUri("https://daroog.com/treatment-of-hemophilia/")
-                        }
-                    )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text14),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text15),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text16),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text17),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+                        Text(
+                            text = stringResource(id = R.string.training_second_blog_text18),
+                            style = MaterialTheme.hemophiliaTypography.text16,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                        )
+
+                    }
+                    Column(verticalArrangement = Arrangement.spacedBy(5.dp)) {
+                        Text(
+                            text = stringResource(id = R.string.references_title),
+                            style = MaterialTheme.hemophiliaTypography.text16Bold,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral50,
+                            textAlign = TextAlign.Justify,
+                        )
+
+                        Text(text = stringResource(id = R.string.references_text21),
+                            style = MaterialTheme.hemophiliaTypography.text16Medium,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Justify,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("https://sid.ir/paper/58473/fa")
+                            })
+
+                        Text(text = stringResource(id = R.string.references_text22),
+                            style = MaterialTheme.hemophiliaTypography.text16Medium,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("https://daroog.com/treatment-of-hemophilia/")
+                            })
+
+                        Text(text = stringResource(id = R.string.references_text23),
+                            style = MaterialTheme.hemophiliaTypography.text16Medium,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("https://www.cdc.gov/ncbddd/hemophilia/facts.html")
+                            })
+
+                        Text(text = stringResource(id = R.string.references_text24),
+                            style = MaterialTheme.hemophiliaTypography.text16Medium,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.End,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("https://www.nhs.uk/conditions/haemophilia/")
+                            })
+
+                        Text(text = stringResource(id = R.string.references_aparat),
+                            style = MaterialTheme.hemophiliaTypography.text16Medium,
+                            color = MaterialTheme.hemophiliaColors.designSystem.Neutral45,
+                            textAlign = TextAlign.Start,
+                            textDecoration = TextDecoration.Underline,
+                            modifier = Modifier.clickable {
+                                uriHandler.openUri("www.aparat.com")
+                            })
+
+                    }
 
                 }
 
